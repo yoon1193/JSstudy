@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<head>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        /*타이틀 쇼핑글자 설정*/
+        #shopping_menu_title{
+            width:54px;
+            margin:0; 
+            margin-top: 10px;
+            text-align:center;
+        }
+        /*쇼핑 전체를 묶는 wrap*/
+        #shopping_wrap{
+            position: relative;
+            width: 330px;
+            height: 882px;
+            background-color: white;
+            border: 1px solid #DEE3EB;
+            overflow: hidden;
+        }
+        /*탭 메뉴*/
+        #tab_menu_container{
+            margin: 0;
+            width: 330px;
+            display:flex;
+            flex-direction: row;
+            overflow: hidden;
+            border-bottom: 1px solid  #DEE3EB;
+        }
+        /*탭 메뉴에 마우스 올렸을때 나타나는 이벤트 설정*/
+        #shopping_button{
+            flex:2;
+            text-align: right;
+        }
+        button {
+            background:none;
+            border:0;
+            outline:0;
+            cursor:pointer;
+        }
+        .tap_wrap{
+            width: 330px;
+        }
+        .tab_menu_btn {
+            width:80px;
+            height:40px;
+            transition:0.3s all;
+        }
+        .tab_menu_btn.on {
+            border-bottom:2px solid #df0000;
+            font-weight:700;
+            color:#df0000;
+        }
+        .tab_menu_btn:hover {
+            color:#df0000;
+        }
+        .tab_box {
+            display:none;
+        }
+        .tab_box.on {
+            display:block;
+        }
+        /*탭 내용*/
+        #tab_box_container{
+            margin: 0;
+            position: absolute;
+            top: 50px;
+            left: 0px;
+            overflow: hidden;
+        }
+        /*쇼핑몰 목록*/
+        #top_menu{
+            width: 330px;
+            margin: auto;
+            display: block;            
+            text-align:center;
+            font-size: 13px;
+            color: lightgray;
+            line-height: 180%;
+            margin-top: 2px;
+            margin-bottom: 3px;
+            border-bottom: 1px solid  #DEE3EB;
+        }
+        /*쇼핑몰 목록 링크 검정색으로 만들어주기*/
+        a:link {text-decoration: none; color: #333333;}
+        /*사진 물품목록 페이지 버튼설정*/
+        #gift_list_page{
+            text-align: right;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .button_left{
+            background-image: url("naver/left_button.png");
+            background-repeat: no-repeat;
+            background-size: 25px 25px;
+            margin:0;
+            width:25px;
+            height:25px;
+            outline: 0px;
+            border: 0px;
+            padding: 0;
+            font-family: 돋움;
+            position: relative;
+            top:8px;
+        }
+        .button_right{
+            background-image: url("naver/right_button.png");
+            background-repeat: no-repeat;
+            background-size: 25px 25px;
+            margin:0;
+            width:25px;
+            height:25px;
+            outline: 0px;
+            border: 0px;
+            padding: 0;
+            font-family: 돋움;
+            position: relative;
+            top:8px;
+        }
+        /*상품 이미지 설명 폰트설정*/
+        .gift_list_pic{
+            font-size: 12px;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid  #DEE3EB;
+        }
+        /*상품 이미지 설정*/
+        .gift_image{
+            width:94px;
+            height:117px;
+            text-align: center;
+            overflow: hidden;
+            margin-top: 10px;
+            line-height: 180%;
+        }
+        /*쇼핑뉴스*/
+        #hello_shopping_world{
+            font-size: 14px;
+            margin: 0;
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+        #shopping_news{
+            font-size: 13px;
+            margin: 2px;
+            line-height: 200%;
+            margin-top: 10px;
+        }
+        .shopping_news_title{
+            color:rgb(157, 138, 224);
+        }
+        .shopping_news_bold{
+            color: rgb(84, 236, 130);
+        }
+        ul{
+            list-style-type: none;
+        }
+
+    </style>
+</head>
+<body>
+    <!--쇼핑 전체를 묶는 div-->
+    <div id="shopping_wrap">
+        <!--탭 메뉴 div-->
+        <div id="tab_menu_container">
+            <div id="shopping_menu_title">
+                <a href="https://shopping.naver.com/"><p><b>쇼핑</b></p></a>
+            </div>
+            <div id="shopping_button">
+            <button class="tab_menu_btn on" type="button">상품</button>
+            <button class="tab_menu_btn" type="button">쇼핑몰</button>
+            <button class="tab_menu_btn" type="button">MEN</button>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+        <!--탭 내용-->
+        <div id="tab_box_container">
+            <!--상품 탭-->
+            <div id="tab_box on">
+                <!--쇼핑몰 목록-->
+                <ul id="top_menu">
+                    <li><a href='https://www.gmarket.co.kr/'>G마켓</a> . 
+                        <a href='https://www.auction.co.kr/'>옥션</a> . 
+                        <a href='https://www.11st.co.kr/'>11번가</a> . 
+                        <a href='https://www.wemakeprice.com/'>위메프</a> . 
+                        <a href='https://www.tmon.co.kr/'>티몬</a> . 
+                        <a href='https://emart.ssg.com/'>이마트몰</a> .</li> 
+                        <li><a href='https://shinsegaemall.ssg.com/'>신세계몰</a> . 
+                        <a href='https://www.oliveyoung.co.kr/'>올리브영</a> . 
+                        <a href='https://www.gsshop.com/'>GS샵</a> . 
+                        <a href='https://www.lotte.com/'>롯데닷컴</a> . 
+                        <a href='https://www.lotteimall.com/'>롯데i몰</a> . 
+                        <a href='https://display.cjmall.com/'>CJmall</a></li>
+                </ul>
+                <div style="clear:both;"></div>
+                <!--이미지 상품 목록-->
+                <div id="gift_list">
+                    <div id="gift_list_page">
+                        <b>1</b> / 19
+                        <input type="button" class="button_left">
+                        <input type="button" class="button_right">
+                    </div>
+                    <div style="clear:both;"></div>
+                    <table class="gift_list_pic">
+                        <tr>
+                            <td id="gift_list_01">
+                                <a href="http://bitly.kr/dYInYIya">
+                                <div class="gift_image">
+                                    <img src="naver/gift_01.PNG">
+                                </div>
+                                <span><p>빼앗긴 봄을~</p><p>집에서 찾아요</p></span>
+                                </a>
+                            </td>
+                            <td id="gift_list_02">
+                                <a href="http://bitly.kr/LgzDgF2E">
+                                <div class="gift_image">
+                                    <img src="naver/gift_02.PNG">
+                                </div>
+                                <span><p>화장은장비발~</p><p>알찬구성 SET</p></span>
+                                </a>
+                            </td>
+                            <td id="gift_list_03">
+                                <a href="http://bitly.kr/tjmf35uX">
+                                <div class="gift_image">
+                                    <img src="naver/gift_03.PNG">
+                                </div>
+                                <span><p>돌발세일!</p><p>단돈 1만원대!</p></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="gift_list_04">
+                                <a href="http://bitly.kr/dXm8k8zb">
+                                <div class="gift_image">
+                                    <img src="naver/gift_04.PNG">
+                                </div>
+                                <span><p>기다렸다 특가</p><p>프로쉬개구리!</p></span>
+                                </a>
+                            </td>
+                            <td id="gift_list_05">
+                                <a href="http://bitly.kr/6P4QApVv">
+                                <div class="gift_image">
+                                    <img src="naver/gift_05.PNG">
+                                </div>
+                                <span><p>완전 맛있는데</p><p>진짜 10+10팩?</p></span>
+                                </a>
+                            </td>
+                            <td id="gift_list_06">
+                                <a href="http://bitly.kr/TxxUvcTW">
+                                <div class="gift_image">
+                                    <img src="naver/gift_06.PNG">
+                                </div>
+                                <span><p>어차피 헬스장</p><p>안갈거잖아요</p></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="gift_list_07">
+                                <a href="http://bitly.kr/MZazMhqD">
+                                <div class="gift_image">
+                                    <img src="naver/gift_07.PNG">
+                                </div>
+                                <span><p>가볍게 툭~</p><p>입어도~BEST</p></span>
+                                </a>
+                            </td>
+                            <td id="gift_list_08">
+                                <a href="http://bitly.kr/blWtUTfQ">
+                                <div class="gift_image">
+                                    <img src="naver/gift_08.PNG">
+                                </div>
+                                <span><p>봄신상업뎃</p><p>매일10%할인</p></span>
+                                </a>
+                            </td>
+                            <td id="gift_list_09">
+                                <a href="http://bitly.kr/mSssLqtG">
+                                <div class="gift_image">
+                                    <img src="naver/gift_09.PNG">
+                                </div>
+                                <span><p>51%파격SALE</p><p>폭발적~반응!</p></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--쇼핑뉴스-->
+                <div id="hello_shopping_world">
+                    <p></p>
+                    <span style="border-left: 5px solid rgb(139, 76, 211);">
+                    <b>&nbsp;반갑다! 쇼핑뉴스</b>
+                    </span>
+                    <p></p>
+                    <ul id="shopping_news">
+                        <li>
+                            <a href="https://shopping.naver.com/plan/details/260578">
+                            <span class="shopping_news_title">경북고향장터</span>
+                            <span class="shopping_news_text">힘내라대한민국</span>
+                            <span class="shopping_news_bold">경북농가응원하기</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://bitly.kr/77XW0aRb">
+                            <span class="shopping_news_title">프롬비</span>
+                            <span class="shopping_news_text">전해수기 23%SALE 선착순가습기증정</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://shopping.naver.com/plan/details/68198">
+                            <span class="shopping_news_title">서울샵</span>
+                            <span class="shopping_news_text">중소기업 우수 추천상품 모음전</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://bitly.kr/fokbWlLWK">
+                            <span class="shopping_news_title">스피드랙몰</span>
+                            <span class="shopping_news_text">조립식 앵글선반 94% 바로 SALE</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://bitly.kr/27NOQWxF">
+                            <span class="shopping_news_title">마틸라</span>
+                            <span class="shopping_news_text">봄꽃침구세트~! </span>
+                            <span class="shopping_news_bold">최대 40%↓ 할인~</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://shopping.naver.com/plan/details/68200">
+                            <span class="shopping_news_title">강원마트</span>
+                            <span class="shopping_news_text">힘내라대한민국 </span>
+                            <span class="shopping_news_bold">강원 특산물전</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://bitly.kr/a9NknjBk2">
+                            <span class="shopping_news_title">농촌진흥청</span>
+                            <span class="shopping_news_text">힘내라대한민국 농특산물 뭐먹지?</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab_box">
+            <img src="naver/쇼핑.PNG">
+        </div>
+        <div class="tab_box">
+            <img src="naver/MEN.PNG">
+        </div>
+    </div>
+</body>
+</html>
