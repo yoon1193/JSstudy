@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        var index=0;
+        window.onload=function f1(){
+            document.getElementById("console").innerHTML=
+            "<table border=1 width=400 height=100><tr><td id=x0></td><td id=x1></td><td id=x2></td><td id=x3></td></tr></table>";
+
+            setInterval(function(){
+                index=index%4;
+                if(index==0){
+                    cC("x"+3,"white");
+                }
+                else{
+                    cC("x"+(index-1),"white")
+                }
+                cC("x"+(index++),"red");
+            },1000);
+
+
+        }
+
+        //changeColor td에 색상을 변경
+        //매개변수로 id와 color를 받아서 td에 색상을 변경하는 함수.
+        function cC(id,color){
+            document.getElementById(id).style.background=color;
+        }
+
+    </script>
+</head>
+<body>
+<!-- <body onload="f1()">  이벤트 -->
+    <div id="console"></div>
+</body>
+</html>

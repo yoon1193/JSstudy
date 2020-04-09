@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id1{
+            background-color: darkgreen;
+        }
+        /*css 우선순위가 같으면 순서대로 시작해 마지막css적용*/
+        .myTitle:hover{
+            background-color: crimson
+            !important;
+        }
+        /* h1.myTitle.myTitle2{
+            background-color: cadetblue;
+        } */
+        h1.myTitle{
+            background-color:palegreen;
+        }
+        .myTitle{
+            background-color:khaki;
+        }
+        h1{background-color: mediumblue;}
+        h1{background-color: red;}
+        *{background-color: orange;}
+        /*범위가 좁은 css가 우선순위가 높다*/
+        /*     * < 태그 < class < id      */
+        /*    태그.class-->class 다음에 들어감      */
+
+        .myList li{
+            background-color: darkgrey;
+            margin:1rem;
+            padding:1rem;
+            list-style-type: none;
+        }
+        li{
+            border-left: 0.5em solid black;
+        }
+        .red{
+            border-left: 0.5em solid red;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.content>h1+ul.myList>li{item$}*5-->
+    <div class="content">
+        <h1 class="myTitle myTitle2" id="id1" >myList</h1>
+        <ul class="myList">
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+        </ul>
+    </div>
+</body>
+</html>

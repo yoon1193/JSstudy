@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aquamarine;
+        }
+        .content{
+            background-color: chartreuse;
+            width: 300px;
+            /* height: 150px; */
+            /* text-align: center; */
+
+            margin: 50px auto; /*여백 상하 50 좌우 auto,div 정렬*/
+            padding: 50px 0;/*div안 세로정렬*/
+            text-align: center;/*div안 span 정렬*/
+        }
+        span{
+            background-color: orchid;
+            display: inline-block;
+            /* height: 150px; 세로정렬*/
+            /* line-height: 150px; test가 가운데로 오게 높이같게 */
+        }
+        .content img{
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!--div.content>span{test} + tab-->
+    <div class="content">
+        <span>
+            <!--test-->
+            <img src="img/bulbon.jpg" width="50" height="50">test
+        </span>
+    </div>
+</body>
+</html>

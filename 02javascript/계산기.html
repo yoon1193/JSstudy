@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add(a,b){
+            return a+b;
+        }
+        function sub(a,b){
+            return a-b;
+        }
+        function mul(a,b){
+            return a*b;
+        }
+        function div(a,b){
+            return a/b;
+        }
+        function myClick(asd){
+            var num1=document.getElementById("num1").value;
+            var num2=document.getElementById("num2").value;
+            var v1=Number(num1);
+            var v2=Number(num2);
+            var v3;
+            if(asd=='+'){2
+                v3=add(v1,v2);
+            }
+            else if(asd=='-'){
+                v3=sub(v1,v2);
+            }
+            else if(asd=='*'){
+                v3=mul(v1,v2);
+            }
+            else if(asd=='/'){
+                v3=div(v1,v2);
+            }
+            document.getElementById("result").value=v3
+        }
+    </script>
+
+</head>
+<body>
+    입력:<input type="text" id="num1" value=""><br>
+    입력:<input type="text" id="num2" value=""><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <input type="button"  onclick="myClick('+');" value="+">
+    <input type="button"  onclick="myClick('-');" value="-">
+    <input type="button"  onclick="myClick('*');" value="*">
+    <input type="button"  onclick="myClick('/');" value="/"><br>
+    결과:<input type="text" id="result">
+
+</body>
+</html>

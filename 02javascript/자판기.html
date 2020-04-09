@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var money=0;
+        var rMoney100=0;
+        var rMoney500=0;
+        function money1(){
+            money=money+1000;
+            document.getElementById('inputMoney').value=money;
+        }
+        function money2(){
+            money+=500;
+            document.getElementById("inputMoney").value=money;
+        }
+        function money3(){
+            money+=100;
+            document.getElementById("inputMoney").value=money;
+        }
+        function buy1(){
+            if(money>=1200){
+                money-=1200;
+                document.getElementById("print").innerHTML+="<img src='img/사이다.jpg' width=30>";
+            }
+            else if(money<1200){
+                alert("금액 부족");
+            }
+            document.getElementById("inputMoney").value=money;
+        }
+        function buy2(){
+            if(money>=1500){
+                money-=1500;
+                document.getElementById("print").innerHTML+="<img src='img/콜라.jpg' width=30>";
+            }
+            else if(money<1500){
+                alert("금액 부족");
+            }
+            document.getElementById("inputMoney").value=money;
+        }
+        function buy3(){
+            if(money>=1800){
+                money-=1800;
+                document.getElementById("print").innerHTML+="<img src='img/환타.jpg' width=30>";
+            }
+            else if(money<1800){
+                alert("금액 부족");
+            }
+            document.getElementById("inputMoney").value=money;
+            
+        }
+        function buy4(){
+            if(money>=400){
+                money-=400;
+                document.getElementById("print").innerHTML+="<img src='img/블랙.gif' width=30>";
+            }
+            else if(money<400){
+                alert("금액 부족");
+            }
+            document.getElementById("inputMoney").value=money;
+            
+        }
+        function rMoney(){
+            while(true){
+                if(money>=500){
+                    money=money-500;
+                    rMoney500++;
+                }
+                else if(money>=100){
+                    money=money-100;
+                    rMoney100++;
+                }
+                else{
+                    break;
+                }
+            }
+            document.getElementById("rMoney100").value=rMoney100;
+            document.getElementById("rMoney500").value=rMoney500;
+        }
+        
+    </script>
+</head>
+<body>
+    <table border=1 width=500 height=500 cellspacing=0 >
+        <tr>
+            <th colspan=5 height=100 style="font-size: 50px; color: coral;">자판기</th>
+        </tr>
+        <tr align="center" height=180>
+            <td>
+                <img src="img/사이다.jpg" width="50"><br>
+                <input type="button" value="1200" onclick="buy1();">
+            </td>
+            <td>
+                <img src="img/콜라.jpg" width="50"><br>
+                <input type="button" value="1500" onclick="buy2();">
+            </td>
+            <td>
+                <img src="img/환타.jpg" width="50" height="100"><br>
+                <input type="button" value="1800" onclick="buy3();">
+            </td>
+            <td>
+                <img src="img/블랙.gif"width="50" height=100><br>
+                <input type="button" value="400" onclick="buy4();">
+            </td>
+            <td>투입<br><br>
+                <input type="button" value="1000원"  onclick="money1();"><br>
+                <input type="button" value="500원" onclick="money2();"><br>
+                <input type="button" value="100원" onclick="money3();"><br>
+                <input type="text" value=""style=width:60px; height:10px; id="inputMoney" readonly >원
+            </td>
+            <tr align="center">
+                <td colspan="4" id="print"></td>
+                <td><input type="button" value="동전반환" onclick="rMoney();"><br>
+                100원:<input type="text" value="" style=width:50px; height:10px; id="rMoney100" readonly>개<br>
+                500원:<input type="text" value="" style=width:50px;
+                height:10px; id="rMoney500" readonly>개</td>
+            </tr>
+           
+
+        </tr>
+    </table>
+</body>
+</html>

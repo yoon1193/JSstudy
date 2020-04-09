@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        var displayArr=[1,0,1,0];
+        var index=0;
+
+        function cC(id,color){
+            document.getElementById(id).style.background=color;
+        }
+        //madeTable
+        function mT(){
+            var str="";
+            str+="<table border=2 cellspacing=0  width=500 height="+400/displayArr.length+"><tr>";
+            for(var i=0;i<displayArr.length;i++){
+                str+="<td id=x"+i+"></td>";
+            }
+            str+="</tr></table>";
+            return str;
+        }
+        //copyArr
+        function copyArray(){
+            for(var i=0;i<displayArr.length;i++){
+                if(displayArr[i]==1){
+                    cC("x"+i,"red");
+                }
+                else if(displayArr[i]==0){
+                     cC("x"+i,"white");
+                }
+            }
+        }
+        //shift >>>>
+        function shiftArr(){
+            var tmp=0;
+            alert(displayArr);
+            tmp=displayArr.pop(); //pop(꺼내) top최상위
+            alert(displayArr);
+            displayArr.unshift(tmp); //(unshift) 맨 앞 데이터넣기
+            alert(displayArr);
+            // var tmp=0;
+            // tmp=displayArr[displayArr.length-1];
+            // for(var i=displayArr.length-2;i>=0;i--){
+            //     displayArr[i+1]=displayArr[i];
+            // }
+            // displayArr[0]=tmp;
+        }
+
+    
+
+        window.onload=function f1(){
+            document.getElementById("console").innerHTML=mT();
+            copyArray();
+            setInterval(function(){
+                shiftArr();
+                copyArray();
+                
+            },1000);
+            
+        }
+    
+
+
+    </script>
+</head>
+<body>
+<!-- <body onload="f1()">  이벤트 -->
+    <div id="console"></div>
+  
+</body>
+</html>

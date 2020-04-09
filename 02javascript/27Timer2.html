@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .console{
+            width: 500px;
+            height: 100px;
+            background-color: burlywood;
+        }
+        img{
+            margin-left: 0px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        var hor1=0,hor1Flag=true;
+        var hor2=0,hor2Flag=true;
+        var hor3=0,hor3Flag=true;
+        var rank=new Array();
+        var index=0;
+        function intervalFunction(){
+
+            hor1=hor1+Math.random()*10;
+            hor2=hor2+Math.random()*10;
+            hor3=hor3+Math.random()*10;
+
+            if(hor1>=400&&hor1Flag){
+                //clearInterval(clearId);
+                rank[index++]="1번말";
+                hor1Flag=false;
+            }
+            if(hor2>=400&&hor2Flag){
+                //clearInterval(clearId);  
+                rank[index++]="2번말";
+                hor2Flag=false;
+            }
+            if(hor3>=400&&hor3Flag){
+                //clearInterval(clearId);
+                rank[index++]="3번말";
+                hor3Flag=false;
+            }
+            if(hor1>=400){
+                hor1=400;
+            }
+            if(hor2>=400){
+                hor2=400;
+            }
+            if(hor3>=400){
+                hor3=400;
+            }
+            if(hor3==400&&hor2==400&&hor1==400){
+                clearInterval(clearId);
+                alert(rank);
+            }
+            document.getElementById("hor1").style.marginLeft=hor1+"px";
+            document.getElementById("hor2").style.marginLeft=hor2+"px";
+            document.getElementById("hor3").style.marginLeft=hor3+"px";
+        }
+
+        var clearId=setInterval(intervalFunction,100)
+
+    </script>
+</head>
+<body>
+    <div class="console">
+        <img src="img/말1.gif" id="hor1">
+    </div>
+    <div class="console">
+        <img src="img/말1.gif" id="hor2">
+    </div>
+    <div class="console">
+        <img src="img/말1.gif" id="hor3">
+    </div>
+    
+</body>
+</html>

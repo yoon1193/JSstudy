@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //자바=지역변수를 블럭단위
+        //JS= 함수단위
+        // {
+        //     var a="hellow";  
+        // }
+        // alert(a); //자바에서는 안됌
+
+        // function f1(){
+        //     var a="hellow";
+        // }
+        // alert(a); //자바,JS 둘 다 안됌
+
+        var a="hello1";
+        function f1(){
+            var b="hello2";
+            c="hello3"; //var선언x=전역변수
+            if(true){
+                var d="hello4";
+                // a b c d
+            }
+            // a b c d
+        }
+        // a x x x     c가 안되는이유. 함수실행을 안함.
+        window.f1();
+        // a x c x     함수실행 후 c
+
+        alert(window.c);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

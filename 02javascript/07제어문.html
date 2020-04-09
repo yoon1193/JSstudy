@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        if(true){
+            document.write("true면 출력 <br>");
+        }
+        else{
+            document.write("false면 출력");
+        }
+
+        var b=6;
+        if(b%2==0){
+            document.write("짝 <br>");
+        }
+        else{
+            document.write("홀");
+        }
+
+        var c=2540;
+        if(c%2==0){
+            document.write("2의 배수 <br>");
+        }
+        else if(c%3==0){
+            document.write("3의 배수 <br>");
+        }
+        else if(c%4==0){
+            document.write("4의 배수 <br>");
+        }
+        else if(c%5==0){
+            document.write("5의 배수 <br>");
+        }
+        else{
+            document.write("모두아님");
+        }
+
+        // var input = prompt("숫자");
+        // switch(input%2){
+        //     case 0:
+        //     document.write("짝수 <br>");
+        //     breka;
+        //     case 1:
+        //     document.write("홀수 <br>");
+        //     breka;
+        //     default:
+        //     document.write("숫자 아님");
+        //     breka;
+            
+        // }
+        // document.write("---------------------------------<br>");
+        // var input=prompt("숫자입력");
+        // if(input>100){
+        //     document.write("100보다 큼 <br>");
+        //     if(input%3==0){
+        //         document.write("3의 배수 <br>");
+        //     }
+        // }
+        // else if(input<100){
+        //     if(input%2==0){
+        //         document.write("짝수 <br>");
+        //     }
+        //     else{
+        //         document.write("홀수 <br>");
+        //     }
+        // }
+        // else{
+        //     document.write("100입니다");
+        // }
+        //반복문
+        //1~100까지 3의 배수의합
+        var count=1;
+        var sum=0;
+        while(count<=100){
+            if(count%3==0){
+                sum+=count;
+            }
+            count++;
+        }
+        document.write(sum,"<br>");
+        //for
+        sum=0;
+        for(var i=1;i<=100;i++){
+            if(i%3==0||i%4==0){
+                sum+=i;
+            }
+        }
+        document.write(sum,"<br>");
+        //do while
+        var j=1;
+        sum=0;
+        do{
+            sum+=j;
+            j++;
+        }while(j<=10)
+        document.write(sum,"<br>");
+
+        for(var i=1;i<=100;i++){
+            document.write(i,"<br>");
+            if(i==3){
+                break;
+            }
+            
+        }
+        for(var i=1;i<=100;i++){
+            document.write(i,"<br>");
+            if(i==3){
+                continue;
+            }
+            
+        }
+     </script>
+
+</head>
+<body>
+    
+</body>
+</html>

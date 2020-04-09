@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //불연산자
+        //연산결과가 true false 값을 가지는 연산자
+        document.write(52>270,"<br>");
+        document.write(52<270,"<br>");
+        document.write(52==270,"<br>");
+        document.write(52!=270,"<br>");
+        document.write(true>false,"<br>") //1>0 t
+        document.write(30>20>10,"<br>")//f
+        document.write(10==10,"<br>");//t
+        document.write(10=="10","<br>")//t
+        document.write("---------------------------------<br>")
+        //==값비교, ===자료형까지 비교
+        document.write(10===10,"<br>");//t
+        document.write(10!==10,"<br>");//f
+        document.write(10==="10","<br>");//f
+        document.write("---------------------------------<br>")
+        //==우선순위가 비교연산자보다 낮다.
+        document.write(30>20==1,"<br>");//t
+        document.write(0==30>20,"<br>");//f
+        document.write("---------------------------------<br>")
+        document.write(false||true,"<br>");//t
+        document.write(false&&true,"<br>");//f
+        document.write("----------------------<br>")
+        document.write(false||alert('hi1'),"<br>");
+        document.write(true||alert('hi2'),"<br>");//undefined
+        document.write(true||(true&&false),"<br>");//t
+        document.write("---------------------------------<br>")
+        document.write(''==false,"<br>");//t
+        document.write(''===false,"<br>");//f
+        document.write(0==false,"<br>");//t
+        document.write(0===false,"<br>");//f
+        document.write(null==undefined,"<br>");//t
+        document.write(null===undefined,"<br>");//f
+        document.write("---------------------------------<br>")
+        //? : ;
+        var a;
+        a=(10>20)?5:10; //?앞이 true면 5만 남음 false면 10
+        document.write(a,"<br>");
+        document.write("---------------------------------<br>")
+        document.write("a"+1+1,"<br>");//a11
+        document.write(1+1+"a","<br>");//2a
+        document.write("---------------------------------<br>")
+        //증감연산자
+        var a=1;
+        document.write(a++,"<br>");//1
+        document.write(++a,"<br>");//2+1=3
+        document.write(a,"<br>");//3
+        document.write("---------------------------------<br>")
+        a=1;
+        document.write(a++ + a++,"<br>");//1+2=3
+        a=1;
+        document.write(++a + ++a,"<br>");//2+3=5
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

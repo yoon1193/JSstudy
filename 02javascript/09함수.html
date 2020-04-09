@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        함수 - 관련있는 코드를 묶어놓은것.
+        */
+        // document.write("안녕");
+        // document.write("안녕");
+        // document.write("안녕");
+        // function hi(){
+        //     document.write("안녕");
+        // }
+        // hi();
+        //----------------------------------------
+        //리턴값 함수이름(자료형 매개변수,...)-자바
+        //function 함수이름(매개변수,...)-자바스크립트
+
+        // function table(){
+        //     var str="<table border=1 bgcolor=yellow cellspacing=0 width=100% height=300>";
+        //     str+="<tr><td></td></tr></table>";
+        //     document.write(str);
+        //     //return str;
+        // }
+        // function moveTop(){
+        //     var a="<a href='#'>TOP으로 이동</a><br>"
+        //     document.write(a);
+        //     //return a;
+        // }
+        // for(var i=0;i<2;i++){
+        //     table();moveTop();
+        // }
+        // document.write(table());
+        // document.write(moveTop());
+
+        document.write("----------------------------------------------<br>")
+        function add(a,b){
+            return a+b;
+        }
+        document.write(add(12,24),"<br>");
+        document.write("----------------------------------------------<br>")
+        function Say(str,num){
+            for(var i=0;i<num;i++){
+                document.write(str,"<br>");
+            }
+        }
+        Say("안녕하세요",5);
+        Say("반갑습니다",3);
+        var sum=0;
+        function asd(a,b,c){
+            for(var i=a;i<=b;i++){
+                if(i%c==0){
+                    sum+=i;
+                }
+            }
+            document.write(sum,"<br>");
+            sum=0;
+        }
+        asd(10,50,3);//390
+        asd(1,100,2);//2550
+        asd(1,100,7)//735
+       function madeTable(id){
+            var str="<table id='table"+id+"' border=1 bgcolor=yellow cellspacing=0 width=100% height=300>";
+            str+="<tr><td></td></tr></table>";
+            document.write(str);
+        }
+        function moveTop(id){
+            var str1="<a href='#table"+id+"'>table"+id+"로 이동</a><br>"
+            document.write(str1);
+        }
+        madeTable('1');
+        moveTop('1');
+        madeTable('2');
+        moveTop('2');
+        madeTable('3');
+        moveTop('3');
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

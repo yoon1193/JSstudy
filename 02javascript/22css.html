@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+    body {
+        line-height: 1;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    /* flex grid */
+    .container{
+        /*flex 사용하려면 부모 컨테이너에 display 속성을 flex로 바꾼다*/
+        display:flex;
+        /*컨테이너안에 데이터 정렬방식 row 가로정렬 column세로정렬 reverse*/
+        /* flex-direction: row-reverse; */
+
+        /*nowrap 아이템이 밑으로 떨어지지 않음 wrap 아이템이 밑으로 떨어짐
+            wrap-reverse 떨어지는 순서바뀜*/
+        /* flex-wrap: wrap-reverse; */
+
+        /*justify-content 좌우정렬 flex-start:왼쪽에서 시작 flex-end:오른쪽 정렬        space-between:아이템간 공백생김 space-around:양 사이드에 공백생김*/
+        /* justify-content: space-around; */
+
+        /*align-items 위아래 정렬 strech:기본값(화면을 꽉 채움) flex-start:시작부분부터 채움 flex-end:끝부분부터채움 center:가운데정렬*/
+        /* align-items:center; */
+        /* 가운데정렬 align-items: center; justify-content: center; */
+
+        /*align의 의미는 축에 수직방향정렬. align같운 경우 flex-wrap:wrap 으로 설정 되있어야 한다. flex-start 안늘어나고 위쪽에 붙는다*/
+        /* flex-wrap: wrap;
+        align-content: flex-start; */
+
+        height: 100vh;
+        background: lightgray;
+    }
+    .item{
+        flex-basis: 0;
+        background-color: yellow;
+    }
+    .item:nth-child(odd){
+        background-color: red;
+    }
+    /* 꽉 채우는*/
+    /* 특부분만 늘리고 싶을때 늘리고 싶은 부분에 flex를 넣는다 */
+    /* 특정 아이템만 정렬 변경 align-self */
+
+
+    /*flex-grow:빈 공간을 나눠가짐*/ 
+    .item:nth-child(1){
+        /* flex-grow: 1; */
+        /* flex-shrink: 1; */
+        order: 2;
+        align-self: flex-start;
+        flex:1;
+    }
+    .item:nth-child(2){
+        /* flex-grow: 2; */
+        /* flex-shrink: 2; */
+        order: 3;
+        align-self: center;
+        flex:2;
+    }
+    .item:nth-child(3){
+        /* flex-grow: 1; */
+        /* flex-shrink: 1; */
+        order: 1;
+        align-self: stretch;
+        flex:1;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <img width=50 height=50 src="img/bulboff.jpg">
+            <p>Lorem ipsum dolor sit amet </p>
+            <p>Lorem ipsum dolor sit amet </p>
+            <p>Lorem ipsum dolor sit amet </p>
+        </div>
+        <div class="item">
+            <img width=50 height=50 src="img/bulboff.jpg">
+            <p>Lorem ipsum dolor sit amet </p>
+        
+        </div>
+        <div class="item">
+            <img width=50 height=50 src="img/bulboff.jpg">
+            <p>Lorem </p>
+        </div>
+    </div>
+</body>
+</html>

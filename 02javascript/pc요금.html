@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PC</title>
+    <style>
+        *{
+            text-align:center
+        }
+    </style>
+    <script>      
+        var sTime="";
+        var eTime="";
+        function startFunction() {
+            sTime=new Date();
+            var startTime=sTime.getFullYear()+"년";
+            startTime+=sTime.getMonth()+1+"월";
+            startTime+=sTime.getDate()+"일";
+            startTime+=sTime.getHours()+"시";
+            startTime+=sTime.getMinutes()+"분";
+            startTime+=sTime.getSeconds()+"초";
+            document.getElementById("start").value=startTime;
+        }
+        function endFunction(){
+            eTime=new Date();
+            var endTime=eTime.getFullYear()+"년";
+            endTime+=eTime.getMonth()+1+"월";
+            endTime+=eTime.getDate()+"일";
+            endTime+=eTime.getHours()+"시";
+            endTime+=eTime.getMinutes()+"분";
+            endTime+=eTime.getSeconds()+"초";
+            document.getElementById("end").value=endTime;
+        }  
+        function totalMoney(){
+            var result=eTime.getTime()-sTime.getTime();
+            var sec=Math.floor(result/1000);
+            var pay=1200+sec*10+"원"; //초당10원
+            document.getElementById("money").value=pay;
+        }
+    </script>
+
+
+</head>
+<body>
+    pc방 요금<br>
+    <input type="button" value="시작" onclick="startFunction();">
+    <input type="text" id="start" style="width: 300px" ><br>
+
+    <input type="button" value="종료" onclick="endFunction();">
+    <input type="text" id="end" style="width: 300px"><br>
+
+    <input type="button" onclick="totalMoney();" value="요금">
+    <input type="text" id="money">
+
+</body>
+
+</html>

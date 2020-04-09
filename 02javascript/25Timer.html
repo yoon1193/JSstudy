@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        Timer :  setTimeout 한번만 실행
+                 setInterval 여러번 실행*/
+        // setTimeout(function(){
+        //     alert("1초 지남")
+        // },1000);
+
+        // var count=0;
+        // var timerId=setInterval(function(){
+        //     document.getElementById("console").innerHTML=count++;
+        // }, 1000);
+        // function clearTimer(){
+        //     clearInterval(timerId);
+        // }   
+
+        // for(var i=0;i<3;i++){
+        //     (function(){
+        //         setTimeout(function(){
+        //             alert(i);   
+        //         },0);
+        //     })();
+        // }
+        // for(var i=0;i<3;i++){
+        //     (function(i){
+        //         setTimeout(function(){
+        //             alert(i);   
+        //         },0);
+        //     })(i);
+        // }
+        function clearTimer(){
+            [0,1,2].forEach(function(i){
+                document.getElementById("console").innerHTML+=i+" ";
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="console"></div>
+    <input type="button" onclick="clearTimer();" value="click">
+</body>
+</html>

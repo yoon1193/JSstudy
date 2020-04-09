@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .console{
+            width: 500px;
+            height: 100px;
+            background-color: burlywood;
+        }
+        img{
+            margin-left: 0px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        var hor1=0;
+        function intervalFunction(){
+            hor1=hor1+Math.random()*10; //0<=value<1 사이 실수가 리턴됨
+            if(hor1>400){
+                clearInterval(clearId);
+                hor1=400;
+            }
+            document.getElementById("hor1").style.marginLeft=hor1+"px";
+        }
+        var clearId=setInterval(intervalFunction,100);
+    </script>
+</head>
+<body>
+    <div class="console">
+        <img src="img/말1.gif" id="hor1">
+    </div>
+    
+</body>
+</html>

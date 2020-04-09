@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //내부스크립트
+        // document.getElementById("console").innerHTML="안녕";
+        //onload 이벤트 마지막에 실행
+        //함수는 호출될때 실행
+        //코드는 위에서 아래로 실행
+        console.log("hello1<br>");
+        function play(){
+            document.getElementById("console").innerHTML="안녕";
+            console.log("함수");
+        }
+    </script>
+    <script src="js/list.js"></script>
+</head>
+<body onload="console.log('내장스크립트');play();">
+    <p i="console"></p>
+    <script>
+       console.log("hello2");
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        내장함수
+        내장객체
+        내장이 들어간 것들은 미리 만들어놓은 것들이다.
+        */
+        //경고창
+        // alert('hi')
+        // window.alert('hi')
+        // var result = window.prompt("성적입력","여기에 입력");
+        // window.document.write(result,"<br>");//문자로 받음 숫자x
+        // var result = window.confirm("확인 or 취소");
+        // window.document.write(result,"<br>");
+        window.document.write(typeof 'String',"<br>");
+        window.document.write(typeof('String'),"<br>");
+        window.document.write(typeof(alpha),"<br>");//undefined
+        window.document.write(typeof([]),"<br>");//object
+        window.document.write(typeof({}),"<br>");//object
+        window.document.write(typeof(function(){ }),"<br>");
+        document.write("--------------------------<br>")
+        //eval
+        var str="var a=1;"
+        str=str+"alert(a);";
+        eval(str);
+        alert(a);
+        //NaN = Not a Number 
+        document.write(isNaN(12),"<br>");//f
+        document.write(isNaN("12"),"<br>");//f
+        document.write(isNaN("12f"),"<br>");//t
+        document.write("--------------------------<br>")
+        var a = "10";
+        document.write(a+a,"<br>");//1010
+        a = Number(a);
+        document.write(a+a,"<br>");//20
+        var a = "10.12$";
+        a = Number(a);
+        document.write(a+a,"<br>");//NaN
+        document.write("--------------------------<br>")
+        var a = "10.12$";
+        document.write(parseInt(a),"<br>");//10
+        var a = "10.12$";
+        document.write(parseFloat(a),"<br>");//10.12
+        var a = "123.12345$";
+        document.write(parseFloat(a).toFixed(2),"<br>")//소수점 3번째에서 반올림
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var str="";
+        // var imgName="img/bulbon.jpg";
+        // str="<img src='"+imgName+"'/>";
+        // document.write(str);
+        // var str="<table border=1>";
+        // str+="<tr><td>1</td><td>2</td></tr>";
+        // str+="<tr><td>3</td><td>4</td></tr>";
+        // str+="<tr><td>5</td><td>6</td></tr>";
+        // str+="</table>";
+        // document.write(str);
+        // for(var i=0;i<5;i++){
+        //     document.write('안녕'+i,"<br>");
+        // }
+        // for(var i=1;i<10;i++){
+        //     for(var j=1;j<10;j++){
+        //         document.write(i+"*"+j+"="+i*j,"<br>");
+        //     }
+        // }
+        var str="<table border=1 bordercolor=#819830 width=300 height=300 cellspacing=0>";
+        var strTr=prompt("tr");
+        var strTd=prompt("td");
+        var num=0;
+        for(var i=0;i<strTr;i++){
+            str+="<tr align=center>";
+            for(var j=0;j<strTd;j++){
+                str+="<td>"+(num+1)+"</td>";
+                num++;
+            }
+            str+="</tr>";
+        }
+        str+="</talbe>";
+        document.write(str);
+
+
+    
+    </script>
+   
+</head>
+<body>
+    
+</body>
+</html>
