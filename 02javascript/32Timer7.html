@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var arr=new Array();
+        // //arr[0]
+        // arr[0]=new Array();
+        // arr[1]=new Array();
+        // arr[2]=new Array();
+
+        var arr=[
+                    [0,0,0,0,0,0,1,0,0,0],
+                    [0,0,0,0,0,0,0,1,0,0],
+                    [0,0,0,0,0,0,0,0,1,0],
+                    [0,0,0,0,0,0,0,0,0,1],
+                    [0,0,0,0,0,0,0,0,1,0],
+                    [0,0,0,0,0,0,0,1,0,0],
+                    [0,0,0,0,0,0,1,0,0,0]
+        ];
+
+        //for(var y=0;y<arr.length;y++){
+        //for(var x=0;x<arr[y].length;x++){
+        // var arr=[
+        //             [1,0,0],
+        //             [1,0,0,0],
+        //             [1,0,1,0,0]
+        // ];
+
+        var tableX=arr[0].length;
+        var tableY=arr.length;
+        var index=0;
+
+        function copyArray(){
+            for(var y=0;y<tableY;y++){
+                for(var x=0;x<tableX;x++){
+                    if(arr[y][x]==1){
+                        document.getElementById("y"+y+"x"+x)
+                        .style.backgroundColor="red";
+                    }else{
+                        document.getElementById("y"+y+"x"+x)
+                        .style.backgroundColor="white";
+                    }
+                }
+            }
+        }
+
+        function shiftArray(){
+            var temp;
+
+           
+            for(var y=0;y<arr.length;y++){
+                temp=arr[y][arr[y].length-1];
+                for(var x=arr[y].length-2;x>=0;x--){
+                    arr[y][x+1]=arr[y][x];
+                }
+                arr[y][0]=temp;
+            }
+
+
+            console.log(arr[0]);
+
+        }
+
+
+
+        function madeTable(){
+            var str="";
+            str+="<table border=1 width=400 height="
+            +400/tableX*tableY+">";
+            for(var y=0;y<tableY;y++){
+                str+="<tr>";
+                for(var x=0;x<tableX;x++){
+                    //처음에 y0x0
+                    str+="<td id=y"+y+"x"+x+"></td>"
+                }
+                str+="</tr>";
+            }            
+            str+="</table>";
+            return str;
+        }
+        //특정 td의 함수를 변경한다.
+        function changeColor(id,color){
+            document.getElementById(id)
+            .style.backgroundColor=color;
+        }
+        window.onload=function(){
+            document.getElementById("console").innerHTML=madeTable();
+
+            setInterval(function(){
+                shiftArray();
+                copyArray();
+            },100)
+
+        }
+    </script>
+</head>
+<body>
+    <div id=console>        
+    </div>
+    
+</body>
+</html>

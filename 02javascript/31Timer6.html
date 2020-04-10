@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var tableX=4;
+        var tableY=3;
+        var index=0;
+
+        function mT(){
+            var str="";
+            str="<table border=1 width=500 height="+500/tableX*tableY+">";
+            for(var y=0;y<tableY;y++){
+                str+="<tr id=>";
+                for(var x=0;x<tableX;x++){
+                    str+="<td id=y"+y+"x"+x+"></td>";
+                }
+                str+="</tr>";
+            }
+            str+="</table>";
+            return str;
+        }
+
+        function cC(id,color){
+            document.getElementById(id).style.background=color;
+        }
+
+        window.onload=function(){
+            document.getElementById("console").innerHTML=mT();
+            setInterval(function(){
+                index=index%4
+                if(index==0){
+                    for(var y=0;y<tableY;y++){
+                        cC("y"+y+"x"+(tableX-1),"white");
+                    }
+
+                }
+                else{
+                    for(var y=0;y<tableY;y++){
+                        cC("y"+y+"x"+(index-1),"white");
+                    }
+                }
+
+              for(var y=0;y<tableY;y++){
+                    cC("y"+y+"x"+index,"red");
+                }
+                index++;
+               
+
+            },1000)
+           
+          
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="console"></div>
+</body>
+</html>
