@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //json=JavaScipt Object Notation
+        var obj={
+            name:{firstName:"Yoon", sencondName:"name"},
+            age:123,
+            item:["a",2,"asdf"],
+            display:function(){
+                var a="Hi";
+                alert(this.name.firstName);
+                alert(this.age+a);
+            }
+        }
+
+        // obj.display();
+        // alert(obj.name.sencondName);
+        // obj.color="red";
+        // alert(obj.color);
+
+        //직사각형 넓의와 둘레를 구하는 객체
+        var ract={
+            width:4, 
+            height:6,
+            area:function(){
+                return this.width*this.height;
+            },
+            round:function (){
+                return (this.width+this.height)*2;
+            },
+            display:function(){
+                alert("넓이"+this.area()+"둘레"+this.round());
+            }
+        }
+
+        ract.display();
+        
+        // location.href="http://www.daum.net";
+        // history.forward();
+        // history.go(1);
+        // history.back();
+        // history.go(-1);
+        // history.go(-2);
+    </script>
+</head>
+<body>
+    
+  
+    
+</body>
+</html>

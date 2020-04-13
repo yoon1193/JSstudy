@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미로</title>
+    <style>
+        
+    </style>
+    <script>
+        var map=[
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+            [1,0,0,0,0,0,0,0,0,0,0,1,1,0,2],
+            [1,0,1,1,1,1,1,1,1,1,0,0,1,0,1],
+            [1,0,1,0,0,0,0,0,0,1,1,0,1,0,1],
+            [1,0,1,0,1,1,1,1,0,1,0,0,1,0,1],
+            [1,0,1,0,1,1,0,0,0,1,0,1,1,0,1],
+            [1,0,1,0,1,0,0,1,0,1,0,0,1,0,1],
+            [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1],
+            [1,0,0,0,1,0,0,0,1,0,0,0,1,0,1],
+            [1,1,1,1,1,0,1,0,1,1,0,1,1,0,1],
+            [1,0,0,0,1,0,1,0,1,1,0,0,1,0,1],
+            [1,0,1,0,1,0,1,0,0,1,1,0,1,0,1],
+            [1,0,1,0,1,1,1,1,0,1,1,0,1,0,1],
+            [1,3,1,0,0,0,0,0,0,1,0,0,0,0,1],
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+        ];
+
+        var tableX=map[0].length;
+        var tableY=map.length;
+
+        function madeTable(){
+            var str="";
+            str+="<table border=1>";
+            for(var y=0;y<tableY;y++){
+                str+="<tr>";
+                for(var x=0;x<tableX;x++){
+                    str+="<td width=40 height=40 id=y"+y+"x"+x+"></td>"
+                }
+                str+="</tr>";
+            }            
+            str+="</table>";
+            return str;
+        }
+
+        // function copyArray(){
+        //     for(var y=0;y<tableY;y++){
+        //         for(var x=0;x<tableX;x++){
+        //             if(map[y][x]==1){
+        //                 changeColor("y"+y+"x"+x,"green");
+        //             }
+        //             else if(map[y][x]==2){
+        //                 changeColor("y"+y+"x"+x,"yellow");
+        //             }
+        //             else if(map[y][x]==3){
+        //                 document.getElementById("y"+y+"x"+x)
+        //                 .innerHTML="<img width=40 height=40 src='img/Kkobuk.jpg'>"
+        //             }
+        //             else{
+        //                 changeColor("y"+y+"x"+x,"white");
+        //             }
+        //         }
+        //     }
+        // }
+        
+        function copyArray(){
+            for(var y=0;y<tableY;y++){
+                for(var x=0;x<tableX;x++){
+                    switch(map[y][x]){
+                        case 0:
+                            changeColor("y"+y+"x"+x,"white");
+                            break;
+                        case 1:
+                            changeColor("y"+y+"x"+x,"green");
+                            break;
+                        case 2:
+                            changeColor("y"+y+"x"+x,"yellow");
+                            break;
+                        case 3:
+                            document.getElementById("y"+y+"x"+x)
+                            .innerHTML="<img width=35 height=35 src='img/Kkobuk.jpg'>";
+                            break;
+                    }
+                }
+            }
+        }
+
+        function changeColor(id,color){
+            document.getElementById(id)
+            .style.backgroundColor=color;
+        }
+        
+        var nowX=1;
+        var nowY=13;
+        function inputFunction(input){
+            //alert(input);
+            switch(input){
+                case 119: //위
+                    // switch(map[nowY-1][nowX]){
+                    //     case 0:
+                    //     break;
+                    //     case 1:
+                    //     return;
+                    //     case 2:
+                    //     alert(ㅊㅋ);
+                    //     break;
+                    // }
+                    document.getElementById("y"+nowY+"x"+nowX)
+                    .innerHTML="";
+                    if (map[nowY-1][nowX]==0) {
+                        nowY--;
+                    }
+                    document.getElementById("y"+nowY+"x"+nowX)
+                    .innerHTML="<img width=35 height=35 src='img/Kkobuk.jpg'>";
+                break;
+                case 97: //왼
+                    document.getElementById("y"+nowY+"x"+nowX)
+                    .innerHTML="";
+                    if (map[nowY][nowX-1]==0) {
+                        nowX--;
+                    }
+                    document.getElementById("y"+nowY+"x"+nowX)
+                    .innerHTML="<img width=35 height=35 src='img/Kkobuk.jpg'>";
+                break;
+                case 100: //오
+                    document.getElementById("y"+nowY+"x"+nowX)
+                    .innerHTML="";
+                    if (map[nowY][nowX+1]==0) {
+                        nowX++;
+                    }
+                    else if (map[nowY][nowX+1]==2) {
+                        alert("clear");
+                        nowX++;
+                        
+                    }
+                    document.getElementById("y"+nowY+"x"+nowX)
+                    .innerHTML="<img width=35 height=35 src='img/Kkobuk.jpg'>";
+                break;
+                case 115: //아래
+                    document.getElementById("y"+nowY+"x"+nowX)
+                    .innerHTML="";
+                    if (map[nowY+1][nowX]==0) {
+                        nowY++;
+                    }
+                    document.getElementById("y"+nowY+"x"+nowX)
+                    .innerHTML="<img width=35 height=35 src='img/Kkobuk.jpg'>";
+                break;
+            }
+
+        }
+        
+
+        window.onload=function(){
+            document.getElementById("console").innerHTML=madeTable();
+                copyArray();     
+                Replay(); 
+        }
+        
+    </script>
+</head>
+<body onkeypress="inputFunction(event.keyCode)"> <!-- event=내장객체 -->
+    <div id="console"></div>
+    
+</body>
+</html>

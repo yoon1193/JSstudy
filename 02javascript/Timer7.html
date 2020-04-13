@@ -68,8 +68,8 @@
 
         function madeTable(){
             var str="";
-            str+="<table border=1 width=400 height="
-            +400/tableX*tableY+">";
+            str+="<table border=1 width=600 height="
+            +600/tableX*tableY+">";
             for(var y=0;y<tableY;y++){
                 str+="<tr>";
                 for(var x=0;x<tableX;x++){
@@ -82,10 +82,10 @@
             return str;
         }
         //특정 td의 함수를 변경한다.
-        function changeColor(id,color){
-            document.getElementById(id)
-            .style.backgroundColor=color;
-        }
+        // function changeColor(id,color){
+        //     document.getElementById(id)
+        //     .style.backgroundColor=color;
+        // }
         window.onload=function(){
             document.getElementById("console").innerHTML=madeTable();
 
