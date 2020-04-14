@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f1(){
+            var txt=document.getElementById("i1").value;
+            // if(txt=='hello')
+            var re=/hello/i;
+            var rePhone=/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/g;
+            if(re.test(txt)){
+                alert("ok")
+            }
+            else{
+                alert("wrong")
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="i1">
+    <button onclick="f1()">확인</button>
+    
+</body>
+</html>

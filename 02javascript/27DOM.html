@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //dom document object model
+        //document.   
+        /*
+            dom을 구성하는 4개의 노드
+            1.DOCUMENT_NODE - 전체 html문서를 나타내는 노드
+            window.document
+            2.ELEMENT_NODE - html태그를 나타내는 노드
+            3.ATTRIBUTE_NODE - 속성을 나타내는 노드
+            4.TEXT_NODE - 태그안에 문자를 나타내는 노드
+        */
+
+        function f1(){
+            // alert(document.myForm.txt1.value);
+            // alert(document.getElementById("txt1").value);
+            // alert(document.getElementsByTagName("input")[0].value);
+
+
+            //db -> dataBase로 변경 math ->  math2로 변경
+            document.getElementsByTagName("li")[1].innerHTML="dataBase";
+            document.getElementsByTagName("li")[6].innerHTML="math2";
+
+            var u2 = document.getElementById("u2");
+            u2.getElementsByTagName("li")[2].innerHTML="math3"
+        }
+
+
+    </script>
+</head>
+<body>
+    <!-- <FORM name="myForm">
+        <input type="text" id="txt1" name="txt1">
+        <button onclick="f1()">클릭</button>
+    </FORM> -->
+    <button onclick="f1()">클릭</button>
+    <ul id="u1">
+        <li>java</li>
+        <li>db</li>
+        <li>javaScript</li>
+        <li>java</li>
+    </ul>
+    <ul id="u2">
+        <li>eng</li>
+        <li>kor</li>
+        <li>math</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2번</title>
+    <script>
+        function myFind(){
+        var myDiv=document.getElementsByTagName("div")[0];
+        //childNodes 자식노드들 리턴
+        console.log(myDiv.childNodes[0]);
+        //firstChild  첫번 자식
+        console.log(myDiv.firstChild);
+        //lastChild  마지막자식
+        console.log(myDiv.lastChild);
+        //parentNode 부모노드
+        console.log(myDiv.parentNode);
+        //nextSibling 다음 형제 노드
+        console.log(myDiv.firstChild.nextSibling);
+        //previousSibling 이전 형제 노드
+        console.log(myDiv.lastChild.previousSibling);
+        
+        }
+        </script>
+</head>
+    <body>
+        <!--
+        <div>
+        <p>과일리스트</p>
+        <ul>
+        <li>사과</li>
+        <li>배</li>
+        <li>오렌지</li>
+        </ul>
+        </div>
+        -->
+        <div><p>과일리스트</p><ul><li>사과</li><li>배</li><li>오렌지</li></ul></div>
+        
+        <button onclick="myFind()">찾기</button>
+    </body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>asd</title>
+<style>
+    
+</style>
+<script>
+            function f1(){
+                document.getElementsByTagName("li")[0].innerHTML="<img  src='img/사과.jpg'>"
+            }
+            function red(){
+                document.getElementById("box").style.backgroundColor="red";
+            }
+            function blue(){
+                document.getElementById("box").style.backgroundColor="blue";
+            }
+            function yellow(){
+                document.getElementById("box").style.backgroundColor="yellow";
+            }
+            function f2(){
+                document.getElementById("box").style.height="100px";
+                document.getElementById("box").style.width="100px";
+            }
+            function f3(){
+                document.getElementById("box").style.height="200px";
+                document.getElementById("box").style.width="200px";
+            }
+            function f4(){
+                document.getElementById("box").style.height="300px";
+                document.getElementById("box").style.width="300px";
+            }
+            function f5(){
+                document.getElementById("box").style.height="400px";
+                document.getElementById("box").style.width="400px";
+            }
+            function f(){
+                document.getElementById("id").style.backgroundColor="green";
+            }
+            function b(){
+                document.getElementById("id").style.backgroundColor="white";
+            }
+        </script>
+</head>
+<body>
+
+    <div id="box">
+        <p>과일리스트</p>
+        <ul>
+            <li>사과</li>
+            <li>배</li>
+            <li>오렌지</li>
+        </ul>
+    </div>
+    <br><br><br><br><br><br>
+
+    <button onclick="f1()">apple</button>
+    <button onclick="red()">red</button>
+    <button onclick="blue()">blue</button>
+    <button onclick="yellow()">yellow</button><br>
+    <button onclick="f2()">100px</button>
+    <button onclick="f3()">200px</button>
+    <button onclick="f4()">300px</button>
+    <button onclick="f5()">400px</button><br>
+    <input type="text" id="id" onfocus="f();" onblur="b();">
+</body>
+
+</html>
