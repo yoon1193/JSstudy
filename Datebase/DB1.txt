@@ -4,35 +4,34 @@ create table human(
             age number(3),
             height number(5,2),
             birthday timestamp 
-)
+);
 
 --insert
-insert input human vlaues('yoon1',27,179.2,systimestamp)
-insert input human vlaues('yoon2',26,178.3,systimestamp)
-insert input human vlaues('yoon3',25,177.4,systimestamp)
-insert input human vlaues('yoon4',24,176.5,systimestamp)
+insert into human values('yoon1',27,179.12,systimestamp);
+insert into human values('yoon2',26,178.12,systimestamp);
+insert into human values('yoon3',25,177.12,systimestamp);
+insert into human values('yoon4',24,176.12,systimestamp);
 commit -- 디비내용이 변경되면 반드시 commit을 실행(작업확정)
 rollback -- 적용하지않음(작업취소)
 
 --select
-select * from human
-select name,birthday from human
-select name,birthday from human where name='yoon1'
+select * from human;
+select name,birthday from human;
+select name,birthday from human where name='yoon1';
 
 --update
-update human
-set age=30 where name='yoon1'
-commit
+update human set age=30 where name='yoon1';
+
 
 --delete 데이터삭제
-delete human 
-where name='yoon1'
-commit
+delete (from) human where name='yoon1';
+
 
 --drop table삭제
-drop table human 
+drop table human; 
+rollback 안됌 주의.
 
 --특정 table 구조확인
-desc human
+desc human;
 --존재하는 table 확인
 select * from tab;

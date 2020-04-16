@@ -19,5 +19,30 @@ select = table안 데이터검색
   nchar() = n 유니코드
 
 3.date = BC 4712년 1월 1일부터 9999년 12월 31일, 년, 월, 일, 시, 분, 초 까지 입력 가능
-         YYYY MM DD HH24 MI SS       sysdate=현재시간
+         YYYY MM DD HH24 MI SS 
+         sysdate=현재시간
   timestamp = YYYY MM DD HH24 MI SS FF 년 월 일 시 분 초 미리세컨드    systimestamp=현재시간
+
+
+
+
+cmd->sqlplus->conn sys as sysdba --
+select username from dba_users; --계정목록
+drop user human cascade; --human계정 삭제
+create user human identified by human; --human계정 생성
+grant connect,resource,dba to human; --human계정 권한부여
+conn human/human --계정login
+show user --현재계정확인
+select * from tab; --현재계정 생성된 table 확인
+Desc human; --human table의 구조확인
+select * from human; --human table안 모든 데이터확인
+
+
+NULL = column에 데이터가 없다.
+NOT NULL = 반드시 값이 있어야함/ NULL 값의 입력을 금지한다.
+
+
+접속 HUMAN HUMAN HUMAN 비밀번호저장 TEST 
+
+oracledownloads 11g 2번째꺼
+sqldevelope 1번째꺼
