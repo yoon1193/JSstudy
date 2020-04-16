@@ -1,0 +1,38 @@
+--create
+create table human(
+            name nvarchar2(20),
+            age number(3),
+            height number(5,2),
+            birthday timestamp 
+)
+
+--insert
+insert input human vlaues('yoon1',27,179.2,systimestamp)
+insert input human vlaues('yoon2',26,178.3,systimestamp)
+insert input human vlaues('yoon3',25,177.4,systimestamp)
+insert input human vlaues('yoon4',24,176.5,systimestamp)
+commit -- 디비내용이 변경되면 반드시 commit을 실행(작업확정)
+rollback -- 적용하지않음(작업취소)
+
+--select
+select * from human
+select name,birthday from human
+select name,birthday from human where name='yoon1'
+
+--update
+update human
+set age=30 where name='yoon1'
+commit
+
+--delete 데이터삭제
+delete human 
+where name='yoon1'
+commit
+
+--drop table삭제
+drop table human 
+
+--특정 table 구조확인
+desc human
+--존재하는 table 확인
+select * from tab;

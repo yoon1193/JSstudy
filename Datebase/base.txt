@@ -1,0 +1,23 @@
+SQL = datebase 조작할때 사용하는 언어.
+관계형database = talble형태로 데이터를 저장하는 datebase.
+column = 열,항목
+row = 행,하나의 데이터
+Create = table생성
+Drop = table삭제
+insert = table안 데이터입력
+delete = table안 데이터삭제 
+update = table안 데이터변경 
+select = table안 데이터검색
+
+<자료형>
+1.number 숫자자료형 정수형 +-38자리
+  number(n) = 정수 n자리
+  number(10,3) = 실수저장 10자리에 소수점 3자리 ex)1234567.111
+
+2.char2(n) = 문자 n개저장(영어기준) / 한글은 2~3개 공간사용 / 고정 (검색빠름)
+  varchar2(n) = 문자 n개저장(영어기준) / 한글은 2~3개 공간사용 / 가변 (저장공간 줄어듬)
+  nchar() = n 유니코드
+
+3.date = BC 4712년 1월 1일부터 9999년 12월 31일, 년, 월, 일, 시, 분, 초 까지 입력 가능
+         YYYY MM DD HH24 MI SS       sysdate=현재시간
+  timestamp = YYYY MM DD HH24 MI SS FF 년 월 일 시 분 초 미리세컨드    systimestamp=현재시간
