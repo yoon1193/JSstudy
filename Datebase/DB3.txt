@@ -1,0 +1,124 @@
+@c:\sql\scott.sql;
+select * from tab;
+--emp SCOTT/TIGER
+select * from emp;
+select * from dept;
+select * from salgrade; 
+select * from bonus;
+
+--drop table member;
+
+create table member(
+    memberno number(4),
+    membername nvarchar2(20),
+    email nvarchar2(30),
+    recommender number(4),
+    money number(10),
+    point number(5,2),
+    registration TIMESTAMP,
+    cafe number(2)
+);
+
+insert into member values (1111,'홍길동','aa123@naver.com',4444,'5000','2','2001-02-21 11:23:20',11);
+insert into member values (2222,'민서','aa456@naver.com',8888,'10000',null,'2003-08-13 08:23:50',12);
+insert into member values (3333,'민아','aa127@naver.com',8888,'3000','10','2001-02-10 18:23:32',13);
+insert into member values (4444,'종혁','aa1756@naver.com',null,'2000','2','2004-11-08 14:23:40',14);
+insert into member values (5555,'병찬','aa143@naver.com',4444,'1000','3','2001-12-01 13:23:20',15);
+insert into member values (6666,'보경','aa14563@naver.com',0000,'500','4','2008-08-09 12:23:20',16);
+insert into member values (7777,'현아','aa1123@naver.com',3333,'100','4','2009-05-26 10:23:20',17);
+insert into member values (8888,'정호','aa15343@naver.com',4444,'4500','3','2010-03-17 10:23:20',18);
+insert into member values (9999,'김숙','aa1213@naver.com',8888,'6800','6','2007-03-30 11:23:20',19);
+insert into member values (0000,'연아','aa14@naver.com',9999,'5000','7','2006-05-28 10:23:20',10);
+
+INSERT INTO MEMBER VALUES (3113,'김일번','abc1@naver.com',Null,10000,Null,to_date('17-4-2020','dd-mm-yyyy'),11);
+INSERT INTO MEMBER VALUES (1112,'김이번','abc2@naver.com',Null,10100,Null,to_date('17-5-2020','dd-mm-yyyy'),12);
+INSERT INTO MEMBER VALUES (1113,'김삼번','abc3@naver.com',Null,10200,Null,to_date('17-6-2020','dd-mm-yyyy'),13);
+INSERT INTO MEMBER VALUES (1114,'김사번','abc4@naver.com',Null,10300,Null,to_date('17-7-2020','dd-mm-yyyy'),14);
+INSERT INTO MEMBER VALUES (1115,'김오번','abc5@naver.com',Null,10400,Null,to_date('17-8-2020','dd-mm-yyyy'),15);
+INSERT INTO MEMBER VALUES (1116,'김육번','abc6@naver.com',1111,10500,Null,to_date('17-9-2020','dd-mm-yyyy'),16);
+INSERT INTO MEMBER VALUES (1117,'김칠번','abc7@naver.com',1112,10600,Null,to_date('17-10-2020','dd-mm-yyyy'),17);
+INSERT INTO MEMBER VALUES (1118,'김팔번','abc8@naver.com',1113,10700,Null,to_date('17-11-2020','dd-mm-yyyy'),18);
+INSERT INTO MEMBER VALUES (1119,'김구번','abc9@naver.com',1114,10800,Null,to_date('17-12-2020','dd-mm-yyyy'),19);
+INSERT INTO MEMBER VALUES (1120,'김십번','abc0@naver.com',Null,10900,Null,to_date('17-1-2020','dd-mm-yyyy'),10);
+INSERT INTO member VALUES (1222,'산건적','222w@naver.com',1111,40000,Null,to_date('11-4-1981','dd-mm-yyyy'),2);
+INSERT INTO member VALUES (1333,'주윤발','33fw@naver.com',1111,50000,Null,to_date('2-1-1981','dd-mm-yyyy'),3);
+INSERT INTO member VALUES (2444,'원빈','a44fw@naver.com',1111,60000,Null,to_date('22-1-1981','dd-mm-yyyy'),4);
+INSERT INTO member VALUES (3555,'둘리','a555fw@naver.com',9999,30000,34,to_date('20-1-1981','dd-mm-yyyy'),5);
+INSERT INTO member VALUES (6666,'김말동','666dfw@naver.com',9999,30000,34,to_date('20-1-1981','dd-mm-yyyy'),5);
+INSERT INTO member VALUES (3888,'아빠','a77w@naver.com',2222,200300,314,to_date('22-11-1981','dd-mm-yyyy'),2);
+select * from member;
+commit;
+
+
+
+--dual test용으로 화면 출력할때
+select * from dual;
+select 'HI' from dual;
+select systimestamp from dual;
+--member tab의 모든 컬럼 모든 데이터
+select *  from member;
+select memberno,email from member;
+select * from emp;
+select empno,ename from emp;
+select ename,sal,hiredate from emp;
+
+--컬럼의 산술 연산이 가능하다.
+--기존 가지고 있는 금액보다 500원 추가 
+select membername,money+500 from member;
+select membername,money,money+500 from member;
+--point당 50원 환산해서 총 얼마 사용가능한지, 총액을 출력
+select membername,point*50+money,money,point from member;
+--null은 어떤 연산을 해도 null
+--null은 숫자 0,빈공간도 아님/확정되지 않은 값
+--null은 = 연산자로 비교할 수 없다
+--null 빈공간 표현 ,,/''/null
+--nvl(컬럼,대체 값nvl(point,0);
+--as 복잡한 컬럼명을 바꿔줌 생략가능
+select membername,nvl(point,0)*50+money Sum,money,nvl(point,0)as point from member;
+--컬럼 합치기, xx가 사용가능한 돈은
+select membername||'이/가 사용가능한 돈은'||(nvl(point,0)*50+money) result from member;
+
+select cafe from member;
+--distinct중복내용 삭제,전체출력결과가 중복되는것을 삭제
+select distinct cafe from member;
+select distinct cafe,membername from member;
+
+
+--문제
+select * from emp;
+select ename,sal,nvl(comm,0) comm,sal*12+nvl(comm,0)SALAY from emp;
+select ename||'는 사번이'||empno from emp;
+select distinct deptno from emp;
+select distinct job from emp;
+
+--where 원하는 데이터 출력하기
+select * from member;
+select * from member where money<=5000;
+select * from member where money<>5000;-- != , ^= 같은
+select * from emp;
+select * from emp where DEPTNO =10; 
+--SQL은 대소문자 구분x, 데이터는O
+select * from emp where ename='CLARK';
+select empno,ename,sal from emp where sal<2000;
+
+--registration 날짜비교
+select * from member where registration<'2020/01/01 00:00:00';
+
+--논리연산자 AND OR NOT
+select * from member where money>=5000 AND cafe=2;
+select * from member where money>=5000 AND NOT cafe=2;
+select money,cafe from member where money=5000 OR cafe=10;
+select * from member where money>=5000 OR cafe!=2;
+select * from member where NOT money>5000 ;
+
+select * from emp;
+select * from emp where deptno=20 and job='MANAGER'; 
+select * from emp where comm=300 or comm=1400;
+select * from emp where 20000<=sal*12+nvl(comm,0) and sal*12+nvl(comm,0)<=40000;
+
+--between 사이값 출력,in 해당값 출력
+select * from member where money between 3000 and 10000; --이상 이하 값 
+select * from member where money not between 3000 and 10000; --이상 이하 값 
+select * from member where cafe in (11,12,13,14,15);
+select * from member where cafe not in (11,12,13,14,15);
+select * from member where money between 3000 and 10000 and cafe in (11,12,13,14,15);
