@@ -7,31 +7,22 @@
     <style>
         *{margin:0;padding:0;}
         #wrap{
-            min-width: 1100px;
-            height: 100%;
-            /* margin: 0 auto; */
+            min-width: 1000px;
             background-color: aquamarine;
-            position: relative;
-            
         }
         #wrap1{
             width: 100%;
             height: 100%;
             margin: 0px auto;
             background-color:white;
-            position: absolute;
             top:0; bottom: 0; left: 10; right: 0;
-            overflow: hidden;
+            
         }
         #header{
             width:auto;
             height: 130px;
-            /* margin: 0 auto; */
             background-color:#111111;
             text-align: center;
-            
-            /* overflow: hidden; */
-          
         }
        #header #name{
             width: 300px; 
@@ -42,8 +33,7 @@
             color:aliceblue; 
             margin: 10px; 
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            float: left;
-            
+            float: left;   
         }
         #header #menu1{
             width: 250px;
@@ -77,28 +67,28 @@
             margin: 0px;
             padding: 0px;
         }
+
         
-    
-        .slide{height:400px;overflow:hidden;position:relative;}
-        .slide ul{width:calc(100% * 4);display:flex;transition:1s;}
-        .slide li{width:calc(100% / 4);height:400px;}
+        .slide{height:450px;overflow:hidden;}
+        .slide ul{width:calc(100% * 4);display:flex;animation:slide 20s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
+        .slide li{width:calc(100% / 4);height:450px;}
         .slide li:nth-child(1){background-image: url("img/크기변환_fb8.jpg");}
-        .slide li:nth-child(2){background-image: url("img/크기변환_fb6.jpg ");}
+        .slide li:nth-child(2){background-image: url("img/크기변환_fb6.jpg");}
         .slide li:nth-child(3){background-image: url("img/fb2.jpg");}
         .slide li:nth-child(4){background-image: url("img/크기변환_fb4.jpg");}
-        .slide input{display:none;}
-        .slide .bullet{position:absolute;bottom:20px;left:0;right:0;text-align:center;z-index:10;}
-        .slide .bullet label{width:10px;height:10px;border-radius:10px;border:2px solid #666;display:inline-block;background:#fff;font-size:0;transition:0.5s;cursor:pointer;}
-        /* 슬라이드 조작 */
-        #pos1:checked ~ ul{margin-left:0;}
-        #pos2:checked ~ ul{margin-left:-100%;}
-        #pos3:checked ~ ul{margin-left:-200%;}
-        #pos4:checked ~ ul{margin-left:-300%;}
-        /* bullet 조작 */
-        #pos1:checked ~ .bullet label:nth-child(1),
-        #pos2:checked ~ .bullet label:nth-child(2),
-        #pos3:checked ~ .bullet label:nth-child(3),
-        #pos4:checked ~ .bullet label:nth-child(4){background:#666;}
+        @keyframes slide {
+        0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+        20% {margin-left:0;} /* 10 ~ 25 : 변이 */
+        25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
+        45% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
+        50% {margin-left:-200%;}
+        70% {margin-left:-200%;}
+        75% {margin-left:-300%;}
+        95% {margin-left:-300%;}
+        100% {margin-left:0;}
+        }
+        
+
     </style>
 
 </head>
@@ -128,28 +118,20 @@
             </div>
 
             <div class="slide">
-                <input type="radio" name="pos" id="pos1" checked>
-                <input type="radio" name="pos" id="pos2">
-                <input type="radio" name="pos" id="pos3">
-                <input type="radio" name="pos" id="pos4">
                 <ul>
                     <li>&emsp;&emsp;&emsp;<p>지금</p></bt><span style="color: #fab327; font-size: 50px;">FOOTBALL MATCHING</span>에서<br>&emsp;어떤 경기들이 있는지<br> &emsp;&emsp;확인하세요!</li>
+                    
                     <li></li>
                     <li></li>
                     <li></li>
                 </ul>
-                <p class="bullet">
-                <label for="pos1">1</label>
-                <label for="pos2">2</label>
-                <label for="pos3">3</label>
-                <label for="pos4">4</label>
-                </p>
+          
                 
             </div>
-            <div id="menu3" style="height: 400px;background-color:cornsilk">
-                     아카데미
-                    블라블라
-                    사진
+            <div id="menu3" style="margin-top: 5px; height: 500px;background-color:aqua; background-image: url('img/크기변환_fn.jpg');">
+                   <ul>
+                       <li>아카데미 오픈 </li>
+                   </ul>
             </div>
         
             <div id="footer" style="height: 300px; background-color: brown;"> 

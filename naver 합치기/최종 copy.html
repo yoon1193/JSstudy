@@ -1,0 +1,1469 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* 상단 */
+        .area {
+            background-color: white;
+            height: 130px;
+        }
+
+        .area .bn {
+            position: relative;
+            margin: 0 auto;
+            width: 1080px;
+            height: 100%;
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .area .nhat {
+            width: 50px;
+            height: 50px;
+        }
+
+        .area .naver_logo {
+            color: #03CF5D;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: arial black;
+        }
+
+        .area .s_input {
+            margin-top: 10px;
+            margin-left: 5%;
+            width: 450px;
+            height: 40px;
+            border: 2px solid #03CF5D;
+        }
+
+        .area .sclick {
+            margin-top: 10px;
+            margin-left: 2%;
+            height: 45px;
+            width: 50px;
+            min-width: 10px;
+        }
+
+        .n_link {
+            height: 46px;
+            border: 2px solid #03CF5D;
+            background-color: #03CF5D;
+            color: white;
+        }
+
+        .up_div {
+            height: 30px;
+            justify-content: flex-end;
+            margin-top: -15px;
+            display: flex;
+            width: 280px;
+            min-width: 10px;
+            margin-left: 100px;
+        }
+
+        .up {
+            color: #888888;
+            margin: 3px;
+            font-size: 11px;
+            font-family: "돋움";
+        }
+
+        .menuList {
+            border: 0.1px solid #F1F3F6;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 46px;
+            margin-top: -40px;
+            min-width: 1100px;
+        }
+
+        ul.item1 {
+            list-style: none;
+            display: inline-flex;
+            margin: 10px;
+            margin-left: -100px;
+        }
+
+        ul.item2 {
+            list-style: none;
+            display: inline-flex;
+            margin: 10px;
+
+        }
+
+        li {
+            margin: 7px;
+            margin-top: 1px;
+        }
+
+        .an_bar {
+            margin-top: 8px;
+            color: #F1F3F6;
+        }
+
+        .an_more {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .an_txt {
+            color: #03CF5D;
+            font-family: "돋움";
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .more {
+            color: black;
+            font-family: "돋움";
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .item2 .an_txt {
+            color: black;
+        }
+
+        .real_time {
+            margin-top: 15px;
+            left: 550px;
+            margin-left: 40px;
+            color: #666666;
+            font-size: 14px;
+            font-family: "돋움";
+        }
+
+        #bnlink {
+            text-decoration: none;
+        }
+
+        .ppl {
+            width: 50%;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-left: 20%
+        }
+
+        .container_wrap {
+            min-width: 1100px;
+            margin: auto;
+            background-color: #F2F4F7;
+            
+        }
+
+        /* 컨테이너 */
+        .container{
+            width: 1100px;
+            height: 1466px;
+            margin: auto;  
+        }
+
+        /* 컨테이너 왼쪽 */
+        .colum_left {
+            width: 740px;
+            height: 428px;
+            display: inline-block;
+            margin: 10px 0px 0px 10px;
+        }
+
+        /* 광고 */
+        .ppl {
+            width: 740px;
+            height: 120px;
+            margin: 0px;
+            margin-bottom: 10px;
+        }
+
+        .pplimg {
+            width: 740px;
+            height: 120px;
+        }
+
+        /* 뉴스     */
+        #myimg6 {
+            display: block;
+        }
+
+        /*컨테이너 오른쪽*/
+        .colum_right {
+            width: 332px;
+            float: right;
+            margin: 10px 10px 0px 0px;
+        }
+
+        #naverFont {
+            color: #888;
+            font-size: 12px;
+            line-height: 14px;
+            margin: 0px 10px 10px 10px;
+            border: 1px solid #dee3eb;
+            background-color: #ffffff;
+            width: 298px;
+            height: 118px;
+            text-align: left;
+            padding: 0 0 0 20px;
+        }
+
+        #naverFont div {
+            margin: 10px auto;
+        }
+
+        .colum_right a {
+            color: #888;
+            font-size: 12px;
+            line-height: 14px;
+            text-decoration: none;
+        }
+
+        .colum_right a:hover {
+            text-decoration: underline;
+        }
+
+        #cover {
+            float: left;
+        }
+
+        #cover1 {
+            float: right;
+            padding: 0 25px;
+        }
+
+        #naverLogin {
+            margin: 0 0 0 0;
+        }
+
+        #corona {
+            font-size: 12px;
+            line-height: 14px;
+            border: 1px solid #dee3eb;
+            background-color: #ffffff;
+            margin: 10px;
+            width: 318px;
+            height: 138px;
+            border: #dee3eb solid 1px;
+
+        }
+
+        #corona div {
+            float: left;
+        }
+
+        #corona_1 {
+            width: 93px;
+            height: 25px;
+            padding: 10px 0 0 10px;
+            font-size: 14px;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        #corona_2 {
+            width: 70px;
+            height: 35px;
+            border: #dee3eb solid 0.5px;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        #corona_3 {
+            padding: 10px 0 0 0;
+            width: 104px;
+            height: 25px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        #corona_4 {
+            padding: 10px 10px 0 0;
+            width: 30px;
+            height: 25px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        #corona_6 {
+            width: 228px;
+            height: 100px;
+        }
+
+        #corona_6_1 {
+            font-size: 12px;
+            color: #2565d0;
+            font-weight: 700;
+        }
+
+        #corona_6 ul {
+            margin: 0 0 0 -20px;
+            padding: 15px 0 0 50px;
+        }
+
+        #corona_6 li {
+
+            margin: 5px auto;
+            width: 90px;
+            float: left;
+        }
+
+        #corona_7 {
+            width: 90px;
+            height: 80px;
+            margin: 0px auto;
+            padding: 20px 0 0 0;
+            text-align: center;
+        }
+
+        #lion {
+            margin: 10px 10px 0px 10px;
+            width: 318px;
+            height: auto;
+        }
+
+        /*캐스트*/
+        #themecast {
+            background-color: rgb(255, 255, 255);
+            width: 740px;
+            margin: 10px 0px 0px 10px;
+            display: inline-block;
+        }
+
+        .themecast_list {
+            width: 707px;
+            height: 820px;
+            border: 1px solid #DEE3EB;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 15px 18px 3px 15px;
+        }
+
+        #PM_ID_themecastNavi {
+            width: 740px;
+            height: 44px;
+            border-top: 1px solid #DEE3EB;
+            border-left: 1px solid #DEE3EB;
+            border-right: 1px solid #DEE3EB;
+            justify-content: center;
+            flex-wrap: warp;
+            display: flex;
+        }
+
+        .sub {
+            width: 346px;
+            height: 16px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .sub_con {
+            font-size: 11px;
+            color: #686464;
+        }
+
+        .tl_title {
+            width: 163px;
+            height: 185px;
+        }
+
+        .big_image {
+            width: 346px;
+            height: 185px;
+        }
+
+        .thum {
+            width: 163px;
+            height: 185px;
+        }
+
+        .bottom_thum {
+            width: 346px;
+            height: 185px;
+            justify-content: start;
+            flex-basis: 0px
+        }
+
+        .bottom_thum1 {
+            width: 346px;
+            height: 120px;
+        }
+
+        .bottom_thum2 {
+            width: 346px;
+            height: 120px;
+        }
+
+        .bottom_thum_sub {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .bottom_thum1>.sub {
+            font-size: 15px;
+        }
+
+        div.f1 {
+            width: 40px;
+            height: 40px;
+            margin-top: 1px;
+        }
+
+        div.f2 {
+            width: 40px;
+            height: 40px;
+            margin-top: 1px;
+        }
+
+        div.f3 {
+            width: 40px;
+            height: 40px;
+            margin-top: 1px;
+        }
+
+        div.long {
+            width: 600px;
+            height: 40px;
+            margin-top: 1px;
+        }
+
+        /*쇼핑 전체를 묶는 wrap*/
+        #shopping_wrap {
+            position: relative;
+            width: 320px;
+            height: 882px;
+            background-color: white;
+            border: 1px solid #DEE3EB;
+            overflow: hidden;
+            float: right;
+            margin-top: 10px;
+            margin-right: 10px;
+
+        }
+
+        #shopping_menu_title {
+            width: 54px;
+            margin: 0;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /*탭 메뉴*/
+        #tab_menu_container {
+            margin: 0;
+            width: 330px;
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            border-bottom: 1px solid #DEE3EB;
+        }
+
+        /*탭 메뉴에 마우스 올렸을때 나타나는 이벤트 설정*/
+        #shopping_button {
+            flex: 2;
+            text-align: right;
+        }
+
+        button {
+            background: none;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+        }
+
+        .tap_wrap {
+            width: 330px;
+        }
+
+        .tab_menu_btn {
+            width: 80px;
+            height: 40px;
+            transition: 0.3s all;
+        }
+
+        .tab_menu_btn.on {
+            border-bottom: 2px solid #df0000;
+            font-weight: 700;
+            color: #df0000;
+        }
+
+        .tab_menu_btn:hover {
+            color: #df0000;
+        }
+
+        .tab_box {
+            display: none;
+        }
+
+        .tab_box.on {
+            display: block;
+        }
+
+        /*탭 내용*/
+        #tab_box_container {
+            margin: 0;
+            position: absolute;
+            top: 50px;
+            left: 0px;
+            overflow: hidden;
+        }
+
+        /*쇼핑몰 목록*/
+        #top_menu {
+            width: 330px;
+            margin: auto;
+            display: block;
+            text-align: center;
+            font-size: 13px;
+            color: lightgray;
+            line-height: 180%;
+            margin-top: 2px;
+            margin-bottom: 3px;
+            border-bottom: 1px solid #DEE3EB;
+
+        }
+
+        /*쇼핑몰 목록 링크 검정색으로 만들어주기*/
+        #shopping_wrap a:link {
+            text-decoration: none;
+            color: #333333;
+        }
+
+        /*사진 물품목록 페이지 버튼설정*/
+        #gift_list_page {
+            text-align: right;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .button_left {
+            background-image: url("naver/left_button.png");
+            background-repeat: no-repeat;
+            background-size: 25px 25px;
+            margin: 0;
+            width: 25px;
+            height: 25px;
+            outline: 0px;
+            border: 0px;
+            padding: 0;
+            font-family: 돋움;
+            position: relative;
+            top: 8px;
+        }
+
+        .button_right {
+            background-image: url("naver/right_button.png");
+            background-repeat: no-repeat;
+            background-size: 25px 25px;
+            margin: 0;
+            width: 25px;
+            height: 25px;
+            outline: 0px;
+            border: 0px;
+            padding: 0;
+            font-family: 돋움;
+            position: relative;
+            top: 8px;
+        }
+
+        /*상품 이미지 설명 폰트설정*/
+        .gift_list_pic {
+            font-size: 12px;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #DEE3EB;
+        }
+
+        /*상품 이미지 설정*/
+        .gift_image {
+            width: 94px;
+            height: 117px;
+            text-align: center;
+            overflow: hidden;
+            margin-top: 10px;
+            line-height: 180%;
+        }
+
+        /*쇼핑뉴스*/
+        #hello_shopping_world {
+            font-size: 14px;
+            margin: 0;
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+
+        #shopping_news {
+            font-size: 13px;
+            margin: 2px;
+            line-height: 200%;
+            margin-top: 10px;
+        }
+
+        .shopping_news_title {
+            color: rgb(157, 138, 224);
+        }
+
+        .shopping_news_bold {
+            color: rgb(84, 236, 130);
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        /*하단*/
+        #wrap1 {
+            width: 738px;
+            height: 120px;
+            margin: 10px 10px 0px 10px;
+            border: 1px solid #dee3eb;
+            float: left;
+            background-color: white;
+        }
+
+        #startup {
+            margin: 10px 0px 0px 8px;
+            width: 321px;
+            height: 120px;
+            border: 1px solid #DEE3EB;
+        }
+
+        #footer {
+            width: 100%;
+            min-width:1200px;
+            height: 300px;
+            
+        }
+
+        #footerHead {
+            width: 100%;
+            max-width:1250px;
+            height: 50px;
+            border-top: 1px solid #dee3eb;
+            border-bottom: 1px solid #f1f3f6;
+
+        }
+
+        #footside {
+            width: 700px;
+            float: left;
+            margin-left: 90px;
+            background-color: ivory;
+        }
+
+        #footside1 {
+            width: 400px;
+            float: right;
+        }
+
+        #footbottom {
+            width: 1200px;
+            margin-top: 20px;
+        }
+
+        /* ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        } */
+        #footer li {
+            font-size: 11px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #wrap1 a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        #wrap1 a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        #wrap1 a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        #footerHead a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        #footerHead a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        #footerHead a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        a:link {
+            color: gray;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: gray;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: gray;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 상단 -->
+    <div class="area">
+        <div class="bn">
+            <div class="hat"><img class="nhat" src="img/모자로고.jpg"></div>
+            <div class="naver"><a id="bnlink" data-clk="top.logo" href="https://www.naver.com/"><span
+                        class="naver_logo">NAVER
+                    </span></a></div>
+            <div><input class="s_input" type="text"></div>
+            <div class="sclick">
+                <a id="bnlink" data-clk="top.logo"
+                    href="https://search.naver.com/search.naver?sm=top_hty&fbm=0&ie=utf8&query="><span
+                        class="naverLink"></span><button class="n_link">검색</button></a>
+            </div>
+            <div class="up_div">
+                <div class="up" id="t1">네이버를시작페이지로> </div>
+                <div class="up" id="t2">쥬니어네이버</div>
+                <div class="up" id="t3">해피빈</div>
+            </div>
+        </div>
+    </div>
+    <div class="menuList">
+        <ul class="item1">
+            <li class="item"><a id="bnlink" href="https://mail.naver.com/" class="an_a mn_mail" data-clk="svc.mail">
+                    <span class="an_icon"></span><span class="an_txt">메일</span>
+                </a></li>
+            <li class="item"><a id="bnlink" href="https://section.cafe.naver.com/" class="an_a mn_cafe"
+                    data-clk="svc.cafe">
+                    <span class="an_icon"></span><span class="an_txt">카페</span>
+                </a></li>
+            <li class="item"><a id="bnlink" href="https://section.blog.naver.com/" class="an_a mn_blog"
+                    data-clk="svc.blog">
+                    <span class="an_icon"></span><span class="an_txt">블로그</span>
+                </a></li>
+            <li class="item"><a id="bnlink" href="https://kin.naver.com/" class="an_a mn_kin" data-clk="svc.kin">
+                    <span class="an_icon"></span><span class="an_txt">지식인</span>
+                </a></li>
+            <li class="item"><a id="bnlink" href="https://shopping.naver.com/" class="an_a mn_shopping"
+                    data-clk="svc.shopping">
+                    <span class="an_icon"></span><span class="an_txt">쇼핑</span>
+                </a></li>
+            <li class="item"><a id="bnlink" href="https://order.pay.naver.com/home" class="an_a mn_checkout"
+                    data-clk="svc.pay">
+                    <span class="an_icon"></span><span class="an_txt">Pay</span>
+                </a></li>
+            <li class="item"><a id="bnlink" href="https://tv.naver.com/" class="an_a mn_tvcast" data-clk="svc.tvcast">
+                    <span class="an_icon"></span><span class="an_txt">▷TV</span>
+                </a></li>
+        </ul>
+        <ul class="item2">
+            <li class="item"><a id="bnlink" href="https://dict.naver.com/" class="an_a mn_dic" data-clk="svc.dic"><span
+                        class="an_icon"></span><span class="an_txt">사전</span></a></li>
+            <li class="item"><a id="bnlink" href="https://news.naver.com/" class="an_a mn_news"
+                    data-clk="svc.news"><span class="an_icon"></span><span class="an_txt">뉴스</span></a></li>
+            <li class="item"><a id="bnlink" href="https://finance.naver.com/" class="an_a mn_stock"
+                    data-clk="svc.stock"><span class="an_icon"></span><span class="an_txt">증권</span></a></li>
+            <li class="item"><a id="bnlink" href="https://land.naver.com/" class="an_a mn_land"
+                    data-clk="svc.land"><span class="an_icon"></span><span class="an_txt">부동산</span></a></li>
+            <li class="item"><a id="bnlink" href="https://map.naver.com/" class="an_a mn_map" data-clk="svc.map"><span
+                        class="an_icon"></span><span class="an_txt">지도</span></a></li>
+            <li class="item"><a id="bnlink" href="https://movie.naver.com/" class="an_a mn_movie"
+                    data-clk="svc.movie"><span class="an_icon"></span><span class="an_txt">영화</span></a></li>
+            <li class="item"><a id="bnlink" href="https://vibe.naver.com/?from=naver_main" class="an_a mn_music"
+                    data-clk="svc.music"><span class="an_icon"></span><span class="an_txt">뮤직</span></a></li>
+            <li class="item"><a id="bnlink" href="https://book.naver.com/" class="an_a mn_book"
+                    data-clk="svc.book"><span class="an_icon"></span><span class="an_txt">책</span></a></li>
+            <li class="item"><a id="bnlink" href="https://comic.naver.com/" class="an_a mn_comic"
+                    data-clk="svc.webtoon"><span class="an_icon"></span><span class="an_txt">웹툰</span></a></li>
+        </ul>
+        <div class="an_bar">|</div>
+        <span class="an_more"><span class="more">더보기</span></span>
+        <span class="real_time">선거기간 동안 제공되지 않습니다</span>
+    </div>
+    <!-- 컨테이너 -->
+    <div class="container_wrap">
+        <div class="container">
+            <!-- 컨테이너 왼쪽 -->
+            <div class="colum_left">
+                <!-- 광고 -->
+                <div class="ppl">
+                    <img class="pplimg" src="img/ppl.jpg">
+                </div>
+                <!-- 뉴스 -->
+                <div style="clear:both"></div>
+                <div style="border:1px solid #dee3eb; width:738px; height: 40px; background-color: white; ">
+                    <div>
+                        <div
+                            style="float: left;width:80px; height: 30px; text-align: center; font-weight: bold ;font-size: 12px; margin-top:10px;">
+                            <p>연합뉴스</p>
+                        </div>
+                        <div
+                            style="float: left;width:408px; height: 30px; text-align: left; font-weight: bold ;font-size: 12px; margin-top:10px;">
+                            <p>
+                                <a href="http://news.naver.com/main/list.nhn?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y&aid=0011528989"
+                                    style="text-decoration: none; color:#222222">코로나 신규 확진자 이틀째 50명 이하…정부 "안심할 상황 아냐</a>
+                            </p>
+                        </div>
+                        <div
+                            style="float: left;width:100px; height: 30px; color: #27a11d; font-weight: bold ;text-align: center; font-size: 12px; margin-top:10px;">
+                            <p>
+                                <a href="https://news.naver.com/" style="text-decoration: none; color: #27a11d;">네이버
+                                    뉴스</a></p>
+                        </div>
+                        <div
+                            style="float: left;width:40px; height: 30px;text-align: center; color: #888888; font-weight: bold ;font-size: 12px; margin-top:10px;">
+                            <p>
+                                <a href="https://entertain.naver.com/home"
+                                    style="text-decoration: none; color:#888888;">연예</a></p>
+                        </div>
+                        <div
+                            style="float: left;width:50px; height: 30px;text-align: center; color: #888888; font-weight: bold ;font-size: 12px; margin-top:10px;">
+                            <p>
+                                <a href="https://sports.news.naver.com/index.nhn"
+                                    style="text-decoration: none; color:#888888;">스포츠</a></p>
+                        </div>
+                        <div
+                            style="float: left;width:60px; height: 30px; text-align: center; color: #888888; font-weight: bold ;font-size: 12px; margin-top:10px;">
+                            <p>
+                                <a href="https://news.naver.com/main/election/nation2020/index.nhn"
+                                    style="text-decoration: none; color:#888888;"><img src="img/총선.JPG" ;
+                                        align="left">총선</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div style="margin-top: 10px; border-bottom:1px solid #dee3eb; width:740px; ">
+                    <div>
+                        <div style="width:740px;">
+                            <div style="float: left;"><a href="https://entertain.naver.com/home"
+                                    style="text-decoration: none;"><img id="myimg6" src="img/사진_001.jpg" width=100%;
+                                        height=100%></a></div>
+                            <div style="float: left;"><img id="myimg6" src="img/사진_002.jpg" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/사진_003.jpg" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/사진_004.jpg" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/사진_005.jpg" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/사진_006.jpg" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/사진_007_001.jpg" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><a href="https://newsstand.naver.com/config.html"
+                                    style="text-decoration: none;"><img id="myimg6" src="img/사진_007_002.jpg" width=100%;
+                                        height=100%></a></div>
+                            <div style="float: left;"><img id="myimg6" src="img/사진_008_001.jpg" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/사진_008_002.jpg" width=100%; height=100%>
+                            </div>
+                        </div>
+                        <div style="width:740px;">
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_001.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_002.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_003.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_004.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_005.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_006.JPG" width=100%; height=100%>
+                            </div>
+                        </div>
+                        <div style="width:740px;">
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_007.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_008.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_009.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_010.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_011.JPG" width=100%; height=100%>
+                            </div>
+                            <div style="float: left;"><img id="myimg6" src="img/캡처_012.JPG" width=100%; height=100%>
+                            </div>
+                        </div>
+                        <div style="width:740px;border-bottom:1px solid #dee3eb;">
+                            <div style="float: left;border-bottom:1px solid #dee3eb;"><img id="myimg6"
+                                    src="img/캡처_013.JPG" width=100%; height=100%></div>
+                            <div style="float: left;border-bottom:1px solid #dee3eb;"><img id="myimg6"
+                                    src="img/캡처_014.JPG" width=100%; height=100%></div>
+                            <div style="float: left;border-bottom:1px solid #dee3eb;"><img id="myimg6"
+                                    src="img/캡처_015.JPG" width=100%; height=100%></div>
+                            <div style="float: left;border-bottom:1px solid #dee3eb;"><img id="myimg6"
+                                    src="img/캡처_016.JPG" width=100%; height=100%></div>
+                            <div style="float: left;border-bottom:1px solid #dee3eb;"><img id="myimg6"
+                                    src="img/캡처_017.JPG" width=100%; height=100%></div>
+                            <div style="float: left;border-bottom:1px solid #dee3eb;"><img id="myimg6"
+                                    src="img/캡처_018.JPG" width=100%; height=100%></div>
+                        </div>
+                    </div>
+                    <!--뉴스마지막-->
+                </div>
+                <!--colum_left내용구분-->
+            </div>
+            <!--컨테이너 왼쪽 끝-->
+            <!--컨테이너 오른쪽-->
+            <div class="colum_right">
+                <div id="naverFont">
+                    <div>네이버를 더 안전하고 편리하게 이용하세요.</div>
+                    <div id="naverLogin" style="margin: 0 0 0 0;"><a
+                            href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com"
+                            target="blank"><img src="img/네이버로그인버튼.png"></a> </div>
+
+
+                    <div id="cover"><a href="https://nid.naver.com/user2/help/idInquiry.nhn?menu=idinquiry">아이디찾기</a>·<a
+                            href="https://nid.naver.com/user2/help/pwInquiry.nhn?menu=pwinquiry">비밀번호 찾기</a> </div>
+
+                    <div id="cover1"><a href="https://nid.naver.com/user2/V2Join.nhn?m=agree&lang=ko_KR&cpno=">회원가입</a>
+                    </div>
+                </div>
+                <div id="corona">
+                    <div style="border-bottom: #dee3eb solid 1px">
+                        <div id="corona_1"><a href="https://nid.naver.com/nidlogin.login?mode=form&url="
+                                id="corona_1">04.07.</a>(화) │</div>
+
+                        <div id="corona_3">이슈</div>
+                        <div id="corona_4"><b>1</b>/6</div>
+
+                        <div id="corona_2"><img src="img/화살표 모양 왼쪽.jpg" width="35px" height="35px"><img
+                                src="img/화살표모양 오른쪽.jpg" width="35px" height="35px"></div>
+                    </div>
+
+                    <div id="corona_6">
+                        <ul>
+                            <a href="https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%BD%94%EB%A1%9C%EB%82%9819"
+                                id="corona_6_1">코로나바이러스감염증 19 비상 </a>
+                            <li><a
+                                    href="https://terms.naver.com/entry.nhn?docId=5912275&cid=43667&categoryId=43667#TABLE_OF_CONTENT5">국내
+                                    현황 </a></li>
+                            <li><a
+                                    href="https://terms.naver.com/entry.nhn?docId=5909015&cid=43667&categoryId=43667#TABLE_OF_CONTENT1">세계
+                                    현황 </a></li>
+                            <li><a href="https://tv.naver.com/ktv">정부 브리핑 </a></li>
+                            <li><a href="https://search.naver.com/search.naver?sm=top_hty&fbm=0&ie=utf8&query=%EC%82%AC%ED%9A%8C%EC%A0%81+%EA
+            
+                                %B1%B0%EB%A6%AC%EB%91%90%EA%B8%B0">사회적 거리두기 </a></li>
+                        </ul>
+                    </div>
+                    <div id="corona_7"><a
+                            href="https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%BD%94%EB%A1%9C%EB%82%9819"
+                            target="blank"><img src="img/코로나 마스크모양.jpg"></a></div>
+                </div>
+                <div id="lion"><a href="https://blog.naver.com/jrnaver/221874608202" target="blank"><img
+                            src="img/쥬니버 동물 ar 사자그림.png" width="320" height="auto"></a></div>
+            </div>
+            <!--컨테이너 오른쪽 끝-->
+            <!--테마 캐스트-->
+            <div id="themecast">
+                <div id="PM_ID_themecastNavi">
+                    <div class="f1"><img src="bottom_image/15.jpg"></div>
+                    <div class="long"><img src="bottom_image/16.jpg"></div>
+                    <div class="f2"><img src="bottom_image/17.jpg"></div>
+                    <div class="f3"><img src="bottom_image/18.jpg"></div>
+                </div>
+                <div class="themecast_list">
+                    <div class="tl_title">
+                        <a href="http://tv.naver.com" class="tt_la" data-clk="tcc_tvc.link" data-gdid="UAT_1289254">
+                            <img src="bottom_image/0.jpg">
+                        </a>
+                    </div>
+                    <div class="big_image">
+                        <a href="https://www.vlive.tv/video/182989" class="tb_a" data-clk="tcc_tvc.two"
+                            data-gdid="UAT_5612131">
+                            <img src="bottom_image/1.jpg">
+                        </a>
+                    </div>
+                    <div class="thum">
+                        <a href="https://www.vlive.tv/video/177110" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5612133">
+                            <img src="bottom_image/2.jpg"><br>
+                        </a>
+                        <span class="sub">우리는 지금까지가 아니라 지금 부터니까</span><br>
+                        <span class="sub_con">언어의 온도 | 16회</span>
+                    </div>
+                    <div class="thum">
+                        <a href="https://tv.naver.com/v/13237842" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5614767">
+                            <img src="bottom_image/3.jpg">
+                        </a>
+                        <span class="sub">김민정♥조충현, 입사시절부터 시작된 너는 내 운명♥</span><br>
+                        <span class="sub_con">동상이몽2_너는 내 운명</span>
+                    </div>
+                    <div class="thum">
+                        <a href="https://tv.naver.com/v/13235779" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5614737">
+                            <img src="bottom_image/4.jpg">
+                        </a>
+                        <span class="sub">이재욱의 이상형 "웃는 게 이쁘고, 잘 먹고"</span><br>
+                        <span class="sub_con">날씨가 좋으면 찾아가겠어요</span>
+                    </div>
+                    <div class="thum">
+                        <a href="https://tv.naver.com/v/13237980" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5614738">
+                            <img src="bottom_image/5.jpg">
+                        </a>
+                        <span class="sub">"이제 공개 커플이야!" 공개 연애 시작한 혜림&민철</span><br>
+                        <span class="sub_con">부러우면 지는거다</span>
+                    </div>
+                    <div class="thum">
+                        <a href="https://tv.naver.com/v/13238436" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5614743">
+                            <img src="bottom_image/6.jpg">
+                        </a>
+                        <span class="sub">다올이와 헤어짐을 준비해야 하는 강훈련사..</span><br>
+                        <span class="sub_con">개는 훌륭하다</span>
+                    </div>
+                    <div class="thum">
+                        <a href="https://tv.naver.com/v/13235790" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5614766">
+                            <img src="bottom_image/7.jpg">
+                        </a>
+                        <span class="sub">'난 한서우가 걱정인데' 정해인, 채수빈과 #투닥투닥</span><br>
+                        <span class="sub_con">반의반</span>
+                    </div>
+                    <div class="thum">
+                        <a href="https://tv.naver.com/v/13236315" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5614774">
+                            <img src="bottom_image/8.jpg">
+                        </a>
+                        <span class="sub">죽음의 대상이 리셋터가 아니다?! 김지수의 본모습?</span><br>
+                        <span class="sub_con">365 : 운명을 거스르는 1년</span>
+                    </div>
+                    <div class="thum">
+                        <a href="https://tv.naver.com/v/13237199" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5614778">
+                            <img src="bottom_image/9.jpg">
+                        </a>
+                        <span class="sub">"이걸 태우면..?" 김서형, 권해효 앞 파격 행동!</span><br>
+                        <span class="sub_con">아무도 모른다</span>
+                    </div>
+                    <div class="thum">
+                        <a href="https://tv.naver.com/v/13236096" class="td_a" data-clk="tcc_tvc.contents"
+                            data-gdid="UAT_5614780">
+                            <img src="bottom_image/10.jpg">
+                        </a>
+                        <span class="sub">소비자들에게 안정감을 주는 시계광고의 공통점?</span><br>
+                        <span class="sub_con">옥탑방의 문제아들</span>
+                    </div>
+
+                    <div class="bottom_thum">
+                        <div class="bottom_thum1">
+                            <span class="sub">실시간 무료 '티빙TV'</span><br>
+                            <table class="bottom_thum_contents">
+                                <tr>
+                                    <td>
+                                        <a href="https://tv.naver.com/s/vingo/1285" class="tb_t"
+                                            data-clk="tcc_tvc.groupbtm" data-gdid="UAT_5610147">
+                                            <img src="bottom_image/11.jpg">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <font size=2px>날 녹여주오</font><br>
+                                        <span class="sub_con">1~16회 연속방송</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bottom_thum2">
+                            <table class="bottom_thum_contents">
+                                <tr>
+                                    <td>
+                                        <a href="https://tv.naver.com/s/vingo/1196" class="tb_t"
+                                            data-clk="tcc_tvc.groupbtm" data-gdid="UAT_5610148">
+                                            <img src="bottom_image/12.jpg">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <font size=2px>현지에서 먹힐까 시즌3</font><br>
+                                        <span class="sub_con">1~9회 연속방송</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bottom_thum">
+                        <div class="bottom_thum1">
+                            <span class="sub">인기/구독을 부르는 채널</span><br>
+                            <table class="bottom_thum_contents">
+                                <tr>
+                                    <td>
+                                        <a href="https://tv.naver.com/v/13026930" class="tb_o"
+                                            data-clk="tcc_tvc.groupbtmorigin" data-gdid="UAT_5610149">
+                                            <img src="bottom_image/13.jpg">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <font size=2px>지니키즈 (인기동요・동화)</font><br>
+                                        <span class="sub_con">[지니TV]로라 공주 봄 옷 패션</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="bottom_thum2">
+                            <table class="bottom_thum_bottom_thum_contents">
+                                <tr>
+                                    <td>
+                                        <a href="https://tv.naver.com/v/13079569" class="tb_t"
+                                            data-clk="tcc_tvc.groupbtm" data-gdid="UAT_5610150">
+                                            <img src="bottom_image/14.jpg">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <font size=2px>Choi주부</font><br>
+                                        <span class="sub_con">오독오독! 오이무침 황금레시피</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--테마 캐스트끝-->
+            <!--쇼핑-->
+            <div id="shopping_wrap">
+                <!--탭 메뉴 div-->
+                <div id="tab_menu_container">
+                    <div id="shopping_menu_title">
+                        <a href="https://shopping.naver.com/">
+                            <p><b>쇼핑</b></p>
+                        </a>
+                    </div>
+                    <div id="shopping_button">
+                        <button class="tab_menu_btn on" type="button">상품</button>
+                        <button class="tab_menu_btn" type="button">쇼핑몰</button>
+                        <button class="tab_menu_btn" type="button">MEN</button>
+                    </div>
+                </div>
+                <!--탭 내용-->
+                <div id="tab_box_container">
+
+                    <div id="tab_box on">
+
+                        <ul id="top_menu">
+                            <li><a href='https://www.gmarket.co.kr/'>G마켓</a> .
+                                <a href='https://www.auction.co.kr/'>옥션</a> .
+                                <a href='https://www.11st.co.kr/'>11번가</a> .
+                                <a href='https://www.wemakeprice.com/'>위메프</a> .
+                                <a href='https://www.tmon.co.kr/'>티몬</a> .
+                                <a href='https://emart.ssg.com/'>이마트몰</a> .</li>
+                            <li><a href='https://shinsegaemall.ssg.com/'>신세계몰</a> .
+                                <a href='https://www.oliveyoung.co.kr/'>올리브영</a> .
+                                <a href='https://www.gsshop.com/'>GS샵</a> .
+                                <a href='https://www.lotte.com/'>롯데닷컴</a> .
+                                <a href='https://www.lotteimall.com/'>롯데i몰</a> .
+                                <a href='https://display.cjmall.com/'>CJmall</a></li>
+                        </ul>
+                        <div style="clear:both;"></div>
+                        <!--이미지 상품 목록-->
+                        <div id="gift_list">
+                            <div id="gift_list_page">
+                                <b>1</b> / 19
+                                <input type="button" class="button_left">
+                                <input type="button" class="button_right">
+                            </div>
+                            <div style="clear:both;"></div>
+                            <table class="gift_list_pic">
+                                <tr>
+                                    <td id="gift_list_01">
+                                        <a href="http://bitly.kr/dYInYIya">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_01.PNG">
+                                            </div>
+                                            <span>
+                                                <p>빼앗긴 봄을~</p>
+                                                <p>집에서 찾아요</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td id="gift_list_02">
+                                        <a href="http://bitly.kr/LgzDgF2E">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_02.PNG">
+                                            </div>
+                                            <span>
+                                                <p>화장은장비발~</p>
+                                                <p>알찬구성 SET</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td id="gift_list_03">
+                                        <a href="http://bitly.kr/tjmf35uX">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_03.PNG">
+                                            </div>
+                                            <span>
+                                                <p>돌발세일!</p>
+                                                <p>단돈 1만원대!</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="gift_list_04">
+                                        <a href="http://bitly.kr/dXm8k8zb">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_04.PNG">
+                                            </div>
+                                            <span>
+                                                <p>기다렸다 특가</p>
+                                                <p>프로쉬개구리!</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td id="gift_list_05">
+                                        <a href="http://bitly.kr/6P4QApVv">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_05.PNG">
+                                            </div>
+                                            <span>
+                                                <p>완전 맛있는데</p>
+                                                <p>진짜 10+10팩?</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td id="gift_list_06">
+                                        <a href="http://bitly.kr/TxxUvcTW">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_06.PNG">
+                                            </div>
+                                            <span>
+                                                <p>어차피 헬스장</p>
+                                                <p>안갈거잖아요</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="gift_list_07">
+                                        <a href="http://bitly.kr/MZazMhqD">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_07.PNG">
+                                            </div>
+                                            <span>
+                                                <p>가볍게 툭~</p>
+                                                <p>입어도~BEST</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td id="gift_list_08">
+                                        <a href="http://bitly.kr/blWtUTfQ">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_08.PNG">
+                                            </div>
+                                            <span>
+                                                <p>봄신상업뎃</p>
+                                                <p>매일10%할인</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td id="gift_list_09">
+                                        <a href="http://bitly.kr/mSssLqtG">
+                                            <div class="gift_image">
+                                                <img src="naver/gift_09.PNG">
+                                            </div>
+                                            <span>
+                                                <p>51%파격SALE</p>
+                                                <p>폭발적~반응!</p>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--쇼핑뉴스-->
+                        <div id="hello_shopping_world">
+                            <p></p>
+                            <span style="border-left: 5px solid rgb(139, 76, 211);">
+                                <b>&nbsp;반갑다! 쇼핑뉴스</b>
+                            </span>
+                            <p></p>
+                            <ul id="shopping_news">
+                                <li>
+                                    <a href="https://shopping.naver.com/plan/details/260578">
+                                        <span class="shopping_news_title">경북고향장터</span>
+                                        <span class="shopping_news_text">힘내라대한민국</span>
+                                        <span class="shopping_news_bold" style = "font-size : 11px">경북농가응원하기</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://bitly.kr/77XW0aRb">
+                                        <span class="shopping_news_title">프롬비</span>
+                                        <span class="shopping_news_text">전해수기 23%SALE 선착순가습기증정</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://shopping.naver.com/plan/details/68198">
+                                        <span class="shopping_news_title">서울샵</span>
+                                        <span class="shopping_news_text">중소기업 우수 추천상품 모음전</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://bitly.kr/fokbWlLWK">
+                                        <span class="shopping_news_title">스피드랙몰</span>
+                                        <span class="shopping_news_text">조립식 앵글선반 94% 바로 SALE</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://bitly.kr/27NOQWxF">
+                                        <span class="shopping_news_title">마틸라</span>
+                                        <span class="shopping_news_text">봄꽃침구세트~! </span>
+                                        <span class="shopping_news_bold">최대 40%↓ 할인~</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://shopping.naver.com/plan/details/68200">
+                                        <span class="shopping_news_title">강원마트</span>
+                                        <span class="shopping_news_text">힘내라대한민국 </span>
+                                        <span class="shopping_news_bold">강원 특산물전</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://bitly.kr/a9NknjBk2">
+                                        <span class="shopping_news_title">농촌진흥청</span>
+                                        <span class="shopping_news_text">힘내라대한민국 농특산물 뭐먹지?</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--쇼핑끝-->
+            <div id="wrap1">
+                <div style="width: 320px; margin: 15px 10px; float:left; "><a href="https://hangeul.naver.com/">
+                        <div style=" float: left;"><img src="1.JPG"></div>
+                        <div style="color: #00ab33; font-size: 13px; float: left; margin-left: 10px;">한글한글 아름답게</div>
+                        <div style="float:left;  margin-left: 10px; font-weight: bold;">마루 프로젝트</div>
+                        <div style="font-size: 13px; float: left; margin-left: 10px; ">글꼴 제작 현황을</div>
+                        <div style="font-size: 13px; float: left; margin-left: 10px; ">사용자와 공유합니다.</div>
+                    </a>
+                </div>
+                <div style="width: 320px; margin:15px 10px; float: left;"><a
+                        href="http://www.seoulmetro.co.kr/kr/board.do?menuIdx=546&bbsIdx=2209230">
+                        <div style="float:left;"><img src="2.JPG"></div>
+                        <div style="color:  #00ab33; font-size: 13px; float: left; margin-left: 10px;">서울교통공사</div>
+                        <div style="float:left;  margin-left: 10px; font-weight: bold; margin-left: 10px;">고로나19 확산 방지
+                        </div>
+                        <div style="font-size: 13px; float: left; margin-left: 10px;">서울지하철 전 노선<br>24시 까지만 운행</div>
+                    </a>
+                </div>
+            </div>
+            <div id="startup" style="float: left;"><a href="http://d2startup.com/story/179">
+                    <img src="5.JPG" style="width :321px; height: 121px;"></a>
+            </div>
+            <!-- 배너끝-->
+        </div>
+    </div>
+        <!--컨테이너 끝-->
+        <!--바닥-->
+        <div id="footer" style="float: left;">
+
+            <div id="footerHead" style="float: left; font-size: 13px;">
+                <div style="margin: 15px 90px; font-weight: bold; float: left;"><a
+                        href="https://www.naver.com/NOTICE">공지사항</a></div>
+                <div style="float: right; margin: 15px 130px; font-weight: bold;"><a
+                        href="https://www.naver.com/more.html">서비스 전체보기 ></a></div>
+            </div>
+
+            <div id="footside">
+                <div style="float:left; font-size: 13px; font-weight: bold; ">Creators</div>
+                <ul>
+                    <li><a href="https://www.navercorp.com/service/creators">크리에이터</a></li>
+                    <li>|&nbsp;&nbsp;&nbsp;<a href="https://www.navercorp.com/service/business">스몰비즈니스</a></li>
+                </ul>
+                <div style="float:left; font-size: 13px; font-weight: bold; margin-top: 1px;">Partners</div>
+                <ul>
+                    <li><a href="https://business.naver.com/service.html"> 비즈니스 광고</a></li>
+                    <li>|&nbsp;&nbsp;&nbsp;<a href="https://sell.smartstore.naver.com/#/home/about"> 스토어 개설</a></li>
+                    <li>|&nbsp;&nbsp;&nbsp;<a href="https://smartplace.naver.com/"> 지역업체 등록</a></li>
+                </ul>
+                <div style="float:left; font-size: 13px; font-weight: bold; ">Developers</div>
+                <ul>
+                    <li><a href="https://developers.naver.com/main/"> 네이버 개발자센터</a></li>
+                    <li>|&nbsp;&nbsp;&nbsp;<a
+                            href="https://developers.naver.com/docs/common/openapiguide/#/apilist.md/">오픈API</a></li>
+                    <li>|&nbsp;&nbsp;<a href="https://naver.github.io/"> 오픈소스</a></li>
+                    <li>|&nbsp;&nbsp;<a href="https://d2.naver.com/home"> 네이버D2</a></li>
+                    <li>|&nbsp;&nbsp;<a href="http://d2startup.com/"> 네이버 D2SF</a></li>
+                    <li>|&nbsp;&nbsp;<a href="https://www.naverlabs.com/"> 네이버 랩스</a></li>
+                </ul>
+            </div>
+
+            <div id="footside1" style="font-size: 13px;">
+                <div style="float:left; margin-left:10px; "><b>웨일 브라우저</b><br>
+                    <a href="https://whale.naver.com/ko">
+                        <div style="font-size: 13px;">다운받기</div>
+                    </a>
+                </div>
+                <div style="float: left;"><a href="https://whale.naver.com/ko"><img src="3.JPG"></a></div>
+
+                <div style="float:left; margin: 0px 10px "><b>프로젝트 꽃</b><br>
+                    <a
+                        href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EA%BD%83">
+                        <div style="font-size: 13px;">바로가기</div>
+                    </a>
+                </div>
+                <div><a
+                        href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EA%BD%83"><img
+                            src="4.JPG"></a></div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div id="footbottom">
+                <div style="margin-left: 80px;">
+                    <ul>
+                        <li><a href="https://www.navercorp.com/"> 회사소개</a></li>
+                        <li>|&nbsp;&nbsp;<a href="https://recruit.navercorp.com/naver/recruitMain">인재채용</a></li>
+                        <li>|&nbsp;&nbsp;<a href="https://www.navercorp.com/naver/proposalGuide">제휴제안</a></li>
+                        <li>|&nbsp;&nbsp;<a href="https://policy.naver.com/policy/service.html">이용약관</a></li>
+                        <li>|&nbsp;&nbsp;<a href="https://policy.naver.com/policy/privacy.html"><b>개인정보처리방침</b></a></li>
+                        <li>|&nbsp;&nbsp;<a href="https://policy.naver.com/policy/youthpolicy.html">청소년보호정책</a></li>
+                        <li>|&nbsp;&nbsp;&nbsp;<a href="https://policy.naver.com/policy/spamcheck.html">네이버 정책</a></li>
+                        <li>|&nbsp;&nbsp;<a href="https://help.naver.com/">고객센터</a></li>
+                        <li>|&nbsp;&nbsp;<a href="https://www.navercorp.com/"> <b>ⓒ NAVER Corp.</b></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 바닥 끝 -->
+    </div>
+    <!--container_wrap-->
+</body>
+
+</html>
