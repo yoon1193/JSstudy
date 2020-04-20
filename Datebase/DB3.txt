@@ -1,10 +1,38 @@
 @c:\sql\scott.sql;
 select * from tab;
 --emp SCOTT/TIGER
-select * from emp;
-select * from dept;
+select * from emp; 
+select * from dept; 
 select * from salgrade; 
 select * from bonus;
+
+EMP(고용인 테이블)
+EMPNO     사원번호    
+ENAME     사원이름      
+JOB       사원직업
+MGR       사원상사번호
+HIREDATE  사원고용일     
+SAL       사원월급
+COMM      사원 커미션
+DEPTNO    사원부서넘버
+
+
+DEPT (부서)
+DEPTNO   부서번호
+DNAME    부서이름
+LOC      부서지역
+
+BONUS(보너스)
+ ENAME   받는사람 이름
+ JOB     받는사람 직업
+ SAL     받는 금액
+ COMM    받는 추가금액
+
+SALGRADE(연봉등급)
+GRADE   연봉 등급
+LOSAL   최저금액 
+HISAL   최고 금액
+
 
 --drop table member;
 
@@ -105,6 +133,7 @@ select empno,ename,sal from emp where sal<2000;
 select * from member where registration<'2020/01/01 00:00:00';
 
 --논리연산자 AND OR NOT
+--!보다 NOT 연산자를 주로 사용
 select * from member where money>=5000 AND cafe=2;
 select * from member where money>=5000 AND NOT cafe=2;
 select money,cafe from member where money=5000 OR cafe=10;

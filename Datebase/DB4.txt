@@ -1,0 +1,329 @@
+--like 연산자와 와일드카드 (이스케이프시퀀스)
+--와일드카드와 함께 문자열 비교할때 사용
+--%는 모든문자열(문자열이 없어도 포함)
+--문자가 없거나 하나 이상의 문자가 와도 검색됌
+-- _ 반드시 하나의 문자가 와야 검색됌
+select * from member;
+select * from member where membername like '김%';
+select * from member where email like 'abc%';
+select * from member where memberno like '%2';
+select * from member where membername like '%아';
+select * from member where membername like '%길%';
+select * from member where membername like '%%동';
+select * from member where membername like '%빠%';
+select * from member where membername like '%아%';
+select * from member where email like '__c%';
+select * from member where membername like '__';
+select * from member where membername like '___';
+select * from member where membername like '___%';
+
+select * from emp;
+select * from emp where hiredate>'1987/01/01' and hiredate<'1987/12/31';
+select * from emp where hiredate between '1987/01/01' and '1987/12/31';
+select * from emp where empno not in (7788,7654,7521);
+select * from emp where empno!=7788 and empno!=7654 and empno!=7521;
+select * from emp where ename like 'A%';
+select * from emp where job like '%N';
+select empno,ename from emp where ename like 'K%';
+select empno,ename from emp where ename like '%K%';
+select empno,ename from emp where ename like '%K';
+select * from emp where ename like 'B%E';
+select * from emp where ename like '_____';
+
+--null값 확인하는 방법 is null, is not null
+select * from member;
+desc member;
+select * from member where point=null; --oracle은 안됌/되는 db도 있음.
+select * from member where point is null;
+select * from member where point is not null;
+select * from member where recommender is null and point is null;
+
+--scott db에서 상관이 없는 사원을 출력
+select * from emp;
+select * from emp where MGR is null;
+
+--정렬 정렬은 필요로 하는 결과를 원할때 order by 사용
+--asc 오름차순 desc 내림차순
+
+--사원 번호로 오름차순 정렬
+select * from member order by memberno;
+select * from member order by membername asc;
+select * from member order by membername desc;
+
+select * from member order by point asc;--null 데이터는 맨 마지막에 나옴
+select * from member order by point desc;--null 데이터는 맨 위에 나옴
+
+select * from member where point is not null order by point;
+--null 포함해서 null을 아래로 나오게 정렬
+select * from member order by nvl(point,0) desc; --null값을 0으로.
+select * from member order by point desc;--null 데이터는 맨 위에 나옴
+--select () from where order by;
+
+select * from member;
+select * from member order by recommender asc , memberno desc;
+
+select * from emp;
+--칼럼(사원번호,사원이름) 사원번호 기준 내림차순
+select empno,ename from emp order by empno desc; 
+--칼럼(사원번호,입사일,사원이름,급여,부서) 부서기준 오름차순,입사일 내림차순
+select empno,hiredate,ename,sal,deptno from emp order by deptno asc , hiredate desc;
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE EC_Product (
+Product_Code         VARCHAR2(10),
+Product_Name         VARCHAR2(20)      NOT NULL,
+Standard             VARCHAR2(20),
+Unit                 VARCHAR2(10),
+Unit_Price           NUMBER(7)         NOT NULL,
+Left_Qty             NUMBER(5),
+Company              VARCHAR2(20),
+ImageName            VARCHAR2(20),
+Info                 VARCHAR2(80),
+Detail_Info          VARCHAR2(255),
+CONSTRAINT  EC_Product_Pk1 PRIMARY KEY (Product_Code));
+
+INSERT INTO EC_Product VALUES 
+('NB01', '노트북컴퓨터','GT633', '대',1396000, 15,'SAMSUNG', 'nb01.jpg',
+'인텔 i5-460M 2.53GHz: RAM 4GB: HDD 500GB: 15.6" 모니터', Null);
+INSERT INTO EC_Product VALUES 
+('NB02', '노트북컴퓨터','U35JC', '대',1137220, 10,'SAMSUNG', 'nb02.jpg',
+'인텔 i5-450M 2.40GHz: RAM 4GB: HDD 500GB: 13.3" 모니터', Null);
+INSERT INTO EC_Product VALUES 
+('NB03', '노트북컴퓨터','DV6',   '대', 998000, 10,'HP',      'nb03.jpg',
+'인텔 i3-350M 2.66GHz: RAM 2GB: HDD 250GB: 15.6" 모니터', Null);
+INSERT INTO EC_Product VALUES 
+('CM01', '개인용컴퓨터','HPE-340KL','대',1121300, 30,'HP',   'cm01.jpg',
+'인텔 i750 2.66GHz: RAM 4GB: HDD 1TB: GeForce GTX260', Null);
+INSERT INTO EC_Product VALUES 
+('CM02', '개인용컴퓨터','DM-C200','대', 651500, 20,'SAMSUNG', 'cm02.jpg',
+'인텔 E5700 3.00GHz: RAM 2GB: HDD 320GB: 내장그래픽', Null);
+INSERT INTO EC_Product VALUES 
+('CM03', '개인용컴퓨터','T30MS', '대',1120000, 20,'LG전자',  'cm03.jpg',
+'인텔 E6700 3.20GHz: RAM 2GB: HDD 500GB: GeForce GT220', Null);
+INSERT INTO EC_Product VALUES 
+('PRT01','프린터', 'CLX-3185WK', '대', 353000, 10,'SAMSUNG', 'pt01.jpg',
+'무선컬러레이저복합기: 600DPI: 개인용', Null);
+INSERT INTO EC_Product VALUES 
+('PRT02','프린터', 'CLP-325WK','대',1600000,  3,'SAMSUNG', 'pt02.jpg',
+'무선칼러레이저: 1200DPI: 오피스용', Null);
+INSERT INTO EC_Product VALUES 
+('PRT03','프린터', 'K8600',    '대', 409000, 10,'HP',      'pt03.jpg',
+'잉크젯: 1200DPI: 칼러인쇄 10PPM: 개인용', Null);
+INSERT INTO EC_Product VALUES 
+('PRT04','프린터', 'CP3525DN', '대',1382000,  5,'HP',      'pt04.jpg',
+'칼러레이저젯: 30PPM: USB2.0: 양면: 오피스용', Null);
+INSERT INTO EC_Product VALUES 
+('TV01', 'TV', 'LN46C632M1F','대',1590120, 10,'SAMSUNG', 'tv01.jpg',
+'PAVV LCD 632: 46" 스탠드형', Null);
+INSERT INTO EC_Product VALUES 
+('TV02', 'TV', '47LD452',    '대',1580000, 10,'LG전자',  'tv02.jpg',
+'Xcanvas 120Hz Full-HD급 47": 벽결이형(슬림)', Null);
+INSERT INTO EC_Product VALUES 
+('TV03', 'TV', 'UN46C8000XF','대',2785000,  5,'Samsung', 'tv03.jpg',
+'PAVV 3D LED Full HD: 46"', Null);
+INSERT INTO EC_Product VALUES 
+('TV04', 'TV', '47LX9500',   '대',2920000,  5,'LG전자',  'tv04.jpg',
+'3D Full LED Slim: 47"', Null);
+INSERT INTO EC_Product VALUES 
+('DK01', '책상', '1200x745x750','개', 86000,100, Null,     'dk01.jpg',
+'사무용 컴퓨터 책상', Null);
+INSERT INTO EC_Product VALUES
+('CH01', '의자', '회전용', '개', 75000,100, Null, 'ch01.jpg','회전의자: 590x640x980', Null);
+
+select * from ec_product;
+--문제1번
+select product_code,product_name,unit_price from ec_product where unit_price>2000000;
+--문제7번
+select * from ec_product where unit_price between 300000 and 500000 order by unit_price desc; 
+
+CREATE TABLE EC_Member (
+UserID               VARCHAR2(10),
+Passwd               VARCHAR2(10)      NOT NULL,
+Name                 VARCHAR2(10)      NOT NULL,
+Regist_No            VARCHAR2(14)      NOT NULL,
+Email                VARCHAR2(20),
+Telephone            VARCHAR2(12)      NOT NULL,
+Address              VARCHAR2(40),
+Timestamp            DATE              DEFAULT SYSDATE,
+CONSTRAINT  EC_Member_Pk PRIMARY KEY (UserID));
+
+INSERT INTO EC_Member VALUES 
+('usko',  '1234','고우선','850102-2******',Null,'02-874-1452', '서울특별시 강남구',  '2007/05/01');
+INSERT INTO EC_Member VALUES 
+('supark','1234','박세우','730914-1******',Null,'051-666-8745','부산광역시 동래구',  '2007/05/01');
+INSERT INTO EC_Member VALUES 
+('mskim', '1234','김미선','750506-2******',Null,'053-888-3254','대구광역시 달서구',  '2007/07/11');
+INSERT INTO EC_Member VALUES 
+('jupark','1234','박지운','451214-1******',Null,'011-801-2923','서울특별시 영등포구','2007/07/11');
+INSERT INTO EC_Member VALUES 
+('imjung','1234','정일미','560807-2******',Null,'02-222-6666', '서울특별시 송파구',  '2008/06/01');
+INSERT INTO EC_Member VALUES 
+('shchoi','1234','최상희','330125-2******',Null,'016-241-5558','광주광역시 동구',    '2008/11/10'); 
+INSERT INTO EC_Member VALUES 
+('uskang','1234','강욱선','710911-2******',Null,'052-789-6547','경북 경주시',        '2009/02/01');
+INSERT INTO EC_Member VALUES 
+('kcchoi','1234','최광수','590514-1******',Null,'032-555-9998','인천광역시 서구',    '2009/05/31');
+INSERT INTO EC_Member VALUES 
+('cscho', '1234','조철상','550707-1******',Null,'02-888-8884', '서울특별시 은평구',  '2009/09/15');
+INSERT INTO EC_Member VALUES 
+('mhlee', '1234','이민형','720222-1******',Null,'019-102-1010','강원도 춘천시',      '2010/03/03');
+INSERT INTO EC_Member VALUES 
+('jskang','1234','강준상','820303-1******',Null,'017-111-3333','강원도 원주시',      '2010/04/08');
+INSERT INTO EC_Member VALUES 
+('ujjung','1234','정유진','801225-2******',Null,'011-283-9383','서울특별시 종로구',  '2010/08/01');
+INSERT INTO EC_Member VALUES 
+('shlee', '1234','이상혁','770709-1******',Null,'011-876-9876','대전광역시 유성구',  '2010/08/24');
+INSERT INTO EC_Member VALUES 
+('uychoi','1234','최윤영','811010-2******',Null,'053-666-7777','대구광역시 수성구',  '2010/11/01'); 
+INSERT INTO EC_Member VALUES 
+('hskim', '1234','김혜수','431122-2******',Null,'061-822-1112','광주광역시 북구',    '2011/01/14');
+INSERT INTO EC_Member VALUES 
+('sbhong','1234','홍서빈','500110-2******',Null,'016-392-9921','제주도 서귀포시',    '2011/02/01');
+
+select * from ec_member;
+--문제2번
+select userid,name,regist_no,address from ec_member where address like '서울%';
+--문제5번
+select userid,name,regist_no from ec_member where name like '%우%';
+
+CREATE TABLE EC_Basket (
+Order_No             VARCHAR2(10),
+Order_ID             VARCHAR2(10)      NOT NULL,
+Product_Code         VARCHAR2(10)      NOT NULL,
+Order_Qty            NUMBER(3)         NOT NULL,
+Order_date           Date              Default    SYSDATE,
+CONSTRAINT  EC_Basket_Pk1 PRIMARY KEY (Order_NO),
+CONSTRAINT  EC_Basket_Fk1 FOREIGN KEY (Order_ID)
+            REFERENCES    EC_Member,
+CONSTRAINT  EC_Basket_Fk2 FOREIGN KEY (Product_Code)
+            REFERENCES    EC_Product);
+
+INSERT INTO EC_Basket VALUES  ('100506001','usko', 'TV01',1,'2010/11/06');
+INSERT INTO EC_Basket VALUES  ('100506002','hskim','CM01',1,'2010/11/06');
+INSERT INTO EC_Basket VALUES  ('100506003','mhlee','NB02',1,'2010/11/06');
+INSERT INTO EC_Basket VALUES  ('100506004','mskim','TV01',1,'2014/03/06');
+INSERT INTO EC_Basket VALUES  ('100506005','mhlee','CM03',1,'2014/03/06');
+
+select * from ec_basket;
+--문제3번
+select * from ec_basket where order_date='2010/11/06';
+
+CREATE TABLE EC_Order (
+Order_No             VARCHAR2(10)      NOT NULL,
+Order_ID             VARCHAR2(10)      NOT NULL,
+Product_Code         VARCHAR2(10)      NOT NULL,
+Order_Qty            NUMBER(3)         NOT NULL,
+CSel                 VARCHAR2(12),
+CMoney               NUMBER(9),
+CDate                DATE,
+MDate                DATE,
+Gubun                VARCHAR2(10),
+CONSTRAINT  EC_Order_Pk1 PRIMARY KEY (Order_NO) );
+
+INSERT INTO EC_Order VALUES ('100514001','usko',  'NB01', 1,'신용카드',1396000,'2010/07/15','2010/05/21','배달');
+INSERT INTO EC_Order VALUES ('100524001','supark','NB02', 1,'현금입금',1137220,'2010/07/24','2010/05/25','배달');
+INSERT INTO EC_Order VALUES ('100619002','supark','PRT01',1,'현금입금', 353000,'2010/07/29','2010/06/25','배달');
+INSERT INTO EC_Order VALUES ('100602001','imjung','TV03', 1,'신용카드',1200000,'2010/08/05','2010/06/07','배달');
+INSERT INTO EC_Order VALUES ('100602002','uskang','PRT03',1,'현금입금',2785000,'2010/08/14','2010/06/05','배달');
+INSERT INTO EC_Order VALUES ('100701001','cscho', 'CM03', 1,'계좌이체',1120000,'2010/08/22','2010/07/13','배달');
+INSERT INTO EC_Order VALUES ('100702001','jskang','TV01', 1,'신용카드',1590120,'2010/08/28','2010/07/19','취소'); 
+INSERT INTO EC_Order VALUES ('100714001','jupark','CM01', 5, Null,     5606500, Null,        Null,       '미결');
+INSERT INTO EC_Order VALUES ('100714002','jupark','PRT02',5, Null,     8000000, Null,        Null,       '미결');
+INSERT INTO EC_Order VALUES ('100720001','kcchoi','DK01', 1,'신용카드',  86000,'2010/10/22', Null,       '결재');
+INSERT INTO EC_Order VALUES ('100720002','kcchoi','CH01', 1,'신용카드',  75000,'2010/10/22', Null,       '결재');
+
+select * from ec_order;
+--문제4번
+select order_no,product_code,order_qty,csel,cmoney,cdate,gubun from ec_order where gubun like '결%';
+--문제6번
+select order_no,order_id,product_code,csel,gubun from ec_order where csel not in('신용카드') order by order_id asc;
+--문제8번
+select order_no,order_id,product_code,cmoney,cdate,csel from ec_order where csel like '신%';
+--문제9번
+select order_no,order_id,product_code,order_qty,cmoney,gubun from ec_order where gubun like '미%';
+--문제10번 
+select order_id,product_code,order_qty,csel,cmoney,gubun from ec_order where order_id like 'u%o';
+commit;
+select * from tab;
+
+--7장1번
+select * from department;
+--7장2번
+select * from professor;
+select dept_id from professor;
+select distinct dept_id from professor;
+--7장3번
+select distinct dept_id 소속학과 from professor;
+--7장4번
+select * from course;
+select course_id,title,c_number from course;
+--7장5번
+select course_id,title,c_number from course order by title asc;
+--7장6번
+select course_id,title,c_number,c_number*30000+nvl(course_fees,0) pay from course order by pay desc,course_id asc;
+--7장7번
+select 125*32+12500 from dual;
+--7장8번
+select * from professor;
+select name,dept_id from professor where dept_id='컴공';
+--7장9번
+select * from course;
+select title,course_fees from course where course_fees>=30000 order by course_fees desc;
+--7장10번
+select * from student;
+select dept_id,year,name from student where year=2 and dept_id='컴공';
+--7장11번
+select * from professor;
+select dept_id||'학과'||name||'교수님 전화번호:'||telephone from professor order by dept_id ;
+--7장12번
+select * from student;
+select * from student where name like '이%';
+--7장13번
+select * from student where name like '%정%';
+--7장14번
+select * from professor;
+select * from professor where dept_id in ('컴공','정통') order by dept_id;
+--7장15번
+select * from professor where dept_id='컴공'or dept_id='정통' order by dept_id;
+--7장16번
+select * from sg_scores;
+select score from sg_scores where score between 90 and 94 order by score desc;
+--7장17번
+select score from sg_scores where score>=90 and 94>=score order by score desc;
+--7장18번
+select * from course;
+select * from course where course_fees is null;
+
+
+select * from tab;
+
+--ppt 슬라이드4
+select * from emp;
+select * from dept;
+--ppt 슬라이드5
+desc emp;
+select empno,ename from emp;
+select ename,sal,hiredate from emp;
+--ppt 슬라이드6,7
+select ename,sal,nvl(comm,0),sal*12+nvl(comm,0) Annsal from emp;
+--ppt 슬라이드8,9
+select ename ,'is a', job from emp;
+select ename ||'is a'|| job from emp;
+--ppt 슬라이드10
+select * from emp;
+select deptno from emp;
+select distinct deptno from emp;
+--ppt 슬라이드11
+select job from emp;
+select distinct job from emp order by job;
+commit;
