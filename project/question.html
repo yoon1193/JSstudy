@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{margin: 0; padding: 0;}
+        #wrap{
+            width: 100%;
+            height: 100%;
+            color: white;
+            background-color: white;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        #header-wrap{
+            width: 100%;
+            background-color:black;
+            
+        }
+        #banner-wrap{
+            width: 100%;
+            background-color:#f5f5f5;
+        }
+       
+        #footer-wrap{
+            width: 100%;
+            background-color:white;
+            
+        }
+        .header-container{
+            width: 1250PX;
+            height: 130px;
+            /* line-height: 100px; */
+            margin: 0 auto;
+            background-color: black;
+            
+        }
+        .banner-container{
+            width:1250px;
+            height: 700px;
+            /* line-height: 100px; */
+            margin: 0px auto;
+            background-color:white;
+          
+        }
+        .footer-container{
+            width: 1250px;
+            height: 150px;
+            /* line-height: 100px; */
+            margin: 10px auto;
+            /* background-color: springgreen; */
+            border-top: 2px solid #9b9c9d;
+           
+        }
+        .header-container li{ 
+            display:inline-block;
+            margin: 45px 0px;
+            font-size: 20px;
+            font-weight: bold;
+            color:#9b9c9d;
+            
+        }
+        .header-container #name{
+            width: 300px; 
+            height:110px;
+            /* background-color: black;   */
+            font-weight:900;
+            font-size: 40px;
+            color:aliceblue; 
+            margin: 10px 0PX;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            float: left;
+        }
+        .header-container #name:hover{
+            cursor: pointer;
+
+        }
+      
+        .header-container #menu1{
+            width: 250px;
+            height: 110px;
+            /* background-color: black; */
+            margin: 10px 0px; 
+            float: left;
+
+        }
+        .header-container #menu2{
+            width: 250px;
+            height: 110px; 
+            /* background-color: blue; */
+            margin: 10px 0px; 
+            float: right;
+
+        }
+        .banner-container .id{
+            background-color: white; 
+            width: 1000px; 
+            height: 700px; 
+            margin: 0px auto; 
+            position: relative;
+        }
+        #answer-form{
+            width: 400px; 
+            height: 550px; 
+            background-color: white; 
+            position:absolute; 
+            left: 5%; 
+            top: 10%;
+
+        }
+
+
+
+        .footer-container #footer_head{
+            width:1250px;
+            height:50px;
+            /* background-color: aqua; */
+            border-bottom:2px solid #9b9c9d;
+
+        }
+        #footer_head li{
+            display:inline-block;
+            /* margin: 30px; */
+            font-weight: bold;
+            font-size: 13px;
+            color:black;
+        }
+        #footer_body #body1 li{
+            font-weight: bold;
+            font-size: 11px;
+            color: #9b9c9d;
+            text-align: left;
+
+        }
+        #footer_body #body2 li{
+            font-weight: bold;
+            font-size: 11px;
+            color:#00ab33;
+
+        }
+        ul{
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+            
+        }
+        .id ul{
+            margin-top: 10px;
+        }
+        .id li{
+            text-align: left;
+            color: #9b9c9d;
+            font-size: 15px;
+
+        }
+
+        
+
+
+
+
+        a:link {color:#9b9c9d;  text-decoration: none;} 
+        a:visited { color:#9b9c9d; text-decoration: none;} 
+        a:hover { color:#9b9c9d; text-decoration: underline;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header-wrap">
+            <div class="header-container">
+                <div id="name" onclick="location.href='main.html';">football<BR>matching
+                </div>
+                <div id="menu1">
+                    <ul>
+                        <li>매치</li>
+                        <li>ㅣ</li>
+                        <li><a href="https://smartstore.naver.com/juntas" target="_blank">용품</a></li>
+                        <li>ㅣ</li>
+                        <li><a href="question.html">문의하기</a></li>
+                    </ul> 
+                </div>
+                <div id="menu2">
+                    <ul>
+                        <li><a href="login.html">로그인</a></li>
+                        <li>ㅣ</li>
+                        <li><a href="join.html">회원가입</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div id="banner-wrap">
+            <div class="banner-container">
+                <div class="id">
+                    <div id="answer-form">
+                            <input type="text" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d; " placeholder="성함을 입력해 주세요.">
+
+                            <input type="text" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="답변 받을 E-mail 주소를 입력해 주세요.">
+
+                            <input type="number" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="휴대폰 번호를 입력해 주세요.">
+
+                            <textarea type="text"  style="width: 300px; height: 210px; margin-top: 10px; border: 1px solid #9b9c9d; resize: vertical;" placeholder="남기실 메세지를 입력해 주세요."></textarea>
+                            
+
+                            
+                            <button type="button" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;">문의 보내기</button>
+                            
+                    </div>
+                    <div style=" position: absolute; left: 50%; top:10%; width: 500px; height: 600px;  border-left: 2px solid #9d9d9d; ">
+                        <h1 style="color: black; font-size: 50px; font-weight: bold;">문의하기</h1>
+                        <h3 style="margin-top: 30px; color:#9b9c9d;">궁금하신 내용이 있으면 언제든지 연락해주세요.<br>
+                            빠르고 친절히 답변드리도록 하겠습니다.</h3>
+                            <div style=" width: 500px; height: 440px; ">
+                                <div style=" float: left; width: 100%; margin: 20px 0 0 50px;" >
+                                    <p style="text-align: left; color: black; font-weight: bold;">주소</p>
+                                    <ul>
+                                        <li>매칭 모바일</li>
+                                        <li>대표 : Human Kim</li>
+                                        <li></li>
+                                        <li>서울특별시 휴먼구 휴먼로 174,123동-35호(휴먼동 엘리시아)</li>
+                                    
+                                    </ul>
+                                    
+                                </div>
+                                <div style=" float: left; width:100%; margin: 20px 0 0 50px;" >
+                                    <p style="text-align: left; color: black; font-weight: bold;">고객센터</p>
+                                    <ul>
+                                        <li>고객센터</li>
+                                        <li>카카오톡@hxxxxx</li>
+                                        <li>help@huxxxxx.com</li>
+                                    </ul>
+                                </div>
+                                <div style="margin: 50px 0 0 50px; float: left;">
+                                <button type="button" style=" width: 200px; height: 50px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;"
+                                onclick = "window.open('https://www.google.com/maps')"> 지도보기</button>
+                                <button type="button" style=" width: 200px; height: 50px;  border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;"
+                                onclick = "window.open('https://www.kakaocorp.com')">카카오톡</button>
+                                
+                            </div>
+                            </div>
+                            
+                                                      
+                    </div>
+
+ 
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id="footer-wrap">
+            <div class="footer-container">
+                <div id="footer_head">
+                    <div style="float: left; width:400px; margin: 15px 0px; background-color:white">
+                        <ul>
+                            <li>공지사항</li>
+                            <li>ㅣ</li>
+                            <li>이벤트</li>
+                            <li>ㅣ</li>
+                            <li>서비스 이용약관</li>
+                            <li>ㅣ</li>
+                            <li>개인정보 취급방침</li>
+                        </ul> 
+                    </div>
+                </div>
+                <div id="footer_body" style="width: 1250px; height: 100px; background-color: white">
+                    <div id="body1" style="float: left; width: 330px; margin: 15px; background-color: white;">
+                        <ul>
+                            <li>매칭 모바일</li>
+                            <li>대표 : Human Kim</li>
+                            <li></li>
+                            <li>서울특별시 휴먼구 휴먼로 174,123동-35호(휴먼동 엘리시아)</li>
+                        </ul>
+                    </div>
+                    <div id="body2" style="float: left; width: 120px; margin: 15px; background-color:  white;">
+                        <ul>
+                            <li>고객센터</li>
+                            <li>카카오톡@hxxxxx</li>
+                            <li>help@huxxxxx.com</li>
+                        </ul>
+                    </div> 
+                    <div id="body3" style="float:right; width: 80px; margin: 15px 0px 15px 20px; background-color: white;">
+                        <div style="float: left;"><img src="img/크기변환_카카오.JPG"></div>
+                        <div style="float: left;"><img src="img/크기변환_인스타.JPG"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>

@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        @media screen and (max-width: 1200px) {
-            #wrap{width: 100%;}
-        }
-        @media screen and (max-width: 768px) {
-            #wrap{width: 100%;}
-        }
-        *{margin: 0; padding: 0;}
+         *{margin: 0; padding: 0;}
         #wrap{
             width: 100%;
             height: 100%;
@@ -23,21 +17,13 @@
         #header-wrap{
             width: 100%;
             background-color:black;
+            
         }
         #banner-wrap{
             width: 100%;
-            background-color:grey;
+            background-color:#f5f5f5;
         }
-        #content-wrap1{
-            width: 100%;
-            background-color:grey;
-            
-        }
-        #content-wrap2{
-            width: 100%;
-            background-color:grey;
-            
-        }
+       
         #footer-wrap{
             width: 100%;
             background-color:white;
@@ -49,30 +35,15 @@
             /* line-height: 100px; */
             margin: 0 auto;
             background-color: black;
+            
         }
         .banner-container{
             width:1250px;
             height: 500px;
             /* line-height: 100px; */
-            margin: 0 auto;
-            background-color: darkolivegreen;
-        }
-        .content-container1{
-            width: 1250px;
-            height: 500px;
-            /* line-height: 100px; */
-            margin:0px auto;
-            /* background-color: aquamarine; */
-            background-image: url("img/크기변환_광고.jpg");
-            
-        }
-        .content-container2{
-            width: 1250px;
-            height: 500px;
-            /* line-height: 100px; */
-            margin: 0px auto ;
-            /* background-color:sandybrown; */
-            background-image: url("img/크기변환_광고1.jpg");
+            margin: 0px auto;
+            background-color:white;
+          
         }
         .footer-container{
             width: 1250px;
@@ -102,6 +73,11 @@
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             float: left;
         }
+        .header-container #name:hover{
+            cursor: pointer;
+
+        }
+      
         .header-container #menu1{
             width: 250px;
             height: 110px;
@@ -118,45 +94,25 @@
             float: right;
 
         }
-        /* 배너 */
-        .slide{
-            height:500px;overflow:hidden; 
+        .banner-container .id{
+            background-color: white; 
+            width: 1000px; 
+            height: 500px; 
+            margin: 0px auto; 
+            position: relative;
         }
-        .slide ul{
-            width:calc(100% * 4);display:flex;animation:slide 20s infinite;
-        } /* slide를 8초동안 진행하며 무한반복 함 */
-        .slide li{
-            width:calc(100% / 4);height:500px;
-            padding-top:10px;
+        #login-form{
+            width: 400px; 
+            height: 350px; 
+            background-color: white; 
+            position:absolute; 
+            left: 10%; 
+            top: 10%;
+
         }
-        .slide li:nth-child(1){
-            background-image: url("img/크기변환_qwe.jpg");
-        }
-        .slide li:nth-child(2){
-            background-image: url("img/크기변환_dddjpg.jpg");
-        }
-        .slide li:nth-child(3){
-            background-image: url("img/field.jpg");
-        }
-        .slide li:nth-child(4){
-            background-image: url("img/크기변환_dddjpg.jpg");
-        }
-        @keyframes slide {
-        0% {margin-left:0;} /* 0 ~ 10  : 정지 */
-        20% {margin-left:0;} /* 10 ~ 25 : 변이 */
-        25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
-        45% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
-        50% {margin-left:-200%;}
-        70% {margin-left:-200%;}
-        75% {margin-left:-300%;}
-        95% {margin-left:-300%;}
-        100% {margin-left:0;}
-        }
-        .slide li{
-            font-size: 40px;
-            font-weight:bolder;
-            color:white;     
-        }
+
+
+
         .footer-container #footer_head{
             width:1250px;
             height:50px;
@@ -191,6 +147,11 @@
             
         }
 
+        
+
+
+
+
         a:link {color:#9b9c9d;  text-decoration: none;} 
         a:visited { color:#9b9c9d; text-decoration: none;} 
         a:hover { color:#9b9c9d; text-decoration: underline;}
@@ -200,7 +161,7 @@
     <div id="wrap">
         <div id="header-wrap">
             <div class="header-container">
-                <div id="name" >football<BR>matching
+                <div id="name" onclick="location.href='main.html';">football<BR>matching
                 </div>
                 <div id="menu1">
                     <ul>
@@ -208,38 +169,42 @@
                         <li>ㅣ</li>
                         <li><a href="https://smartstore.naver.com/juntas" target="_blank">용품</a></li>
                         <li>ㅣ</li>
-                        <li>문의하기</li>
+                        <li><a href="question.html">문의하기</a></li>
                     </ul> 
                 </div>
                 <div id="menu2">
                     <ul>
-                        <li>로그인</li>
+                        <li><a href="login.html">로그인</a></li>
                         <li>ㅣ</li>
-                        <li>회원가입</li>
+                        <li><a href="join.html">회원가입</a></li>
                     </ul> 
                 </div>
             </div>
         </div>
+
+        
+
         <div id="banner-wrap">
             <div class="banner-container">
-                <div class="slide">
-                    <ul>
-                        <li>&emsp;&emsp;&emsp;<p>지금</p><span style="color: #fab327; font-size: 65px;">FOOTBALL MATCHING</span>에서<br>&emsp;어떤 경기들이 있는지<br> &emsp;&emsp;확인하세요!</li>  
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+                <div class="id">
+                    <div id="login-form">
+                            <input type="text" style="width: 300px; height: 50px; margin-top: 60px; border: 1px solid #9b9c9d;" placeholder="ID">
+                            <input type="password" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d;"  placeholder="PASSWORD">
+                            <button type="button" style="width: 300px; height: 50px; margin-top: 20px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;">로그인</button>
+                            <div style="margin-top: 10px;">
+                                <input type="checkbox" ><label style="color:#9b9c9d;">로그인 상태유지</label>
+                                <a href="" style="margin-left: 70px;"> ID/PW 찾기</a>                          
+                              </div>
+                    </div>
+                    <div style=" position: absolute; left: 55%; top:20%;">
+                        <a href="https://www.google.com/" target="_blacnk"><img src="img/gg.JPG"></a>
+                        <a href="https://www.facebook.com/" target="_blacnk"><img src="img/fb.JPG"></a>
+                    </div>
+ 
                 </div>
             </div>
         </div>
-        <div id="content-wrap1">
-            <div class="content-container1">
-            </div>
-        </div>
-        <div id="content-wrap2">
-            <div class="content-container2">
-            </div>
-            </div>
+        
         
         <div id="footer-wrap">
             <div class="footer-container">
@@ -272,9 +237,9 @@
                             <li>help@huxxxxx.com</li>
                         </ul>
                     </div> 
-                    <div id="body3" style="float:right; width: 100px; margin: 15px; background-color: white;">
-                        <div style="float: left;"><img src="img/카카오.JPG"></div>
-                        <div style="float: left;"><img src="img/인스타.JPG"></div>
+                    <div id="body3" style="float:right; width: 80px; margin: 15px 0px 15px 20px; background-color: white;">
+                        <div style="float: left;"><img src="img/크기변환_카카오.JPG"></div>
+                        <div style="float: left;"><img src="img/크기변환_인스타.JPG"></div>
                     </div>
 
                 </div>
@@ -282,11 +247,6 @@
         </div>
     </div>
 </div>
-   
-
-        
-    
-
     
 </body>
 </html>
