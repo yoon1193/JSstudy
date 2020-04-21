@@ -1,0 +1,111 @@
+--exercise2
+--슬라이드3
+select * from emp;
+select * from emp where deptno in (10);
+select * from emp where sal>=2000;
+--슬라이드4
+select * from emp;
+select empno,ename from emp where ename ='JAMES';
+--슬라이드5
+select * from emp;
+select ename,hiredate from emp where hiredate>='1982/01/01';
+--슬라이드7
+select * from emp;
+select empno,ename,job,deptno from emp where deptno in (10) and job like 'C%';
+--슬라이드8
+select * from emp;
+select ename,hiredate from emp where hiredate>='1982/01/01' or job like 'M%';
+--슬라이드9
+select * from emp;
+select empno,ename,deptno from emp where deptno not in (10);
+--슬라이드10
+select * from emp;
+select empno,ename from emp where ename like 'J%';
+select empno,ename from emp where ename like '%A%';
+--슬라이드11
+select empno,ename from emp where ename like '%N';
+select empno,ename from emp where not ename like '%A%';
+--슬라이드12
+select empno,ename from emp where ename like '_A%';
+--슬라이드13
+select empno,ename from emp where ename like '%A%';
+select empno,ename from emp where ename like '%\_%';
+--슬라이드14
+select * from emp;
+select empno,ename,comm from emp where comm =300 or comm=500 or comm=1400;
+select empno,ename,comm from emp where comm in (300,500,1400);
+select empno,ename,comm from emp where comm not in (300,500,1400);
+--슬라이드15
+select empno,ename,sal from emp where sal between 500 and 4000;
+select empno,ename,sal from emp where sal not between 500 and 4000;
+--슬라이드16
+select empno,ename from emp where ename like '%A%';
+select empno,ename from emp where ename not like '%A%';
+--슬라이드17
+select * from emp;
+select ename,mgr from emp where mgr is null;
+select ename,mgr from emp where mgr is not null;
+--슬라이드18
+select empno,ename,sal from emp order by sal;
+select empno,ename,sal from emp order by sal desc;
+--슬라이드19
+select empno,ename,sal from emp order by ename;
+select empno,ename,hiredate from emp order by hiredate ;
+--슬라이드20,21
+select empno,sal,ename from emp order by sal desc,ename;
+
+--exercise3
+--슬라이드2
+select round(34.5678,2) from dual;
+select round(34.5678,-1) from dual;
+select trunc(34.5678,2) from dual;
+--슬라이드3
+select * from emp;
+select sal,mod(sal,100) from emp;
+select empno from emp where mod(empno,2)=1;
+--슬라이드4
+select upper('Welcome to Oracle 10g') from dual;
+select upper(ename) from emp;
+--슬라이드5
+select lower('Welcome to Oracle 10g') from dual;
+select lower(ename) from emp;
+--슬라이드6
+select initcap('Welcome to Oracle 10g') from dual;
+select initcap(ename) from emp;
+--슬라이드7
+select length('Welcome to Oracle 10g') from dual;
+select ename,length(ename) from emp;
+--슬라이드8
+select instr('Welcome to Oracle 10g','o',3,2) from dual;
+select instr('Welcome to Oracle 10g','o',1,1) from dual;
+--슬라이드9
+select ename,instr(ename,'A',1,1)from emp;
+--슬라이드10
+select substr('Welcome to Oracle 10g',4,3) from dual;
+select empno,hiredate,substr(hiredate,1,2) from emp;
+select ename,substr(ename,-3,2) from emp;
+--슬라이드11
+select lpad('Oracle',20,'#') from dual;
+select rpad('Oracle',20,'#') from dual;
+--슬라이드12
+select ltrim('abcdefg','a') from dual;
+select '|'||ltrim('    a     ')||'|' from dual;
+--슬라이드13,14
+select rtrim('abcdefx','x') from dual;
+select '|'||rtrim('    x     ')||'|' from dual;
+select trim('A' from 'AcccccccccA') from dual;
+--슬라이드15
+select ename from emp where lower(ename)='smith';
+select ename from emp where initcap(ename)='Smith';
+select ename from emp where upper(ename)='SMITH';
+select ename from emp where ename like '__R%';
+select ename from emp where ename like '%N';
+--슬라이드16
+select concat('thor','hulk') from dual;
+--슬라이드17
+select ename,hiredate from emp where hiredate like '87%';
+--슬라이드18
+select sysdate from dual;
+select sysdate-1 from dual;
+select * from emp;
+select ename,hiredate,round(sysdate-hiredate)근무일수 from emp;

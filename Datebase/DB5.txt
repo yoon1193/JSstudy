@@ -1,0 +1,182 @@
+--그룹함수 SUM AVG COUNT MAX MIN
+--여러행을 하나로 묶어서 하나의 연산결과를 리턴하는 함수
+select * from member;
+select sum(money) from member;
+--sum(money)는 하나의 컬럼 memeberno은 여러개 error
+select sum(money),memberno from member;
+--null은 제외하고 계산
+select sum(point),sum(money) from member;
+--평균avg
+select avg(point),avg(money) from member;
+--count
+select count(point),count(money) from member;
+--max
+select max(point),max(money) from member;
+--min
+select min(point),min(money) from member;
+
+select avg(point),sum(point),count(point),sum(point)/count(point) from member;
+select count(money),count(point) from member;
+
+--sum은 null을 0으로 처리한것 처럼 보이나 제외하고 계산
+--그룹함수는 null을 제외하고 실행된다
+--point null값을 0으로 변환후 평균 구하기
+select avg(point),sum(point),count(nvl(point,0)),sum(point)/count(nvl(point,0)) realAVG from member;
+
+select count(*),count(memberno) from member;
+
+--1.사원의 총 급여
+select * from emp;
+select sum(sal) from emp;
+--2.커미션 총액
+select sum(comm) from emp;
+select sum(nvl(comm,0)) from emp;
+--3.총 연봉
+select sum(sal*12+nvl(comm,0)) from emp;
+--4.가장 많이 가장 적게
+select max(sal*12+nvl(comm,0)),min(sal*12+nvl(comm,0)) from emp;  
+--5.가장 오래된 사원,최근 사원
+select min(hiredate),max(hiredate) from emp;
+--6.커미션을 받는 사원수
+select count(comm) from emp;
+
+select * from member;
+--총 카페의 종류수
+select count(DISTINCT cafe) from member;
+--12카페 회원의 point avg
+select avg(nvl(point,0)) from member where cafe in (11);
+
+select * from emp;
+--job의 갯수
+select count(DISTINCT job) from emp;
+--sal 2000이하인 20번
+select count(ename) from emp where sal<=2000 and deptno in (20);
+
+--순서
+--select 원하는컬럼 from 원하는테이블 where 원하는데이터조건 
+--group by 그룹화 having 그룹화한 데이터에 원하는 데이터 선택 order by 정렬
+
+--group by
+--특정 컬럼을 기준으로 그룹지어서 출력하고 싶을때 사용
+select cafe,money from member order by cafe,money;
+
+--각 카페별 회원이 가지고있는 money를 출력해보자
+select cafe,sum(money),max(money),min(money) from member group by cafe order by cafe;
+select cafe,sum(money) moneysum ,max(money),min(money) from member group by cafe order by moneysum ;
+
+--부서별 평균 급여
+select * from emp;
+select deptno,sal from emp order by deptno,sal;
+select deptno,avg(sal) avgSal, max(sal),min(sal) from emp group by deptno order by deptno;
+
+--부서별로 사원수와 커미션을 받는 사원들의 수
+select * from emp;
+select deptno,count(empno),count(comm) from emp group by deptno order by deptno;
+
+--카페별 각 회원이 추천한 추천인 개수 출력
+select * from member;
+select cafe,recommender,count(recommender)count from member group by cafe,recommender order by cafe,recommender;
+
+--having
+--having 절에 논술연산 가능
+select cafe,sum(money) moneysum ,max(money),min(money) from member group by cafe order by moneysum ;
+select cafe,sum(money) moneysum ,max(money),min(money) from member group by cafe having sum(money)>=20000 order by moneysum;
+
+--부서 평균 급여가 2000이상인 부서만
+select deptno,avg(sal) avgSal, max(sal),min(sal) from emp group by deptno having avg(sal)>=1500 and avg(sal)<=2200 order by avgSal;
+
+
+--함수
+--abs함수 절대값
+select -12,abs(-12) from dual;
+
+--floor 수수점버림
+select 34.5678,floor(34.5678) from dual;
+
+--round 소수점 반올림
+select 34.5678,round(34.5678) from dual;
+select 34.5678,round(34.5678,2) from dual;--소수점 3째자리 
+select 34.5678,round(34.5678,-1) from dual;--1의자리에서 반올림 10
+select 34.5678,round(34.5678+0.005,2) from dual;--1의자리에서 반올림 10
+
+--ceil 소수점 올림
+select 34.5678,ceil(34.5678) from dual;--1의자리에서 반올림 10
+
+--trunc 소수점 버림
+select 34.5678,trunc(34.5678,2),trunc(34.5678,-1),trunc(34.5678) from dual;
+--연봉을 구해서 1000단위
+select * from emp;
+select trunc(sal*12+nvl(comm,0),-3) from emp;
+
+--mod 나머지
+select mod(24,3),mod(28,5),mod(25,3) from dual;
+--사번이 짝수인 사람
+select * from emp;
+select empno,ename from emp where mod(empno,2)=0;
+
+--lower 소문자로 변환
+--upper 대문자로 변환
+--initcap 첫글자를 대문자로 변환
+select lower('Welcome To Korea'),upper('Welcome To Korea'),initcap('Welcome To Korea') from dual;
+--job이 manager인 사람을 출력
+select * from emp where lower(job)=('manager');
+
+--concat 문자열 연결
+select concat(memberno,'=')from member;
+select concat(concat(memberno,'='),recommender)from member;
+
+--substr 문자열 잘라내기
+select substr('Welcome To Korea',4,3) from dual; --1 2 3 4 ... 4번째자리부터3개출력 com
+select substr('Welcome To Korea',-4,3) from dual; --ore
+
+--instr 문자열 찾아내기(대창 찾을문자 시작위치 몇번째)
+select instr('Welcome To Korea','o',1,1) from dual; --5 
+select instr('Welcome To Korea','o',1,2) from dual; --10 (띄어쓰기포함)
+select instr('Welcome To Korea','o',1,3) from dual; --13
+select instr('Welcome To Korea','b',1,1) from dual; --찾는값이 없으면 0이 리턴
+--사원이름에 a가 1개이하만 출력
+select * from emp;
+select ename from emp where instr(ename,'A',1,2)=0;
+
+--length 문자열 길이
+select length('Oracle'),length('오라클'),lengthb('oracle'),lengthb('오라클') from dual;
+
+--사원의 이름이 5글자이상인 사람만 xxxxx..
+select * from emp;
+select concat(ename,'..')from emp where length(ename)>=5;
+select concat(substr(ename,1,5),'..') from emp;
+--이름이 e로 끝나는 사원
+select * from emp;
+select * from emp where ename like '%E';
+select * from emp where substr(ename,-1,1)='E';
+
+--lpad,rpad
+select lpad('Oracle',10,'#'),rpad('Oracle',10,'#') from dual;
+--trim 공백사라짐
+select '|'||rtrim('    a    ')||'|'||ltrim('    a    ')||'|'||trim('    a    ') from dual;
+
+--형변환
+--number character data to_number 숫자로 to_char 문자로 to_date 시간형
+--to date
+--AM PM A.M P.M
+--HH24 HH12
+--YYYY YY
+
+--시간을 문자열로
+select systimestamp from dual;
+select to_char(systimestamp,'YYYY-MM-DD HH24:MI:SS')from dual;
+select to_char(to_timestamp('2020-05-11 22:30:22','YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS')from dual;
+select to_char(to_date('2020-05-11 22:30:22','YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS')from dual;
+--시간을 숫자로
+
+
+--숫자를 문자열로
+select ename,sal,to_char(sal,'L999,999') from emp; --자리수가 맞지 않으면 출력x L=원 기호 .소수점 ,천 단위
+select ename,sal,to_char(sal,'000000') from emp;--자리수가 맞지 않으면 0으로 채움
+--숫자를 시간으로
+select to_date(19770506,'YYYYMMDD')from dual;
+
+--문자열을 숫자로
+select to_number('20,000','99,999')-to_number('10,000','00,000') from dual;
+--문자열을 시간으로
+select to_date('2020-05-11 22:30:22','YYYY-MM-DD HH24:MI:SS')from dual;
