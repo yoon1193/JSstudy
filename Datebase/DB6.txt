@@ -159,11 +159,11 @@ select count(ename),sum(comm),count(comm),avg(nvl(comm,0)) from emp;
 select count(ename),sum(comm),count(comm),avg(comm) from emp;
 --슬라이드8
 select max(sal),min(sal) from emp;
-select max(ename),min(ename),max(hiredate),min(hiredate) from emp;
+--select max(ename),min(ename),max(hiredate),min(hiredate) from emp;
 --슬라이드10
 select * from emp;
 select sum(sal) from emp;
-select count(ename) from emp; 
+--.. 
 --슬라이드11
 select * from emp;
 select sum(sal) from emp;
@@ -222,4 +222,65 @@ desc ec_order;
 update ec_order set csel='현금입금' where order_id='jupark';
 update ec_order set cdate='02/03/15' where order_id='jupark';
 update ec_order set gubun='결재' where order_id='jupark';
+commit;
+
+
+
+--9 데이터베이스 수정
+--1.
+select * from ec_product;
+insert into ec_product
+(product_code,product_name,standard,unit_price,left_qty,company,imagename)
+values('FL01','꽃다발','붉은장미',45000,20,'글로리아','ROSE_01.JPG');
+insert into ec_product
+(product_code,product_name,standard,unit_price,left_qty,company,imagename)
+values('FL02','백합꽃병','백합꽃',80000,20,'글로리아','BOX_02.JPG');
+insert into ec_product
+(product_code,product_name,standard,unit_price,left_qty,company,imagename)
+values('FL03','꽃상자','장미100송이',130000,20,'글로리아','ROSE_03.JPG');
+commit;
+--2.
+select * from ec_basket;
+select * from ec_order;
+insert into ec_order
+(order_no,order_id,product_code,order_qty)
+select order_no,order_id,product_code,order_qty from ec_basket
+where order_no in(100506001,100506002,100506003);
+commit;
+--3.
+select * from ec_order where cdate is null;
+update ec_order
+set gubun='미결재'
+where cdate is null;
+commit;
+--4.
+delete from ec_basket;
+--5.
+select * from ec_order;
+update ec_order
+set csel='현금입금', cdate='02/03/15', gubun='결재'
+where order_id='jupark';
+commit;
+
+--10 sql
+--1. substr이용
+select * from ec_member;
+select name, regist_no, decode(substr(regist_no,8,1),1,'남자',
+                                        2,'여자') from ec_member;
+--2.
+select name, regist_no, 2011-(substr(regist_no,1,2)+1900)+1 as 나이,
+'2011/02/19' as 기준년월일 from ec_member;
+--3.
+select * from ec_order where cdate is null;
+update ec_order
+set gubun='미결재'
+where cdate is null;
+commit;
+--4.
+delete from ec_basket;
+--5.
+select * from ec_order;
+update ec_order
+set csel='현금입금', cdate='02/03/15', gubun='결재'
+where order_id='jupark';
 commit;
