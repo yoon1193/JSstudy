@@ -21,7 +21,7 @@
         }
         #banner-wrap{
             width: 100%;
-            background-color:#f5f5f5;
+            background-color:#e6e6e6;
         }
        
         #footer-wrap{
@@ -39,7 +39,7 @@
         }
         .banner-container{
             width:1250px;
-            height: 700px;
+            height: 750px;
             /* line-height: 100px; */
             margin: 0px auto;
             background-color:white;
@@ -97,13 +97,13 @@
         .banner-container .id{
             background-color: white; 
             width: 1000px; 
-            height: 700px; 
+            height: 750px; 
             margin: 0px auto; 
             position: relative;
         }
         #join-form{
             width: 400px; 
-            height: 600px; 
+            height: 650px; 
             background-color: white; 
             position:absolute; 
             left: 5%; 
@@ -145,6 +145,11 @@
             margin: 0px;
             padding: 0px;
             
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
 
         
@@ -188,6 +193,7 @@
             <div class="banner-container">
                 <div class="id">
                     <div id="join-form">
+                        <h1 style="color: black;">SIGN UP</h1>
                             <input type="text" style="width: 300px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="이메일을 입력해 주세요">
 
                             <input type="text" style="width: 300px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="비밀번호를 입력해 주세요">
@@ -202,7 +208,7 @@
                                 <option value="여자">여자</option>
                             </select>
 
-                            <input type="text" style="width: 300px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="생년월일을 입력해 주세요 ex)88.01.01">
+                            <input type="number" style="width: 300px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="생년월일을 입력해 주세요 ex)880101">
 
                             <input type="text" style="width: 300px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="활동지역을 입력해 주세요.">
 
@@ -221,8 +227,9 @@
                             <button type="button" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;">풋볼매칭 시작하기</button>
                             
                     </div>
-                    <div style=" position: absolute; left: 55%; top:20%;  border-left: 2px solid #9d9d9d;">
-                        <img src="img/ph.jpg">
+                    <div style=" position: absolute; left: 55%; top:20%; border-left: 2px solid #9d9d9d; width: 500px; height: 500px;">
+                        <h1 style="color: black;">기본정보 입력</h1>
+                        <img src="img/ph.jpg" style="margin-top: 100px;">
                     </div>
  
                 </div>
@@ -262,8 +269,8 @@
                         </ul>
                     </div> 
                     <div id="body3" style="float:right; width: 80px; margin: 15px 0px 15px 20px; background-color: white;">
-                        <div style="float: left;"><img src="img/크기변환_카카오.JPG"></div>
-                        <div style="float: left;"><img src="img/크기변환_인스타.JPG"></div>
+                        <div style="float: left; cursor: pointer;" onclick="window.open('https://www.google.com/maps');"><img src="img/크기변환_카카오.JPG"></div>
+                        <div style="float: left; cursor: pointer; margin-left: 8px;" onclick="window.open('https://www.instagram.com/');"><img src="img/크기변환_인스타.JPG"></div>
                     </div>
 
                 </div>

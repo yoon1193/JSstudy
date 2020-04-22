@@ -157,10 +157,18 @@ select '|'||rtrim('    a    ')||'|'||ltrim('    a    ')||'|'||trim('    a    ') 
 
 --형변환
 --number character data to_number 숫자로 to_char 문자로 to_date 시간형
---to date
---AM PM A.M P.M
---HH24 HH12
---YYYY YY
+--YYYY 년도 4자리
+--YY 년도 2자리
+--dd 일
+--MM 월을 숫자로 표현
+--MON 월을 알파벳으로표현
+--day 요일
+--dy  요일을 약어로 표현
+--AM PM   오전오후 am  표시
+--A.M P.M  a.m 표시
+--HH12,HH24 시간 12시 표기 24시표기
+--mi 분표현
+--ss 초표현
 
 --시간을 문자열로
 select systimestamp from dual;
@@ -180,3 +188,84 @@ select to_date(19770506,'YYYYMMDD')from dual;
 select to_number('20,000','99,999')-to_number('10,000','00,000') from dual;
 --문자열을 시간으로
 select to_date('2020-05-11 22:30:22','YYYY-MM-DD HH24:MI:SS')from dual;
+
+--0422
+--decode = siwtch case문과 비슷
+--decode(표현식,조건1,결과1
+--            ,조건2,결과2
+--            ,조건3,결과3
+--              기본결과값)
+select * from emp;
+select ename,deptno,decode(deptno,10,'accounting',20,'research',30,'sales',40,'operation') dname from emp;
+
+select distinct cafe from member order by cafe;
+select * from member;
+select membername,cafe,decode(cafe,2,'a',3,'b',4,'c',5,'d',10,'e',11,'f',12,'g'
+,13,'h',14,'i',15,'j',16,'k',17,'l',18,'m',19,'n') cname from member;
+
+select * from emp;
+select ename,deptno,decode(deptno,10,'ACCOUNTING',20,'RESEARCH','change') dname from emp;
+select ename,sal,deptno,decode(deptno,10,sal+20,20,sal+30,sal)bonus from emp;
+
+--decode와 비슷한 case
+--case는 조건식을 넣을수있다.
+select ename,deptno,case when deptno=10 then 'accounting' when deptno=20 then 'research'
+                            when deptno=30 then 'sales' when deptno=40 then 'operations'
+                    end dname from emp;
+
+--then절에 다른 칼럼이 올 수 있고 자료형을 맞춰줘야함
+select ename,deptno,case when deptno=10 then 'accounting' when deptno=20 then to_char(deptno+10) 
+                            when deptno=30 then 'sales' when deptno=40 then 'operations'
+                    end dname from emp;
+
+select ename,deptno,case when deptno<30 then 'accounting'  
+                            when deptno<40 then 'sales' else 'noDeptnl'
+                    end dname from emp;
+                    
+--사원번호 7000-7300은 '7000-7300사원'
+select * from emp;
+select ename,empno, case when empno>=7000 and empno<=7300 then '7000~7300사원' 
+                    when empno>=7301 and empno<=7600 then '7301~7600사원'
+                    when empno>=7601 and empno<=7900 then '7601~7900사원'
+                    else '이외의 사원'
+                    end empnoname from emp order by empno;
+                    
+--날짜계산                    
+select systimestamp,to_char(systimestamp+1,'YYYY-MM-DD HH24:MI:SS') from dual;
+select systimestamp,to_char(systimestamp+1/24,'YYYY-MM-DD HH24:MI:SS') from dual;
+select systimestamp,to_char(systimestamp+1/24/60,'YYYY-MM-DD HH24:MI:SS') from dual;
+select systimestamp,to_char(systimestamp+1/24/60/60,'YYYY-MM-DD HH24:MI:SS') from dual;
+select systimestamp,to_char(systimestamp+7,'YYYY-MM-DD HH24:MI:SS') from dual;
+select systimestamp,to_char(systimestamp+1,'YYYY-MM-DD HH24:MI:SS') from dual;
+
+select (systimestamp+1) from dual;
+select (sysdate+1) - sysdate from dual; --data/date는 연산가능
+select (systimestamp+1) - sysdate from dual;--윗 줄이랑 같은거
+select (systimestamp+1) - systimestamp from dual;--안됨
+--시간 데이터에다가 숫자나 date타입으로만 연산.
+--일 수 이하는 + - 연산으로 계산하고 월 이상은 함수로 계산.
+--회원이 가입일로 부터 얼마나 지났는지
+select * from member;
+select to_char(registration, 'YY/MM/DD')registration,
+        to_char(sysdate,'YY/MM/DD')sysdate1,
+        (sysdate-registration) from member;
+
+--YYYY 반올림해서 년으로 만듬
+--oracl 시간 formating
+select round(systimestamp,'YYYY') from dual;
+select systimestamp,to_char(round(systimestamp,'YYYY'),'YYYY-MM-DD HH24:MI:SS') from dual;--년
+select systimestamp,to_char(round(systimestamp,'MON'),'YYYY-MM-DD HH24:MI:SS') from dual;--월
+select systimestamp,to_char(round(systimestamp,'DDD'),'YYYY-MM-DD HH24:MI:SS') from dual;--일
+select systimestamp,to_char(round(systimestamp,'HH'),'YYYY-MM-DD HH24:MI:SS') from dual;--시간
+select systimestamp,to_char(round(systimestamp,'MI'),'YYYY-MM-DD HH24:MI:SS') from dual;--분
+select systimestamp,to_char(round(systimestamp,'D'),'YYYY-MM-DD HH24:MI:SS') from dual;--시작주
+
+--시간관련함수
+--month_between
+select ename,sysdate,hiredate,months_between(sysdate,hiredate) from emp;
+--add_month
+select ename,sysdate,hiredate,add_months(hiredate,6) from emp;
+--next_day
+select sysdate,next_day(sysdate,'수요일') from dual;
+--last_day
+select sysdate,last_day(sysdate) from dual;

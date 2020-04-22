@@ -109,3 +109,117 @@ select sysdate from dual;
 select sysdate-1 from dual;
 select * from emp;
 select ename,hiredate,round(sysdate-hiredate)근무일수 from emp;
+--슬라이드19
+SELECT ename,sysdate,hiredate,months_between(sysdate,hiredate) from emp;
+select ename,sysdate,hiredate,add_months(hiredate,6) from emp;
+--슬라이드20
+select ename,hiredate,last_day(hiredate) from emp;
+select ename,hiredate,next_day(hiredate,'금요일') from emp;
+--슬라이드21
+select last_day(sysdate),next_day(sysdate,'일요일') from dual;
+select ename,hiredate,next_day(add_months(hiredate,6),'토요일') from emp;
+--슬라이드25
+select sysdate,sysdate-to_date('2006/01/01','YYYY/MM/DD') from dual;
+--슬라이드28
+select sysdate,to_char(sysdate,'YYYY-MM-DD HH24:MI:SS') from dual;
+select sysdate,to_char(sysdate+3/24,'YYYY-MM-DD HH24:MI:SS') from dual;
+--슬라이드31
+select ename,sal,to_char(sal,'$999,999') from emp;
+select ename,sal,to_char(sal,'L999,999') from emp;
+--슬라이드34
+select * from emp;
+select ename,mgr,nvl(to_char(mgr),'CEO') from emp;
+--슬라이드36
+select ename,deptno,decode(deptno,10,'accounting',20,'research',30,'sales',40,'operation') dname from emp;
+--슬라이드37
+select ename,job,sal,decode(job,'MANAGER',sal+(sal*0.15),'CLERK',sal+(sal*0.05),sal)upsal from emp;
+--슬라이드39
+select ename,deptno,case when deptno=10 then 'accounting' when deptno=20 then 'research' 
+                            when deptno=30 then 'sales' when deptno=40 then 'operations'
+                            end dname from emp;
+--슬라이드40
+select ename,job,sal,case when job='CLERK' then sal+(sal*0.2) when job='ANALYST' then sal+(sal*0.15) 
+                            when job='MANAGER' then sal+(sal*0.1) else sal+(sal*0.05) 
+                            end upsel from emp;
+                            
+--exercise4
+--슬라이드4
+select * from emp;
+select count(ename),count(comm) from emp;
+select count(comm) from emp where deptno=10;
+--슬라이드5
+select count(distinct job) from emp;
+select sum(sal),avg(nvl(sal,0)) from emp where job in ('SALESMAN');
+--슬라이드6
+select * from emp;
+select sum(sal),avg(nvl(sal,0)) from emp;
+select count(ename),avg(nvl(comm,0)) from emp;
+select count(ename),sum(comm),count(comm),avg(nvl(comm,0)) from emp;
+--슬라이드7
+select count(ename),sum(comm),count(comm),avg(comm) from emp;
+--슬라이드8
+select max(sal),min(sal) from emp;
+select max(ename),min(ename),max(hiredate),min(hiredate) from emp;
+--슬라이드10
+select * from emp;
+select sum(sal) from emp;
+select count(ename) from emp; 
+--슬라이드11
+select * from emp;
+select sum(sal) from emp;
+--슬라이드12
+select deptno,avg(sal) avgSal from emp group by deptno;
+--슬라이드13
+select deptno,count(comm)comm from emp group by deptno order by deptno;
+select deptno,max(sal),min(sal) from emp group by deptno order by deptno;
+--슬라이드14
+select deptno,job,count(ename) from emp group by deptno,job order by deptno;
+select deptno,avg(sal),max(sal)from emp group by deptno order by deptno;
+--슬라이드16
+select deptno,avg(sal) from emp group by deptno having avg(sal)>=2000 order by deptno;
+--슬라이드17
+select * from emp;
+select deptno,avg(sal) avgSal from emp group by deptno;
+select deptno,avg(sal) from emp where sal>=1000 group by deptno having avg(sal)>=2000;
+--슬라이드18
+SELECT  * from emp order by deptno;
+select deptno,sum(sal) from emp group by deptno;
+select deptno,sum(sal) from emp where job not in('CLERK') group by deptno having sum(sal)>=6500;
+select deptno,avg(sal) from emp group by deptno having max(sal)>=4000;
+--슬라이드20
+select deptno,max(sal) from emp where deptno in (10,20) group by deptno order by deptno
+commit;
+
+--9
+--1번
+create table flower
+as
+select * from ec_product where 1=0;
+desc flower;
+alter table flower modify(PRODUCT_CODE not null);
+insert into flower values('FL01','꽃다발','붉은 장미',null,45000,20,'글로리아','ROSE_01.jpg',null,null);
+insert into flower values('FL02','백합꽃병','백합꽃',null,80000,20,'글로리아','BOX_02.jpg',null,null);
+insert into flower values('FL03','꽃상자','장미100송이',null,130000,20,'글로리아','ROSE_03.jpg',null,null);
+select * from flower;
+--2번
+desc ec_basket;
+select * from ec_basket;
+create table ec_order
+as
+select * from ec_basket where 1=0;
+insert into ec_order
+select * from ec_basket;
+--3번
+select * from ec_order;
+select * from ec_order where cdate is null;
+update ec_order set gubun='미결재' where cdate is null;
+--4번
+select * from ec_basket;
+delete ec_basket;
+--5번
+select * from ec_order;
+desc ec_order;
+update ec_order set csel='현금입금' where order_id='jupark';
+update ec_order set cdate='02/03/15' where order_id='jupark';
+update ec_order set gubun='결재' where order_id='jupark';
+commit;
