@@ -131,5 +131,5 @@ select * from emp where mgr=(select mgr from emp where empno=7566);
 select * from emp;
 select distinct mgr from emp where mgr is not null;
 select * from emp where empno not in(select distinct mgr from emp where mgr is not null);
-select * from emp where empno in(select distinct mgr from emp where mgr is not null);
+select * from emp where empno in(select distinct mgr from emp where mgr is not null);ddd
 
