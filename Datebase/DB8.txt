@@ -1,0 +1,153 @@
+--0424
+--무결성제약조건 
+--primary key = 기본키
+--foreign key = 외래키,다른 테이블에 pk를 값으로 가지는 컬럼
+--not null
+--check 도메인 컬럼의 값의 범위
+--unique 유일한 값을 가지는 컬럼(null허용)
+
+create table GrapeGrade(
+Gno number(2) primary key,
+Gname nvarchar2(5),
+Gprice number(6)
+);
+insert into GrapeGrade values(1,'상',30000);
+insert into GrapeGrade values(2,'중',25000);
+insert into GrapeGrade values(3,'상',20000);
+select * from grapegrade;
+commit;
+create table GrapeBox(
+bno number(1),
+pno number(1),
+pname nvarchar2(10),
+parea nvarchar2(10),
+bkind nvarchar2(10),
+bpurchase number(1),
+gno number(1) references  grapegrade(gno)
+);
+insert into grapebox values(1,1,'김명천','번동','왕포도',5,1);
+insert into grapebox values(2,2,'김진우','홍일동','청포도',1,3);
+insert into grapebox values(3,3,'김태수','쌍문동','청포도',5,2);
+insert into grapebox values(4,4,'박지민','상계동','왕포도',2,2);
+insert into grapebox values(5,1,'김명천','번동','청포도',4,1);
+insert into grapebox values(6,2,'김진우','홍일동','왕포도',5,3);
+insert into grapebox values(7,3,'김태수','쌍문동','왕포도',5,1);
+insert into grapebox values(8,4,'김태수','쌍문동','청포도',3,2);
+select * from grapebox;
+commit;
+insert into grapegrade values(4,'최하',10000);
+insert into grapebox(bno,pno,pname,parea,bkind,bpurchase,gno)
+values(9,3,'김태수','쌍문동','청포도',4,4);
+delete grapebox where gno=3;
+delete grapegrade where gno=3;
+commit;
+
+--조인
+select * from emp;
+select * from dept;
+select * from emp ,dept  where emp.deptno=dept.deptno order by empno;
+select emp.*,dept.dname from emp ,dept  where emp.deptno=dept.deptno order by empno;
+select emp.empno,emp.ename,dept.dname from emp ,dept  where emp.deptno=dept.deptno order by empno;
+--scott의 부서명
+select ename,dname from emp,dept where emp.deptno=dept.deptno and emp.ename='SCOTT';
+select e.ename,d.dname,e.deptno,d.deptno from emp e,dept d where e.deptno=d.deptno and e.ename='SCOTT';
+--뉴욕에서 근무하는 사원 이름 급여
+select * from dept;
+select * from emp;
+--뉴욕에서 근무하는 사원 이름급여
+select e.ename,e.sal,d.loc from emp e,dept d where e.deptno=d.deptno and d.loc='NEW YORK';
+--accouting 부서 소속 사원 이름 입사일
+select e.ename,e.hiredate from emp e,dept d where e.deptno=d.deptno and d.dname='ACCOUNTING';
+--직급 manager 사원 이름,부서명
+select e.ename,d.dname from emp e, dept d where e.deptno=d.deptno and e.job='MANAGER';
+
+--non-equi join
+select * from salgrade;
+--각 사원의 grade를 출력//범위가 겹치지않도록
+select ename,sal,grade from emp,salgrade where sal between losal and hisal;
+select ename,sal,grade from emp,salgrade where losal<=sal and hisal>=sal;
+
+--self join
+--사원의 상사 이름 출력
+select ename,mgr from emp;
+select empno,ename from emp;
+select a.empno,a.ename,a.mgr,b.ename from emp a,emp b where a.mgr=b.empno;
+
+--매니저가 king인 사원 이름과직급
+select ename,mgr from emp;
+select a.ename,a.job from emp a,emp b where a.mgr=b.empno and b.ename='KING';
+--SCOTT과 동일한 근무지에서 근무하는 사원의 이름
+select a.ename,b.ename from emp a,emp b where a.deptno=b.deptno and a.ename='SCOTT' and b.ename!='SCOTT';
+
+--outter join
+select a.empno,a.ename,a.mgr,b.ename from emp a,emp b where a.mgr=b.empno(+);
+select a.empno,a.ename,a.mgr,b.ename from emp a,emp b where a.mgr(+)=b.empno;
+ 
+--문제
+select * from dept;
+select e.ename,d.deptno,d.dname from emp e,dept d where e.deptno(+)=d.deptno  order by deptno;
+
+
+
+--4308
+--슬라이드2
+select ename,dname from emp ,dept  where emp.deptno=dept.deptno order by empno;
+--슬라이드3
+select ename,dname from emp e,dept d where e.deptno=d.deptno and ename='SCOTT';
+select ename,dname from emp e,dept d where e.deptno=d.deptno and sal>=3000;
+--슬라이드4
+select ename,sal,grade from emp,salgrade where sal between losal and hisal;
+--슬라이드5
+select a.ename,b.ename from emp a,emp b where a.mgr=b.empno;
+--슬라이드6
+select a.ename||'의 매니저는'||b.ename||'입니다' from emp a,emp b where a.mgr=b.empno(+);
+--슬라이드7
+select ename,dname from emp e,dept d where e.deptno(+)=d.deptno;
+--슬라이드8
+select ename,e.deptno,dname from emp e,dept d where e.deptno=d.deptno;
+select e.ename,e.job,e.deptno,d.loc from emp e ,dept d where e.deptno=d.deptno and d.deptno=30;
+--슬라이드9
+select e.ename,e.comm,e.deptno,d.loc from emp e ,dept d where e.deptno=d.deptno and nvl(e.comm,0)>0;
+select e.ename,e.job,e.deptno,d.dname from emp e, dept d where  e.deptno=d.deptno and d.loc='DALLAS';
+--슬라이드10
+select e.ename,d.dname from emp e,dept d where e.deptno=d.deptno and e.ename like '%A%';
+select e.ename,e.job,e.sal,s.grade from emp e ,salgrade s where e.sal between s.losal and s.hisal;
+--슬라이드11..
+select * from emp;
+select a.ename,a.deptno,b.ename from emp a, emp b where a.deptno(+)=b.deptno;
+--슬라이드13
+select ename,dname from emp,dept where emp.deptno=dept.deptno;
+select ename,dname from emp inner join(dept) using(deptno);
+--슬라이드14
+select a.ename,b.ename from emp a,emp b where a.mgr=b.empno(+);
+select a.ename,b.ename from emp a left outer join emp b on a.mgr=b.empno;
+--슬라이드15
+select e.ename,d.dname from emp e,dept d where e.deptno(+)=d.deptno;
+select e.ename,d.dname from emp e right outer join dept d using(deptno);
+--슬라이드16
+select e.ename,d.dname from emp e full outer join dept d using(deptno);
+commit;
+--160852.jpg
+--1번
+select * from ec_order;
+select * from ec_product;
+select o.order_id,o.product_code,p.product_name,o.order_qty,p.unit_price 주문금액
+from ec_order o,ec_product p  where
+o.product_code=p.product_code and o.gubun is null;
+--2번
+select * from ec_order;
+select * from ec_member;
+select * from ec_product;
+select m.name,m.telephone,m.address,p.product_name 배달상품,o.order_qty 수량 
+from ec_order o,ec_member m,ec_product p where o.order_id=m.userid and o.product_code=p.product_code
+order by m.name;
+--3번
+select * from ec_product;
+select * from ec_order;
+select p.product_code,p.product_name 주문상품,o.order_qty,p.unit_price,o.order_id,p.unit_price*o.order_qty 주문금액
+from ec_product p , ec_order o where o.product_code(+)=p.product_code order by o.order_id;
+--4번
+select * from ec_product;
+select * from ec_order;
+select p.product_code,p.product_name ,p.unit_price,p.left_qty from ec_product p,ec_order o
+where o.product_code=p.product_code and o.gubun is null order by p.product_code;
