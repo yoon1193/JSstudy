@@ -237,4 +237,6 @@ select name,regist_no,case when substr(regist_no,8,1)=1 then '남자'
 select * from ec_member;
 select name,regist_no,2011-(substr(regist_no,1,2)+1900)+1 나이,
                  '2011/02/19' 기준년월일 from ec_member;
+
+                 
                  

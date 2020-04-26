@@ -17,7 +17,7 @@
         #header-wrap{
             width: 100%;
             background-color:black;
-            
+        
         }
         #banner-wrap{
             width: 100%;
@@ -40,7 +40,7 @@
         }
         .banner-container{
             width:1250px;
-            height: 700px;
+            height: 500px;
             /* line-height: 100px; */
             margin: 0px auto;
             background-color:white;
@@ -50,7 +50,7 @@
             width: 1250px;
             height: 150px;
             /* line-height: 100px; */
-            margin: 0px auto;
+            margin: 10px auto;
             /* background-color: springgreen; */
             border-top: 2px solid #9b9c9d;
            
@@ -98,16 +98,16 @@
         .banner-container .id{
             background-color: white; 
             width: 1000px; 
-            height: 700px; 
+            height: 500px; 
             margin: 0px auto; 
             position: relative;
         }
-        #answer-form{
-            width: 400px; 
-            height: 550px; 
+        #login-form{
+            width: 750px; 
+            height: 350px; 
             background-color: white; 
             position:absolute; 
-            left: 5%; 
+            left: 10%; 
             top: 10%;
 
         }
@@ -147,20 +147,18 @@
             padding: 0px;
             
         }
-        .id ul{
-            margin-top: 10px;
-        }
-        .id li{
-            text-align: left;
-            color: #9b9c9d;
-            font-size: 15px;
 
-        }
-        input[type="number"]::-webkit-outer-spin-button,
-        input[type="number"]::-webkit-inner-spin-button {
+        input[type="date"]::-webkit-outer-spin-button,
+        input[type="date"]::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
+        input[type="time"]::-webkit-outer-spin-button,
+        input[type="time"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
 
         
 
@@ -202,57 +200,26 @@
         <div id="banner-wrap">
             <div class="banner-container">
                 <div class="id">
-                    <div id="answer-form">
-                        
-                            <input type="text" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d; " placeholder="성함을 입력해 주세요.">
-
-                            <input type="text" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="답변 받을 E-mail 주소를 입력해 주세요.">
-
-                            <input type="number" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="휴대폰 번호를 입력해 주세요.">
-
-                            <textarea type="text"  style="width: 300px; height: 210px; margin-top: 10px; border: 1px solid #9b9c9d; resize:none;" placeholder="남기실 메세지를 입력해 주세요."></textarea>
+                    <div id="login-form">
+                        <h1 style="color: black; font-size: 60px; margin-bottom: 50px;">MATCHING</h1>
+                            <input type="text" style="width: 300px; height: 50px; margin : 10px 15px 0px 50px; border: 1px solid #9b9c9d; float: left;" placeholder="TEAM 이름을 입력해주세요">
+                            <input type="date" style="width: 140px; height: 50px; margin : 10px 15px 0px 30px; border: 1px solid #9b9c9d; float: left;"  >
+                            <input type="time" style="width: 140px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d; float: left;"  >
+                            <input type="text" style="width: 140px; height: 50px; margin : 10px 15px 0px 50px; border: 1px solid #9b9c9d; float: left;" placeholder="지역을 입력해주세요." >
+                            <select style="float: left;width: 140px; height: 50px; margin-top: 10px;   border: 1px solid #9b9c9d;">    
+                                <option value="실력">TEAM 실력</option>
+                                <option value="상">상</option>
+                                <option value="중">중</option>
+                                <option value="하">하</option>
+                                <option value="최하">최하</option>
+                            </select>
+                            <textarea type="text"  style=" float:left; width: 300px; height: 110px;  margin : 10px 15px 0px 50px; border: 1px solid #9b9c9d; resize:none;" placeholder="매칭 내용 입력"></textarea>
+                            <button type="button" style="width: 300px; height: 50px; margin-top: 20px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;">MATCHING 작성하기 </button>
                             
-
-                            
-                            <button type="button" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;">문의 보내기</button>
-                            
+                   
+                       
+                       
                     </div>
-                    <div style=" position: absolute; left: 50%; top:10%; width: 500px; height: 600px;  border-left: 2px solid #9d9d9d; ">
-                        <h1 style="color: black; font-size: 50px; font-weight: bold;">문의하기</h1>
-                        <h3 style="margin-top: 30px; color:#9b9c9d;">궁금하신 내용이 있으면 언제든지 연락해주세요.<br>
-                            빠르고 친절히 답변드리도록 하겠습니다.</h3>
-                            <div style=" width: 500px; height: 440px; ">
-                                <div style=" float: left; width: 100%; margin: 20px 0 0 50px;" >
-                                    <p style="text-align: left; color: black; font-weight: bold;">주소</p>
-                                    <ul>
-                                        <li>매칭 모바일</li>
-                                        <li>대표 : Human Kim</li>
-                                        <li></li>
-                                        <li>서울특별시 휴먼구 휴먼로 174,123동-35호(휴먼동 엘리시아)</li>
-                                    
-                                    </ul>
-                                    
-                                </div>
-                                <div style=" float: left; width:100%; margin: 20px 0 0 50px;" >
-                                    <p style="text-align: left; color: black; font-weight: bold;">고객센터</p>
-                                    <ul>
-                                        <li>고객센터</li>
-                                        <li>카카오톡@hxxxxx</li>
-                                        <li>help@huxxxxx.com</li>
-                                    </ul>
-                                </div>
-                                <div style="margin: 50px 0 0 50px; float: left;">
-                                <button type="button" style=" width: 200px; height: 50px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;"
-                                onclick = "window.open('https://www.google.com/maps')"> 지도보기</button>
-                                <button type="button" style=" width: 200px; height: 50px;  border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;"
-                                onclick = "window.open('https://www.kakaocorp.com')">카카오톡</button>
-                                
-                            </div>
-                            </div>
-                            
-                                                      
-                    </div>
-
  
                 </div>
             </div>
