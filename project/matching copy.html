@@ -99,7 +99,7 @@
             background-color: white; 
             width: 1000px; 
             height: 500px; 
-            margin: 0px auto; 
+            margin: 0px; 
             position: relative;
         }
         #login-form{
@@ -107,7 +107,6 @@
             height: auto; 
             background-color: white; 
             position:absolute; 
-            left: 10%; 
             top: 10%;
 
         }
@@ -162,8 +161,33 @@
         a:visited { color:#9b9c9d; text-decoration: none;} 
         a:hover { color:#9b9c9d; text-decoration: underline;}
     </style>
-     
+     <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
     <script>
+        
+        function Start(){
+            // var teamname = document.getElementById("tname").value;
+            // var teamdate = document.getElementById("date").value;
+            // var teamtime = document.getElementById("time").value;
+            // var teamarea = document.getElementById("area").value;
+            // var teamplay = document.getElementById("play").value;
+            // var teamwrite = document.getElementById("write").value;
+            var div = document.createElement('div');
+            var ul = document.createElement('ul');
+            var li = document.createElement('li');
+            div.innerHTML+=document.getElementById("matching").innerHTML;
+            ul.innerHTML+=document.getElementById("matching").innerHTML;
+            li.innerHTML+=document.getElementById("matching").innerHTML;
+            div.id="matching1";
+            div.style.backgroundColor="red";
+            div.style.width="400px"
+            div.style.position="absolute";
+            div.style.left="60%";
+            div.style.top="20%";
+            document.body.appendChild(div);
+           
+            
+        
+        }  
     </script>
 </head>
 <body>
@@ -210,7 +234,10 @@
                                 <option value="최하">최하</option>
                             </select>
                             <textarea type="text"  style=" float:left; width: 300px; height: 110px;  margin : 10px 15px 0px 50px; border: 1px solid #9b9c9d; resize:none;" placeholder="매칭 내용 입력" id="write"></textarea>
-                            <button type="button" style="width: 300px; height: 50px; margin-top: 20px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;" onclick="Start()">MATCHING 작성하기 </button>   
+                            <button type="button" style="width: 300px; height: 50px; margin-top: 20px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;" onclick="Start()">MATCHING 작성하기 </button>  
+                            <div id="matching">
+                                <input type="text">
+                            </div> 
                             
                     </div>
                     

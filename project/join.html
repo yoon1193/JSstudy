@@ -159,7 +159,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        function check(){
+        function checkpass(){
             var pw = $("#pass").val();
             var pw1=$("#pass1").val();
             var num = pw.search(/[0-9]/g);
@@ -214,28 +214,51 @@
             }
 
         }
-        function welcome(){
-            // for (var i=0; i<$("#user").val().length; i++)  { 
-            //     var chk = $("#user").val().substring(i,i+1); 
-            //     if(chk.match(/[0-9]|[a-z]|[A-Z]/)) { 
-            //         alert("이름을 정확히 입력해주세요");
-            //         return false;
-            //     }
-            //     if(chk.match(/([^가-힣\x20])/i)){
-            //         alert("이름을 정확히 입력해주세요");
-            //         return false;
-            //     }
-            //     if($("#name").val() == " "){
-            //         alert("이름을 정확히 입력해주세요");
-            //         return false;
-            //     }
-            //     else{
-                    
-            //     }
+
+        function welcome() {
+        var objEmail = document.getElementById("email");
+        var objName = document.getElementById("user");
  
-            // }
-            
+        //이메일 정규화 공식
+        var regul2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+        //이름 정규화 공식
+        var regul3 = /^[가-힝a-zA-Z]{2,}$/;
+      
+        //이메일 입력 안했을 경우
+        if ((email.value)=="") {
+            alert("이메일을 입력해 주세요");
+            email.focus();
+            return false;
         }
+        //이메일이 잘못된 경우
+        if (!check(regul2,email,"이메일을 잘못 입력 했습니다.")) {
+            return false;
+        }
+        //이름 입력 안 한 경우
+        if ((user.value)=="") {
+            alert("이름을 입력해 주세요");
+            user.focus();
+            return false;
+        }
+        //이름에 특수 문자가 들어간 경우
+        if (!check(regul3,user,"이름이 잘못 되었습니다.")) {
+            return false;
+        }
+        else{
+            alert("Welcome")
+        }
+        }
+        function check(re, what, message) {
+            if(re.test(what.value)) {
+                return true;
+            }
+            alert(message);
+            what.value = "";
+            what.focus();
+           
+   }
+            
+        
         
 
     </script>
@@ -278,7 +301,7 @@
 
                             <input type="password" style="width: 200px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d;" placeholder="비밀번호를 다시 입력해 주세요" required id="pass1">
 
-                            <input type="button" style="width:97px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d; background-color: black; color: white;" value="비밀번호 확인" onclick="check()">
+                            <input type="button" style="width:97px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d; background-color: black; color: white; cursor: pointer;" value="비밀번호 확인"  onclick="checkpass()">
                             
 
                             <input type="text" style="width: 140px; height: 40px; margin-top: 10px; margin-left: 49px; border: 1px solid #9b9c9d; float: left;" placeholder="이름" required id="user">
