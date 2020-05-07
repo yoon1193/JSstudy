@@ -162,29 +162,26 @@
         a:visited { color:#9b9c9d; text-decoration: none;} 
         a:hover { color:#9b9c9d; text-decoration: underline;}
     </style>
+     <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
     <script>
         
         function Start(){
-            // var teamname = document.getElementById("tname").value;
-            // var teamdate = document.getElementById("date").value;
-            // var teamtime = document.getElementById("time").value;
-            // var teamarea = document.getElementById("area").value;
-            // var teamplay = document.getElementById("play").value;
-            // var teamwrite = document.getElementById("write").value;
-            // Out();
-            var teamname=$("#tname").val();
-            var result=teamname;
-            $("#T1").val(result);
-
-        }
-        
-
-
-
-       
-
-
-         
+            var teamname = document.getElementById("tname").value;
+            var teamdate = document.getElementById("date").value;
+            var teamtime = document.getElementById("time").value;
+            var teamarea = document.getElementById("area").value;
+            var teamplay = document.getElementById("play").value;
+            var teamwrite = document.getElementById("write").value;
+            document.getElementsByTagName("li")[8].innerHTML=teamname;
+            document.getElementsByTagName("li")[9].innerHTML=teamdate;
+            document.getElementsByTagName("li")[10].innerHTML=teamtime;
+            
+            document.getElementById("rdate").value=teamdate;
+            document.getElementById("rtime").value=teamtime;
+            document.getElementById("rarea").value=teamarea;
+            document.getElementById("rplay").value=teamplay;
+            document.getElementById("rwrite").value=teamwrite;
+        }  
     </script>
 </head>
 <body>
@@ -224,7 +221,7 @@
                             <input type="time" style="width: 140px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d; float: left;"  id="time">
                             <input type="text" style="width: 140px; height: 50px; margin : 10px 15px 0px 50px; border: 1px solid #9b9c9d; float: left;" placeholder="지역을 입력해주세요." id="area">
                             <select style="float: left;width: 140px; height: 50px; margin-top: 10px;   border: 1px solid #9b9c9d;" id="play">    
-                                <option value="실력">TEAM 실력</option>
+                                <option value="">TEAM 실력</option>
                                 <option value="상">상</option>
                                 <option value="중">중</option>
                                 <option value="하">하</option>
@@ -232,8 +229,22 @@
                             </select>
                             <textarea type="text"  style=" float:left; width: 300px; height: 110px;  margin : 10px 15px 0px 50px; border: 1px solid #9b9c9d; resize:none;" placeholder="매칭 내용 입력" id="write"></textarea>
                             <button type="button" style="width: 300px; height: 50px; margin-top: 20px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;" onclick="Start()">MATCHING 작성하기 </button>   
-                            <input type="text" id="T1" readonly>
-                            
+                            <div>
+                                <ul>
+                                    <li style="background-color: teal;">2</li>
+                                    <li style="background-color: teal;">2</li>
+                                    <li style="background-color: teal;">2</li>
+                                    <li style="background-color: teal;">2</li>
+                                    <li style="background-color: teal;">2</li>
+
+                                </ul>
+                            <input type="text" id="rtname" readonly>
+                            <input type="text" id="rdate" readonly>
+                            <input type="text" id="rtime" readonly>
+                            <input type="text" id="rarea" readonly>
+                            <input type="text" id="rplay" readonly>
+                            <input type="textarea" id="rwrite" readonly>
+                        </div>
                     </div>
                     
  
