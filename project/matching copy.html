@@ -174,16 +174,28 @@
             var div = document.createElement('div');
             var ul = document.createElement('ul');
             var li = document.createElement('li');
-            div.innerHTML+=document.getElementById("matching").innerHTML;
-            ul.innerHTML+=document.getElementById("matching").innerHTML;
-            li.innerHTML+=document.getElementById("matching").innerHTML;
+
+            document.body.appendChild(div);
+            document.div.appendChild(ul);
+            document.ul.appendChild(li);
+
             div.id="matching1";
+            ul.id="asd"
+            
+            
+            div.innerHTML+=document.getElementById("matching").innerHTML;
+            ul.innerHTML+=document.getElementById("matching1").innerHTML;
+            li.innerHTML+=document.getElementById("asd").innerHTML;
+
+            div.id="matching1";
+            ul.id="asd"
             div.style.backgroundColor="red";
             div.style.width="400px"
+            div.style.height="1000px"
             div.style.position="absolute";
             div.style.left="60%";
             div.style.top="20%";
-            document.body.appendChild(div);
+
            
             
         
@@ -235,12 +247,12 @@
                             </select>
                             <textarea type="text"  style=" float:left; width: 300px; height: 110px;  margin : 10px 15px 0px 50px; border: 1px solid #9b9c9d; resize:none;" placeholder="매칭 내용 입력" id="write"></textarea>
                             <button type="button" style="width: 300px; height: 50px; margin-top: 20px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;" onclick="Start()">MATCHING 작성하기 </button>  
-                            <div id="matching">
-                                <input type="text">
-                            </div> 
+                      
                             
                     </div>
-                    
+                    <div id="matching">
+                        <input type="text">
+                    </div> 
                     
  
                 </div>

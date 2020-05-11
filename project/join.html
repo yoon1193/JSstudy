@@ -188,14 +188,12 @@
                 return true;
             }
         }
-       
         //생년월일,핸드폰번호,인증번호 입력수 제한
         function numberMaxLength(e){
             if(e.value.length > e.maxLength){
                 e.value = e.value.slice(0, e.maxLength);
             }
         }
-           
         function send(){
             var email=document.getElementById("email").value;
             var pass=document.getElementById("pass").value;
@@ -212,41 +210,79 @@
             else{
                 alert("입력바람")
             }
-
         }
-
         function welcome() {
-        var objEmail = document.getElementById("email");
-        var objName = document.getElementById("user");
- 
-        //이메일 정규화 공식
-        var regul2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
-        //이름 정규화 공식
-        var regul3 = /^[가-힝a-zA-Z]{2,}$/;
-      
-        //이메일 입력 안했을 경우
-        if ((email.value)=="") {
-            alert("이메일을 입력해 주세요");
-            email.focus();
-            return false;
-        }
-        //이메일이 잘못된 경우
-        if (!check(regul2,email,"이메일을 잘못 입력 했습니다.")) {
-            return false;
-        }
-        //이름 입력 안 한 경우
-        if ((user.value)=="") {
-            alert("이름을 입력해 주세요");
-            user.focus();
-            return false;
-        }
-        //이름에 특수 문자가 들어간 경우
-        if (!check(regul3,user,"이름이 잘못 되었습니다.")) {
-            return false;
-        }
-        else{
-            alert("Welcome")
-        }
+            var objEmail = document.getElementById("email");
+            var objName = document.getElementById("user");
+            var pass=document.getElementById("pass").value;
+            var pass1=document.getElementById("pass1").value;
+            var human=document.getElementById("human").value;
+            var birthnum=document.getElementById("birthnum").value;
+            var area=document.getElementById("area");
+            var pnumber=document.getElementById("pnumber").value;
+            var rpnumber=document.getElementById("rpnumber").value;
+            var ch=document.getElementsByName("ch").value;
+            var ch1=document.getElementsByName("ch1").value;
+            
+            //이메일 정규화 공식
+            var regul2 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+            //이름 정규화 공식
+            var regul3 = /^[가-힝a-zA-Z]{2,}$/;
+            //이메일 입력 안했을 경우
+            if ((email.value)=="") {
+                alert("이메일을 입력해 주세요");
+                email.focus();
+                return false;
+            }
+            //이메일이 잘못된 경우
+            if (!check(regul2,email,"이메일을 잘못 입력 했습니다.")) {
+                return false;
+            }
+            if(pass==""){
+                alert("비밀번호를 입력해주세요")
+                return false;
+            }
+            if(pass1==""){
+                alert("비밀번호를 다시 입력해주시고 비밀번호를 확인해주세요")
+                return false;
+            }
+            //이름 입력 안 한 경우
+            if ((user.value)=="") {
+                alert("이름을 입력해 주세요");
+                user.focus();
+                return false;
+            }
+            //이름에 특수 문자가 들어간 경우
+            if (!check(regul3,user,"이름이 잘못 되었습니다.")) {
+                return false;
+            }
+            if(human==""){
+                alert("성별을 입력해주세요")
+                return false;
+            }
+            if(birthnum==""){
+                alert("생년월일을 입력해주세요")
+                return false;
+            }
+            if ((area.value)=="") {
+                alert("지역을 입력해 주세요");
+                area.focus();
+                return false;
+            }
+            if (!check(regul3,area,"지역 이름이 잘못 되었습니다.")) {
+                return false;
+            }
+            if(pnumber==""){
+                alert("핸드폰번호를 입력해주세요")
+                return false;
+            }
+            if(rpnumber==""){
+                alert("인증번호를 입력해주세요")
+                return false;
+            }
+            else{
+                alert("Welcome")
+            }
         }
         function check(re, what, message) {
             if(re.test(what.value)) {
@@ -254,13 +290,8 @@
             }
             alert(message);
             what.value = "";
-            what.focus();
-           
+            what.focus(); 
    }
-            
-        
-        
-
     </script>
 </head>
 <body>
@@ -323,13 +354,13 @@
 
 
                             <input type="number" style="width: 300px; height: 40px; margin-top: 10px; border: 1px solid #9b9c9d;"  placeholder="인증번호를 입력해주세요." required maxlength="6"
-                            oninput="numberMaxLength(this);">
+                            oninput="numberMaxLength(this);" id="rpnumber">
 
                             <div style="margin-top:10px;">
-                            <input type="checkbox"required ><label style="color:black; font-size: 13px; font-weight: bold;" >개인정보 처리 방침에 동의합니다.</label>
+                            <input type="checkbox"required  name="ch"  checked=""><label style="color:black; font-size: 13px; font-weight: bold;" >개인정보 처리 방침에 동의합니다.</label>
                             </div>
                             <div style="margin-top:10px;">
-                            <input type="checkbox" required><label style="color:black; font-size: 13px; font-weight: bold;">서비스 이용약관에 동의합니다.</label>
+                            <input type="checkbox" required name="ch1" checked=""><label style="color:black; font-size: 13px; font-weight: bold;">서비스 이용약관에 동의합니다.</label>
                             </div>
                             <input type="submit" style="width: 300px; height: 50px; margin-top: 10px; border: 1px solid #9b9c9d; background-color:black; cursor: pointer; color: white; font-size: 15px;font-weight: bold;"  value="풋볼매칭 시작하기" onclick="welcome()" >
                             
